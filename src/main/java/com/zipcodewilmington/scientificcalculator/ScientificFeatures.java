@@ -3,14 +3,14 @@ package com.zipcodewilmington.scientificcalculator;
 public class ScientificFeatures {
 
     enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
-    TUnit current_Unit = TUnit.DEGREES;
+    static TUnit current_Unit = TUnit.DEGREES;
     enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX} //What is the format of the Trig Unit.
-    Display_Mode current_Mode = Display_Mode.DECIMAL;
-    public double memory = 0;
+    static Display_Mode current_Mode = Display_Mode.DECIMAL;
+    public static double memory = 0;
     //binary, octal, decimal, hexadecimal
 
-    public class DisplayMode {
-        public void switchDisplayMode() {
+    public static class DisplayMode {
+        public static void switchDisplayMode() {
             if (current_Mode == Display_Mode.BINARY){
                 current_Mode = Display_Mode.OCTAL;
             }else if(current_Mode == Display_Mode.OCTAL){
@@ -22,7 +22,7 @@ public class ScientificFeatures {
             }
         }
 
-        public void switchDisplayMode(String mode) {
+        public static void switchDisplayMode(String mode) {
             switch (mode) {
                 case "Binary":
                     current_Mode = Display_Mode.BINARY;
@@ -42,7 +42,7 @@ public class ScientificFeatures {
             }
         }
 
-        private String convertCalcultion(double value, double number){
+        private static String convertCalcultion(double value, double number){
             StringBuilder stringB = new StringBuilder();
             while(value >= number) {
                 stringB.append(value % number).append(stringB);
@@ -52,7 +52,7 @@ public class ScientificFeatures {
             return String.valueOf(stringB);
         }
 
-        public String convert(double value) { //This
+        public static String convert(double value) { //This
             if (current_Mode == Display_Mode.BINARY) {
                 return convertCalcultion(value, 2);
             } else if (current_Mode == Display_Mode.OCTAL) {
@@ -64,60 +64,60 @@ public class ScientificFeatures {
             }
 
         }
-    }
+    } //
+
     //Memory
     // +M - Add to Memory
-    public void addToMemory(double value){
+    public static void addToMemory(double value){
         memory = value;
     }
 
     //MC - Clear Memory
-    public void clearMemory(){
+    public static void clearMemory(){
         memory = 0;
     }
 
     //MRC - Memory Recall
-    public double getMemory(){
+    public static double getMemory(){
         return memory;
     }
 
 //Trig
     // - Sine - Calculate the sine of the displayed value and display it
-    public double getSin(double value){
+    public static double getSin(double value){
         return Math.sin(value);
     }
 
     //Cosine - Calculate the cosine of the displayed value and display it
-    public double getCos(double value){
+    public static double getCos(double value){
         return Math.cos(value);
     }
 
     //Tangent - Calculate the tangent of the displayed value and display it
-    public double getTan(double value){
+    public static double getTan(double value){
         return Math.tan(value);
     }
 
     //Inverse
     //Inverse Sine
-    public double getInvSin(double value){
+    public static double getInvSin(double value){
         return Math.asin(value);
     }
 
     //Inverse Cosine
-    public double getInvCos(double value){
+    public static double getInvCos(double value){
         return Math.acos(value);
     }
 
     //Inverse Tangent
-    public double getInvTan(double value){
+    public static double getInvTan(double value){
         return Math.atan(value);
     }
 //Switch trig unit mode (Degrees, Radians)
 
-    public class TrigUnit{
+    public static class TrigUnit{
 
-
-        public void switchUnitsMode() {
+        public static void switchUnitsMode() {
             if (current_Unit == TUnit.DEGREES){
                 current_Unit = TUnit.RADIANS;
             }else{
@@ -125,7 +125,7 @@ public class ScientificFeatures {
             }
         }
         //should set the trig units to the type given
-        public void switchUnitsMode(String mode){
+        public static void switchUnitsMode(String mode){
             if (mode.equals("Radians")){
                 current_Unit = TUnit.RADIANS;
             }else if (mode.equals("Degrees")){
@@ -149,26 +149,26 @@ public class ScientificFeatures {
 
 
     //Log
-    public double getLog(double value){ //Get common log
+    public static double getLog(double value){ //Get common log
         return Math.log10(value);
     }
 
     //Inverse Logarithm
-    public double invLog(double value){
+    public static double invLog(double value){
         return Math.exp(Math.log10(value));
     }
     //Natural Log
-    public double getNatLog(double value){
+    public static double getNatLog(double value){
         return Math.log(value);
     }
     //Inverse Natural Log
-    public double getInvNatLog(double value){
+    public static double getInvNatLog(double value){
         return Math.exp(Math.log(value));
     }
 
     //Factorial Function
 
-    public double getFactorial(double value){
+    public static double getFactorial(double value){
         double result = 0;
         for (int i = 1; i <= value ; i++){
             result = result * i;
