@@ -14,7 +14,7 @@ public class MainApplication {
         Console.println("The user input %s as a integer", i);
         Console.println("The user input %s as a double", d);
     }
-
+    //Main Math
     public int addition(int x, int y) {
         return x + y;
     }
@@ -50,6 +50,79 @@ public class MainApplication {
     public double switchSign(double x){
         return(x *-1.0);
     }
+
+    //Error
+    public String err() {
+        String message = "Err";
+        return message;
+    }
+
+    //Trig Functions
+    public double sin(double x) {
+        return Math.sin(x);
+    }
+
+    public double cos(double x) {
+        return Math.cos(x);
+    }
+
+    public double tan(double x) {
+        return Math.tan(x);
+    }
+
+    public double inverseSin(double x) {
+        return Math.toDegrees(Math.asin(x));
+    }
+    public double inverseCos(double x) {
+        return Math.toDegrees(Math.acos(x));
+    }
+    public double inverseTan(double x) {
+        return Math.toDegrees(Math.atan(x));
+    }
+
+    //Log Functions
+    public double log(double x) {
+        return Math.log(x);
+    }
+
+    public double inverseLog(double x){
+        return Math.pow(10, x);
+    }
+
+    public double naturalLog(double x) {
+        return Math.log1p(x);
+    }
+
+    public double inverseNatLog(double x) {
+        return Math.pow(Math.E, x);
+    }
+
+    //Factorial
+    public int factorial(int x) {
+        int total = 0;
+        for(int i = x; i >= 1; i--) {
+            total = (total * i);
+        }
+        return total;
+    }
+
+    //Switch Units
+    public double toDegrees(double x) {
+        return Math.toDegrees(x);
+    }
+
+    public double toRadians(double x) {
+        return Math.toRadians(x);
+    }
+
+
+
+
+
+
+
+
+    //Display Mode
 
 
 } // class
