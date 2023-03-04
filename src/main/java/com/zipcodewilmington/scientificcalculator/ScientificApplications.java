@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class ScientificApplications {
 
     /*    Scientific Features
-        Switch display mode (binary, octal, decimal, hexadecimal)
         switchDisplayMode() should rotate through the options
         switchDisplayMode(String mode) should set the display to the mode given
     */
 
+// menu binary , octal, decimal, hexadecimal
         System.out.println("Please select one of the following functions:");
         System.out.println("Enter \"1\" for Binary Mode");
         System.out.println("Enter \"2\" for Octal Mode");
@@ -35,6 +35,67 @@ public class ScientificApplications {
                 case 4:
                     return 4;
         }
+
+//menu scientific trigonometry functions
+        System.out.println("Please select one of the following trigonometry functions:");
+        System.out.println("Enter \"1\" for Sine Function");
+            System.out.println("Enter \"2\" for Cosine Function");
+            System.out.println("Enter \"3\" for Tangent Function");
+            System.out.println("Enter \"4\" for Inverse Sine Function");
+            System.out.println("Enter \"5\" for Inverse cosine Function");
+            System.out.println("Enter \"6\" for Inverse Tangent Function");
+            Scanner choice = new Scanner(System.in);
+            System.out.println();
+            int entryMode = choice.nextInt();
+            if (entryMode<1 || entryMode>6) {
+                System.out.println("Invalid Choice");
+                break;
+            } else
+            {
+                switch (entryMode){
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    case 3:
+                        return 3;
+                    case 4:
+                        return 4;
+                    case 5:
+                        return 6;
+                    case 6:
+                        return 6;
+                }
+
+
+//menu scientific logarithmic and factorial functions
+                System.out.println("Please select one of the following logarithmic or factorial functions:");
+                System.out.println("Enter \"1\" for Log Function");
+                System.out.println("Enter \"2\" for Inverse Log Function");
+                System.out.println("Enter \"3\" for Natural Logarithm Function");
+                System.out.println("Enter \"4\" for Inverse Natural Logarithm Function");
+                System.out.println("Enter \"5\" for Inverse Factorial Function");
+                Scanner choice = new Scanner(System.in);
+                System.out.println();
+                int entryMode = choice.nextInt();
+                if (entryMode<1 || entryMode>5) {
+                    System.out.println("Invalid Choice");
+                    break;
+                } else
+                {
+                    switch (entryMode){
+                        case 1:
+                            return 1;
+                        case 2:
+                            return 2;
+                        case 3:
+                            return 3;
+                        case 4:
+                            return 4;
+                        case 5:
+                            return 6;
+                    }
+
 
     public static void switchDisplayMode() {
 
