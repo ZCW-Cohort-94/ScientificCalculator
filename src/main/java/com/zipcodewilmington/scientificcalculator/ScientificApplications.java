@@ -8,7 +8,20 @@ public class ScientificApplications {
 
 //menu scientific trigonometry functions
     public static void trigMenu() {
+        System.out.println("Please choose unit. \"1\" for Radian. \"2\" for Degree");
+        Scanner choice = new Scanner(System.in);
+        int unitChoice = choice.nextInt();
+
         double y = getInputX();
+
+        if (unitChoice!=1||unitChoice!=2) {
+            System.out.println("Invalid Choice");
+            Break;
+        }
+        if (unitChoice==2) {
+            y = y*Math.PI/180;
+        }
+
         System.out.println("Please select one of the following trigonometry functions:");
         System.out.println("Enter \"1\" for Sine Function");
         System.out.println("Enter \"2\" for Cosine Function");
@@ -16,8 +29,9 @@ public class ScientificApplications {
         System.out.println("Enter \"4\" for Inverse Sine Function");
         System.out.println("Enter \"5\" for Inverse cosine Function");
         System.out.println("Enter \"6\" for Inverse Tangent Function");
-        Scanner choice = new Scanner(System.in);
+
         System.out.println();
+
         int entryMode = choice.nextInt();
         if (entryMode < 1 || entryMode > 6) {
             System.out.println("Invalid Choice");
@@ -47,6 +61,47 @@ public class ScientificApplications {
         }
     }
 
+
+//menu scientific logarithmic and factorial functions
+    public static void logarithmicMenu() {
+        double y = getInputX();
+
+        System.out.println("Please select one of the following logarithmic or factorial functions:");
+        System.out.println("Enter \"1\" for Log Function");
+        System.out.println("Enter \"3\" for Inverse Log Function");
+        System.out.println("Enter \"4\" for Ln Function");
+        System.out.println("Enter \"5\" for Inverse Ln Function");
+
+        System.out.println();
+
+        int entryMode = choice.nextInt();
+        if (entryMode < 1 || entryMode > 6) {
+            System.out.println("Invalid Choice");
+            break;
+        } else {
+            switch (entryMode) {
+                case 1:
+                    System.out.println("Sine Function");
+                    Sine(y);
+
+                case 2:
+                    System.out.println("Cosine Function");
+                    Cosine(y);
+                case 3:
+                    System.out.println("Tangent Function");
+                    Tangent(y);
+                case 4:
+                    System.out.println("Inverse Sine Function");
+                    InverseSine(y);
+                case 5:
+                    System.out.println("Inverse Cosine Function");
+                    InverseCosine(y);
+                case 6:
+                    System.out.println("Inverse Tangent Function");
+                    InverseTangent(y);
+            }
+        }
+    }
 // Ask for input number
     private static double getInputX() {
             Scanner inScan = new Scanner(System.in);
@@ -93,33 +148,8 @@ public class ScientificApplications {
         return Math.atan(x);
     }
 
-//menu scientific logarithmic and factorial functions
-        System.out.println("Please select one of the following logarithmic or factorial functions:");
-        System.out.println("Enter \"1\" for Log Function");
-        System.out.println("Enter \"2\" for Inverse Log Function");
-        System.out.println("Enter \"3\" for Natural Logarithm Function");
-        System.out.println("Enter \"4\" for Inverse Natural Logarithm Function");
-        System.out.println("Enter \"5\" for Inverse Factorial Function");
-        Scanner choice = new Scanner(System.in);
-        System.out.println();
-        int entryMode = choice.nextInt();
-        if (entryMode<1 || entryMode>5) {
-            System.out.println("Invalid Choice");
-            break;
-        } else
-        {
-            switch (entryMode){
-                case 1:
-                    return 1;
-                case 2:
-                    return 2;
-                case 3:
-                    return 3;
-                case 4:
-                    return 4;
-                case 5:
-                    return 5;
-            }
+
+
 
 // menu binary , octal, decimal, hexadecimal
 public static void modeMenu(); {
