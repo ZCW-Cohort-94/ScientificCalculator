@@ -1,6 +1,8 @@
 package com.zipcodewilmington.scientificcalculator;
 import java.lang.Math;
 import java.util.Scanner;
+import java.io.*;
+
 
 
 
@@ -113,14 +115,29 @@ public class ScientificApplications {
         return factorialResult;
     }
 
-
 /*
 Memory - Store up to one numeric value in memory for recall later (default to 0) *
     (M+ key) Add the currently displayed value to the value in memory (store in memory and update display) *
     (MC key) Reset memory *
     (MRC key) Recall the current value from memory to the display *
 */
-public class Memory{}
+
+    public class Memory {
+        public static int m;
+        m =0;
+    }
+    public void saveMeme(int valueToStore) {
+        System.out.print("Key M+ to store your results");
+        Scanner store = new Scanner(System.in);
+        String meme = store.nextLine();
+        if (meme == "M+") {
+            Memory.m = valueToStore;
+        }
+    }
+    public int callMeme() {
+        System.out.println(Memory.m);
+        return Memory.m;
+    }
 
 //// menu binary , octal, decimal, hexadecimal
 //public static modeMenu() {
@@ -136,3 +153,4 @@ public class Memory{}
 
 
 } //Scientific Applications
+
