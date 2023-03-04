@@ -1,11 +1,19 @@
 package com.zipcodewilmington.scientificcalculator;
 import java.lang.Math;
 import java.util.Scanner;
-
+import org.codehaus.plexus.util.StringUtils;
 
 
 
 public class ScientificApplications {
+
+    //MAIN METHOD
+    public static void main(String[] args) {
+        trungsCalculator();
+        scientificFunc();
+    }
+
+
 
     //DRAW A CALCULATOR
     public static String trungsCalculator() {
@@ -32,7 +40,7 @@ public class ScientificApplications {
         System.out.println("Please key in Function name (in lowercase):");
         String funcIn = in1.nextLine();
 
-        System.out.println("Please enter value to calculate ():");
+        System.out.println("Please enter value to calculate:");
         double douIn = in1.nextDouble();
         if (in1.equals("deg")) {
             douIn = douIn*Math.PI/180;
