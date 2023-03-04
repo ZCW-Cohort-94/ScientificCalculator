@@ -1,4 +1,6 @@
 package com.zipcodewilmington.scientific_calculator;
 
-public class CustomApplications {
+import com.zipcodewilmington.scientificcalculator.MainApplication;
+
+public class CustomApplications extends MainApplication {
 }
