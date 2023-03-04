@@ -1,7 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 import java.lang.Math;
 import java.util.Scanner;
-import java.io.*;
 
 
 
@@ -122,21 +121,19 @@ Memory - Store up to one numeric value in memory for recall later (default to 0)
     (MRC key) Recall the current value from memory to the display *
 */
 
-    public class Memory {
-        public static int m;
-        m =0;
-    }
+    public static int meme=0;
+
     public void saveMeme(int valueToStore) {
         System.out.print("Key M+ to store your results");
         Scanner store = new Scanner(System.in);
-        String meme = store.nextLine();
-        if (meme == "M+") {
-            Memory.m = valueToStore;
+        String memo = store.nextLine();
+        if (memo == "M+") {
+            ScientificApplications.meme = valueToStore;
         }
     }
     public int callMeme() {
-        System.out.println(Memory.m);
-        return Memory.m;
+        System.out.println(ScientificApplications.meme);
+        return ScientificApplications.meme;
     }
 
 //// menu binary , octal, decimal, hexadecimal
