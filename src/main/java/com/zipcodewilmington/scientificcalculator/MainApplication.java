@@ -99,7 +99,7 @@ public class MainApplication {
 
     //Factorial
     public int factorial(int x) {
-        int total = 0;
+        int total = 1;
         for(int i = x; i >= 1; i--) {
             total = (total * i);
         }
