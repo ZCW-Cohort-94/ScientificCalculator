@@ -6,21 +6,104 @@ import java.util.Scanner;
 
 public class ScientificApplications {
 
-    /*    Scientific Features
-        switchDisplayMode() should rotate through the options
-        switchDisplayMode(String mode) should set the display to the mode given
-    */
-
-// menu binary , octal, decimal, hexadecimal
-        System.out.println("Please select one of the following functions:");
-        System.out.println("Enter \"1\" for Binary Mode");
-        System.out.println("Enter \"2\" for Octal Mode");
-        System.out.println("Enter \"3\" for Decimal Mode");
-        System.out.println("Enter \"4\" for Hexadecimal Mode");
+//menu scientific trigonometry functions
+    public static void trigMenu() {
+        double y = getInputX();
+        System.out.println("Please select one of the following trigonometry functions:");
+        System.out.println("Enter \"1\" for Sine Function");
+        System.out.println("Enter \"2\" for Cosine Function");
+        System.out.println("Enter \"3\" for Tangent Function");
+        System.out.println("Enter \"4\" for Inverse Sine Function");
+        System.out.println("Enter \"5\" for Inverse cosine Function");
+        System.out.println("Enter \"6\" for Inverse Tangent Function");
         Scanner choice = new Scanner(System.in);
         System.out.println();
         int entryMode = choice.nextInt();
-        if (entryMode<1 || entryMode>4) {
+        if (entryMode < 1 || entryMode > 6) {
+            System.out.println("Invalid Choice");
+            break;
+        } else {
+            switch (entryMode) {
+                case 1:
+                    System.out.println("Sine Function");
+                    Sine(y);
+
+                case 2:
+                    System.out.println("Cosine Function");
+                    Cosine(y);
+                case 3:
+                    System.out.println("Tangent Function");
+                    Tangent(y);
+                case 4:
+                    System.out.println("Inverse Sine Function");
+                    InverseSine(y);
+                case 5:
+                    System.out.println("Inverse Cosine Function");
+                    InverseCosine(y);
+                case 6:
+                    System.out.println("Inverse Tangent Function");
+                    InverseTangent(y);
+            }
+        }
+    }
+
+// Ask for input number
+    private static double getInputX() {
+            Scanner inScan = new Scanner(System.in);
+            System.out.println("Please enter x value for calculation:");
+            double x = inScan.nextDouble();
+            inScan.close();
+            return x;
+        }
+    }
+
+//Sine function
+    private static double Sine(double x) {
+        System.out.println("Sine results of "+x+" is:");
+        return Math.sin(x);
+    }
+
+//Cosine function
+    public static double Cosine(double x) {
+        System.out.println("Cosine results of "+x+" is:");
+        return Math.cos(x);
+    }
+
+//Tangent Function
+    public static double Tangent(double x) {
+        System.out.println("Tangent results of "+x+" is:");
+        return Math.tan(x);
+    }
+
+    //Inversine Function
+    public static double InverseSine(double x) {
+        System.out.println("Inverse Sine results of "+x+" is:");
+        return Math.asin(x);
+    }
+
+    //Inverse Cosine Function
+    public static double InverseCosine(double x) {
+        System.out.println("Inverse Cosine results of "+x+" is:");
+        return Math.acos(x);
+    }
+
+    //Inverse Tangent Function
+    public static double InverseTangent(double x) {
+        System.out.println("Inverse Tangent results of "+x+" is:");
+        return Math.atan(x);
+    }
+
+//menu scientific logarithmic and factorial functions
+        System.out.println("Please select one of the following logarithmic or factorial functions:");
+        System.out.println("Enter \"1\" for Log Function");
+        System.out.println("Enter \"2\" for Inverse Log Function");
+        System.out.println("Enter \"3\" for Natural Logarithm Function");
+        System.out.println("Enter \"4\" for Inverse Natural Logarithm Function");
+        System.out.println("Enter \"5\" for Inverse Factorial Function");
+        Scanner choice = new Scanner(System.in);
+        System.out.println();
+        int entryMode = choice.nextInt();
+        if (entryMode<1 || entryMode>5) {
             System.out.println("Invalid Choice");
             break;
         } else
@@ -34,68 +117,36 @@ public class ScientificApplications {
                     return 3;
                 case 4:
                     return 4;
+                case 5:
+                    return 5;
+            }
+
+// menu binary , octal, decimal, hexadecimal
+public static void modeMenu(); {
+        Scanner choice = new Scanner(System.in);
+        System.out.println("Please select one of the following functions:");
+        System.out.println("Enter \"1\" for Binary Mode");
+        System.out.println("Enter \"2\" for Octal Mode");
+        System.out.println("Enter \"3\" for Decimal Mode");
+        System.out.println("Enter \"4\" for Hexadecimal Mode");
+        System.out.println();
+        int entryMode = choice.nextInt();
+        if (entryMode < 1 || entryMode > 4) {
+        System.out.println("Invalid Choice");
+        break;
+        } else {
+        switch (entryMode) {
+        case 1:
+        System.out.println("Welcome to Binary Mode");
+        case 2:
+        System.out.println("Welcome to Octal Mode");
+        case 3:
+        System.out.println("Welcome to Decimal Mode");
+        case 4:
+        System.out.println("Welcome to Hexadecimal Mode");
         }
-
-//menu scientific trigonometry functions
-        System.out.println("Please select one of the following trigonometry functions:");
-        System.out.println("Enter \"1\" for Sine Function");
-            System.out.println("Enter \"2\" for Cosine Function");
-            System.out.println("Enter \"3\" for Tangent Function");
-            System.out.println("Enter \"4\" for Inverse Sine Function");
-            System.out.println("Enter \"5\" for Inverse cosine Function");
-            System.out.println("Enter \"6\" for Inverse Tangent Function");
-            Scanner choice = new Scanner(System.in);
-            System.out.println();
-            int entryMode = choice.nextInt();
-            if (entryMode<1 || entryMode>6) {
-                System.out.println("Invalid Choice");
-                break;
-            } else
-            {
-                switch (entryMode){
-                    case 1:
-                        return 1;
-                    case 2:
-                        return 2;
-                    case 3:
-                        return 3;
-                    case 4:
-                        return 4;
-                    case 5:
-                        return 6;
-                    case 6:
-                        return 6;
-                }
-
-
-//menu scientific logarithmic and factorial functions
-                System.out.println("Please select one of the following logarithmic or factorial functions:");
-                System.out.println("Enter \"1\" for Log Function");
-                System.out.println("Enter \"2\" for Inverse Log Function");
-                System.out.println("Enter \"3\" for Natural Logarithm Function");
-                System.out.println("Enter \"4\" for Inverse Natural Logarithm Function");
-                System.out.println("Enter \"5\" for Inverse Factorial Function");
-                Scanner choice = new Scanner(System.in);
-                System.out.println();
-                int entryMode = choice.nextInt();
-                if (entryMode<1 || entryMode>5) {
-                    System.out.println("Invalid Choice");
-                    break;
-                } else
-                {
-                    switch (entryMode){
-                        case 1:
-                            return 1;
-                        case 2:
-                            return 2;
-                        case 3:
-                            return 3;
-                        case 4:
-                            return 4;
-                        case 5:
-                            return 6;
-                    }
-
+        }
+        }
 
     public static void switchDisplayMode() {
 
@@ -122,41 +173,11 @@ Memory - Store up to one numeric value in memory for recall later (default to 0)
     public class Memory() { }
 
 
-//Sine function
-    public static double Sine(double x) {
-        System.out.println("Sine results of "+x+" is:");
-        return Math.sin(x);
-    }
 
-//Cosine function
-    public static double Cosine(double x) {
-        System.out.println("Cosine results of "+x+" is:");
-        return Math.cos(x);
-    }
 
-//Tangent Function
-    public static double Tangent(double x) {
-        System.out.println("Tangent results of "+x+" is:");
-        return Math.tan(x);
-    }
 
-//Inversine Function
-    public static double InverseSine(double x) {
-        System.out.println("Inverse Sine results of "+x+" is:");
-        return Math.asin(x);
-    }
 
-//Inverse Cosine Function
-    public static double InverseCosine(double x) {
-        System.out.println("Inverse Cosine results of "+x+" is:");
-        return Math.acos(x);
-    }
 
-//Inverse Tangent Function
-    public static double InverseTangent(double x) {
-        System.out.println("Inverse Tangent results of "+x+" is:");
-        return Math.atan(x);
-    }
 
 
 
