@@ -57,7 +57,7 @@ public class TestMainApplication {
     @Test
     public void testExponent(){
         MainApplication.Calculator testCalc = new MainApplication.Calculator();
-        testCalc.exponent(2,3); //make sure Expected is 1 value || is it 2
+        testCalc.exponent(2); //make sure Expected is 1 value || is it 2
         Assert.assertEquals(0, testCalc.memoryValue, 0);
     }
     @Test

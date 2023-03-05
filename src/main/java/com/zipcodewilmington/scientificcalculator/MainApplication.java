@@ -216,7 +216,99 @@ public class MainApplication {
             }
         } //Sci Calc
 
-    }
+    public static class SciCalcSci {
+        public double testValue = 5;
+        public double savedValue = 0.0;
+        public void sine(double x) {
+            this.testValue = Math.sin(testValue);
+        }
+
+        public void cosine(double x) {
+            this.testValue = Math.cos(testValue);
+        }
+
+        public void tangent(double x) {
+            this.testValue = Math.tan(testValue);
+        }
+
+        // outputs in radians
+        public void inverseSine(double x) {
+            this.testValue = Math.asin(testValue);
+        }
+
+        public void inverseCosine(double x) {
+            this.testValue = Math.acos(testValue);
+        }
+
+        public void inverseTangent(double x) {
+            this.testValue = Math.atan(testValue);
+        }
+
+        //Log Functions
+        public void log(double x) {
+            this.testValue = Math.log10(testValue);
+        }
+
+        public void inverseLog(double x) {
+            this.testValue = Math.pow(10, testValue);
+        }
+
+        public void naturalLog(double x) {
+            this.testValue = Math.log(testValue);
+        }
+
+        public void inverseNatLog(double x) {
+            this.testValue = Math.exp(testValue);
+        }
+
+        //Factorial
+        public void factorial(double x) {
+            double total = 1;
+            for (double i = testValue; i >= 1; i--) {
+                total = (total * i);
+            }
+            this.testValue = total;
+        }
+
+        //Switch Units
+        public void toDegrees(double x) {
+            this.testValue = Math.toDegrees(testValue);
+        }
+
+        public void toRadians(double x) {
+            this.testValue = Math.toRadians(testValue);
+        }
+
+
+        //Display Mode
+//        public void toOctal() {
+//           this.testValue = Double.toOctalString(testValue);
+//        }
+//
+//        public void toBinary() {
+//            this.testValue = Integer.toBinaryString(testValue);
+//        }
+//
+//        public void binaryToDecimal() {
+//            return Integer.parseInt(binary);
+//        }
+//
+//        public String toHexa(int x) {
+//            return Integer.toHexString(x);
+//        }
+
+        //Additional Functions
+        public void cubed(double x) {
+            this.testValue = Math.cbrt(testValue);
+        }
+
+        public String hello() {
+            String message = "01134";
+            return message;
+        }
+    } //Sci Calc
+
+
 } // class
 
 
