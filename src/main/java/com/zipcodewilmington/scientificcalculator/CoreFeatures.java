@@ -2,6 +2,10 @@ package com.zipcodewilmington.scientificcalculator;
 import java.util.Scanner;
 
 public class CoreFeatures {
+    enum TUnit {DEGREES, RADIANS}
+    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX}
+    static TUnit current_Unit = TUnit.DEGREES;
+    static Display_Mode current_Mode = Display_Mode.DECIMAL;
     public static double currentState = 0;
 
     public double getCurrent(){

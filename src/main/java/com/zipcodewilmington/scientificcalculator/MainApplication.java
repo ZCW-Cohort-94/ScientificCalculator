@@ -28,7 +28,7 @@ public class MainApplication {
 
 
       */
-
+        CoreFeatures.help();
         System.out.print("Please input a number: ");
 
         while(true) {
@@ -172,7 +172,9 @@ public class MainApplication {
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
-
+                case'a':
+                    System.out.println(ScientificFeatures.getSin(input1));
+                    break;
                 default:
                     System.out.println("Invalid input");
                     CoreFeatures.help();
