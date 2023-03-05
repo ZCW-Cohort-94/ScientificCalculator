@@ -7,7 +7,7 @@ public class MainApplication {
 
     //variables
     public static void main(String[] args) {
-        Console.println("Welcome to my calculator!");
+        Console.println("The current value is 0");
 //        String s = Console.getStringInput("Enter a function");
 //        Integer i = Console.getIntegerInput("Enter an integer");
 //        Double d = Console.getDoubleInput("Enter a double.");
@@ -19,9 +19,9 @@ public class MainApplication {
 
         Calculator mainCalc = new Calculator();
         boolean isOn = true;
-        Console.println("Type ~ to exit.😇");
+        Console.println("Type ~ to exit. 😇");
         while (isOn) {
-            String whatFunction = Console.getStringInput("Enter a function");
+            String whatFunction = Console.getStringInput("Enter a function, press m to save");
             double number;
 
             switch (whatFunction) {
@@ -36,16 +36,26 @@ public class MainApplication {
                     number = Console.getDoubleInput("Enter a number");
                     mainCalc.subtraction(number);
                     break;
-//                case "/":
-//                    division(x, y);
-//                    break;
+                case "/":
+                    number = Console.getDoubleInput("Enter a number");
+                    mainCalc.division(number);
+                    break;
                 case "*":
                     number = Console.getDoubleInput("Enter a number");
                     mainCalc.multiplication(number);
                     break;
                 case "square":
-                    mainCalc.square(mainCalc.memoryValue);
+                    mainCalc.square();
                     break;
+                case "m":
+                    mainCalc.m();
+                    Console.println(mainCalc.savedValue + " has been saved.");
+                    break;
+                case ""
+//                case "fdlksahg":
+//                    mainCalc.dldlhv()
+//
+//                    break;
             } // switch ends
 
             Console.println("The value is now: %f", mainCalc.memoryValue);
@@ -58,6 +68,8 @@ public class MainApplication {
         // this is the number on the screen of the calculator
 
         public double memoryValue = 0.0;
+        public double savedValue = 0.0;
+        public double testValue = 5;
 
         //Main Math
         public void addition(double x) {
@@ -72,28 +84,36 @@ public class MainApplication {
             this.memoryValue = memoryValue * x;
         }
 
-        public static int division(int x, int y) {
-            return x / y;
+        public void division(double x) {
+            this.memoryValue = memoryValue / x;
         }
 
-        public void square(double x) {
+        public void square() {
             this.memoryValue = memoryValue * memoryValue;
         }
 
-        public double squareRoot(double x) {
-            return Math.sqrt(x);
+        public void m() {
+            this.memoryValue = savedValue;
         }
 
-        public double inverse(double x) {
-            return (1 / x);
+//        public void mc(double x) {
+//
+//        }
+
+        public void squareRoot(double x) {
+            this.memoryValue = Math.sqrt(memoryValue);
         }
 
-        public double exponent(double x, double y) {
-            return Math.pow(x, y);
+        public void inverse(double x) {
+            this.memoryValue = (1 / memoryValue);
         }
 
-        public double switchSign(double x) {
-            return (x * -1.0);
+        public void exponent(double x) {
+            this.memoryValue = Math.pow(memoryValue, x);
+        }
+
+        public void switchSign(double x) {
+            this.memoryValue = memoryValue * -1.0;
         }
 
         //Error
@@ -101,96 +121,100 @@ public class MainApplication {
             String message = "Err";
             return message;
         }
+    }
 
         //Trig Functions
-        public double sine(double x) {
-            return Math.sin(x);
-        }
-
-        public double cosine(double x) {
-            return Math.cos(x);
-        }
-
-        public double tangent(double x) {
-            return Math.tan(x);
-        }
-
-        // outputs in radians
-        public double inverseSine(double x) {
-            return Math.asin(x);
-        }
-
-        public double inverseCosine(double x) {
-            return Math.acos(x);
-        }
-
-        public double inverseTangent(double x) {
-            return Math.atan(x);
-        }
-
-        //Log Functions
-        public double log(double x) {
-            return Math.log10(x);
-        }
-
-        public double inverseLog(double x) {
-            return Math.pow(10, x);
-        }
-
-        public double naturalLog(double x) {
-            return Math.log(x);
-        }
-
-        public double inverseNatLog(double x) {
-            return Math.exp(x);
-        }
-
-        //Factorial
-        public int factorial(int x) {
-            int total = 1;
-            for (int i = x; i >= 1; i--) {
-                total = (total * i);
+        public static class SciCalc {
+            public double memoryValue = 0.0;
+            public double savedValue = 0.0;
+            public void sine(double x) {
+                this.memoryValue = Math.sin(memoryValue);
             }
-            return total;
-        }
 
-        //Switch Units
-        public double toDegrees(double x) {
-            return Math.toDegrees(x);
-        }
+            public void cosine(double x) {
+                this.memoryValue = Math.cos(memoryValue);
+            }
 
-        public double toRadians(double x) {
-            return Math.toRadians(x);
-        }
+            public void tangent(double x) {
+                this.memoryValue = Math.tan(memoryValue);
+            }
+
+            // outputs in radians
+            public void inverseSine(double x) {
+                this.memoryValue = Math.asin(memoryValue);
+            }
+
+            public void inverseCosine(double x) {
+                this.memoryValue = Math.acos(memoryValue);
+            }
+
+            public void inverseTangent(double x) {
+                this.memoryValue = Math.atan(memoryValue);
+            }
+
+            //Log Functions
+            public void log(double x) {
+                this.memoryValue = Math.log10(memoryValue);
+            }
+
+            public void inverseLog(double x) {
+                this.memoryValue = Math.pow(10, memoryValue);
+            }
+
+            public void naturalLog(double x) {
+                this.memoryValue = Math.log(memoryValue);
+            }
+
+            public void inverseNatLog(double x) {
+                this.memoryValue = Math.exp(memoryValue);
+            }
+
+            //Factorial
+            public void factorial(double x) {
+                double total = 1;
+                for (double i = memoryValue; i >= 1; i--) {
+                    total = (total * i);
+                }
+                this.memoryValue = total;
+            }
+
+            //Switch Units
+            public void toDegrees(double x) {
+                this.memoryValue = Math.toDegrees(memoryValue);
+            }
+
+            public void toRadians(double x) {
+                this.memoryValue = Math.toRadians(memoryValue);
+            }
 
 
-        //Display Mode
-        public String toOctal(int x) {
-            return Integer.toOctalString(x);
-        }
+            //Display Mode
+//        public void toOctal() {
+//           this.memoryValue = Double.toOctalString(memoryValue);
+//        }
+//
+//        public void toBinary() {
+//            this.memoryValue = Integer.toBinaryString(memoryValue);
+//        }
+//
+//        public void binaryToDecimal() {
+//            return Integer.parseInt(binary);
+//        }
+//
+//        public String toHexa(int x) {
+//            return Integer.toHexString(x);
+//        }
 
-        public String toBinary(int x) {
-            return Integer.toBinaryString(x);
-        }
+            //Additional Functions
+            public void cubed(double x) {
+                this.memoryValue = Math.cbrt(memoryValue);
+            }
 
-        public double binaryToDecimal(String binary) {
-            return Integer.parseInt(binary);
-        }
-
-        public String toHexa(int x) {
-            return Integer.toHexString(x);
-        }
-
-        //Additional Functions
-        public double cubed(double x) {
-            return Math.cbrt(x);
-        }
-
-        public String hello() {
-            String message = "01134";
-            return message;
-        }
-
+            public String hello() {
+                String message = "01134";
+                return message;
+            }
+        } //Sci Calc
 
     }
 } // class
