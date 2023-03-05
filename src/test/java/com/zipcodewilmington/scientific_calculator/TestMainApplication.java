@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 
 public class TestMainApplication {
     Calculator calculator = new Calculator();
-
     public TestMainApplication(){
 
     }
