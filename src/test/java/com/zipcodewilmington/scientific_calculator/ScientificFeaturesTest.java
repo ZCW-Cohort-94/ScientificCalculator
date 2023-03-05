@@ -29,15 +29,15 @@ public class ScientificFeaturesTest {
     }
     @Test
     public void invSinTest() {
-        double expected = -0.53;
-        double actual = scientificFeatures.getInvSin(0.2);
+        double expected = 1.57;
+        double actual = scientificFeatures.getInvSin(1.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
 
     @Test
     public void invCosinTest() {
-        double expected = 0.633;
-        double actual = scientificFeatures.getInvCos(100);
+        double expected = 0.283;
+        double actual = scientificFeatures.getInvCos(0.96);
         Assert.assertEquals(expected, actual, 0.02);
     }
 
@@ -45,6 +45,41 @@ public class ScientificFeaturesTest {
     public void invTanTest() {
         double expected = 0.785;
         double actual = scientificFeatures.getInvTan(1);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void logTest() {
+        double expected = 0.903;
+        double actual = scientificFeatures.getLog(8.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void invLogTest() {
+        double expected = 0.633;
+        double actual = scientificFeatures.invLog(2.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void natLogTest() {
+        double expected = 3.784;
+        double actual = scientificFeatures.getNatLog(44.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void invNatLogTest() {
+        double expected = 0.785;
+        double actual = scientificFeatures.getInvNatLog(1);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void pythagTest() {
+        double expected = 8.0;
+        double actual = scientificFeatures.getPythagoreanTheorem(2.0, 2.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
 }

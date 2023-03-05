@@ -61,14 +61,14 @@ public class CoreFeaturesTest {
 
     @Test
     public void inverseTest() {
-        double expected = 0.633;
-        double actual = coreFeatures.inverse(100);
+        double expected = 0.5;
+        double actual = coreFeatures.inverse(2.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
 
     @Test
     public void invertTest() {
-        double expected = 0.785;
+        double expected = -1.0;
         double actual = coreFeatures.invert(1);
         Assert.assertEquals(expected, actual, 0.02);
     }
