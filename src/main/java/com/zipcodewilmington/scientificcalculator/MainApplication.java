@@ -7,7 +7,7 @@ public class MainApplication {
 
     //variables
     public static void main(String[] args) {
-        Console.println("The current value is 0");
+
 //        String s = Console.getStringInput("Enter a function");
 //        Integer i = Console.getIntegerInput("Enter an integer");
 //        Double d = Console.getDoubleInput("Enter a double.");
@@ -17,16 +17,23 @@ public class MainApplication {
 //        Console.println("The user input %s as a double", d);
 
 
+
+// THIS IS FOR THE MAIN CALCULATOR
         Calculator mainCalc = new Calculator();
+        SciCalc sciCalc = new SciCalc();
         boolean isOn = true;
-        Console.println("Type ~ to exit. 😇");
+        Console.println("The current value is" + mainCalc.memoryValue);
+        Console.println("Type exit to exit. 😇");
         while (isOn) {
-            Console.println("Available Functions: +, -, /, *, square, inv");
-            String whatFunction = Console.getStringInput("Enter a function, press m to save");
+            Console.println("Available Functions: +, -, /, *, square, square root, inverse, invert, exponent");
+            String whatFunction = Console.getStringInput("Enter a function, press c to clear, m to save");
             double number;
 
             switch (whatFunction) {
-                case "~":
+                case "c":
+                    mainCalc.memoryValue = 0.0;
+                    break;
+                case "exit":
                     isOn = false;
                     return;
                 case "+":
@@ -48,14 +55,25 @@ public class MainApplication {
                 case "square":
                     mainCalc.square();
                     break;
-                case "inv":
+                case "inverse":
                     number = Console.getDoubleInput("Enter a number");
                     mainCalc.inverse(number);
+                    break;
+                case "square root":
+                    mainCalc.squareRoot();
+                    break;
+                case "exponent":
+                    number = Console.getDoubleInput("Enter a number");
+                    mainCalc.exponent(number);
+                    break;
+                case "invert":
+                    mainCalc.switchSign();
+                    break;
                 case "m":
                     mainCalc.m();
                     Console.println(mainCalc.savedValue + " has been saved.");
                     break;
-                case ""
+        //       case ""
 //                case "fdlksahg":
 //                    mainCalc.dldlhv()
 //
@@ -63,7 +81,8 @@ public class MainApplication {
             } // switch ends
 
             Console.println("The value is now: %f", mainCalc.memoryValue);
-        }
+        } // END OF MAIN CALCULATOR
+
 
     } // void main
 
@@ -73,7 +92,7 @@ public class MainApplication {
 
         public double memoryValue = 0.0;
         public double savedValue = 0.0;
-        public double testValue = 5;
+
 
         //Main Math
         public void addition(double x) {
@@ -83,7 +102,13 @@ public class MainApplication {
         public void subtraction(double x) {
             this.memoryValue -= x;
         }
-
+        public void factorial() {
+            double total = 1;
+            for (double i = memoryValue; i >= 1; i--) {
+                total = (total * i);
+            }
+            this.memoryValue = total;
+        }
         public void multiplication(double x) {
             this.memoryValue = memoryValue * x;
         }
@@ -104,7 +129,7 @@ public class MainApplication {
 //
 //        }
 
-        public void squareRoot(double x) {
+        public void squareRoot() {
             this.memoryValue = Math.sqrt(memoryValue);
         }
 
@@ -116,7 +141,7 @@ public class MainApplication {
             this.memoryValue = Math.pow(memoryValue, x);
         }
 
-        public void switchSign(double x) {
+        public void switchSign() {
             this.memoryValue = memoryValue * -1.0;
         }
 
@@ -129,10 +154,10 @@ public class MainApplication {
 
         //Trig Functions
         public static class SciCalc {
-            public double memoryValue = 0.0;
+
             public double savedValue = 0.0;
             public void sine() {
-                this.memoryValue = Math.sin(memoryValue);
+                this.memoryValue = Math.sin(Calculator.memoryValue);
             }
 
             public void cosine() {
@@ -174,13 +199,7 @@ public class MainApplication {
             }
 
             //Factorial
-            public void factorial() {
-                double total = 1;
-                for (double i = memoryValue; i >= 1; i--) {
-                    total = (total * i);
-                }
-                this.memoryValue = total;
-            }
+
 
             //Switch Units
             public void toDegrees() {
