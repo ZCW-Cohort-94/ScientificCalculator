@@ -85,33 +85,33 @@ public class ScientificFeatures {
 //Trig
     // - Sine - Calculate the sine of the displayed value and display it
     public static double getSin(double value){
-        return Math.sin(Math.toRadians(value));
+        return Math.sin(value);
     }
 
     //Cosine - Calculate the cosine of the displayed value and display it
     public static double getCos(double value){
-        return Math.cos(Math.toRadians(value));
+        return Math.cos(value);
     }
 
     //Tangent - Calculate the tangent of the displayed value and display it
     public static double getTan(double value){
-        return Math.tan(Math.toRadians(value));
+        return Math.tan(value);
     }
 
     //Inverse
     //Inverse Sine
     public static double getInvSin(double value){
-        return Math.asin(Math.toRadians(value));
+        return Math.asin(value);
     }
 
     //Inverse Cosine
     public static double getInvCos(double value){
-        return Math.acos(Math.toRadians(value));
+        return Math.acos(value);
     }
 
     //Inverse Tangent
     public static double getInvTan(double value){
-        return Math.atan(Math.toRadians(value));
+        return Math.atan(value);
     }
 //Switch trig unit mode (Degrees, Radians)
 
