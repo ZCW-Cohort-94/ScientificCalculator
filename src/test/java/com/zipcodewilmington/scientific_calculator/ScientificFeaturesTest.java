@@ -50,13 +50,13 @@ public class ScientificFeaturesTest {
 
     @Test
     public void cosinTest() {
-        double expected = 0.862;
+        double expected = 0.86;
         double actual = scientificFeatures.getCos(100.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
     @Test
     public void tanTest() {
-        double expected = 11.877;
+        double expected = 11.87;
         double actual = scientificFeatures.getTan(856.0);
         Assert.assertEquals(expected, actual, 0.02);
     }

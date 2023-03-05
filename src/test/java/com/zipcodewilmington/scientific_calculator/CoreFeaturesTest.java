@@ -92,11 +92,4 @@ public class CoreFeaturesTest {
         double actual = coreFeatures.changeNumber(0);
         Assert.assertEquals(expected, actual, 0.02);
     }
-
-    /*@Test
-    public void helpTest() {
-        double expected = 0;
-        double actual = coreFeatures.help();
-        Assert.assertEquals(expected, actual, 0.02);
-    }*/
 }
