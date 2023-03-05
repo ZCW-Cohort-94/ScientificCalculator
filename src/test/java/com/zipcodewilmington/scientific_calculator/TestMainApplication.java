@@ -59,5 +59,40 @@ public class TestMainApplication {
         assertEquals(expected, actual, 0.001);
     }
 
+    @Test
+    public void testSqrt(){
+        double expected  = 10.0;
+        double actual  = calculator.sqrt(100.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+    @Test
+    public void testSquare(){
+        double expected  = 100.0;
+        double actual  = calculator.square(10.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+    @Test
+    public void testPower() {
+        double expected = 100.0;
+        double actual = calculator.power(10.0, 2.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+    @Test
+    public void testInverse(){
+        double expected  = 0.1;
+        double actual  = calculator.inverse(10.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+    @Test
+    public void inverseSign(){
+        double expected  = -123;
+        double actual  = calculator.inverseSign(123.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
 
 }
