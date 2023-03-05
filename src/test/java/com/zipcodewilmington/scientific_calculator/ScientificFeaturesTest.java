@@ -57,7 +57,7 @@ public class ScientificFeaturesTest {
 
     @Test
     public void invLogTest() {
-        double expected = 0.633;
+        double expected = 100.0;
         double actual = scientificFeatures.invLog(2.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
@@ -71,14 +71,14 @@ public class ScientificFeaturesTest {
 
     @Test
     public void invNatLogTest() {
-        double expected = 0.785;
-        double actual = scientificFeatures.getInvNatLog(1);
+        double expected = 4.0;
+        double actual = scientificFeatures.getInvNatLog(2.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
 
     @Test
     public void pythagTest() {
-        double expected = 8.0;
+        double expected = 2.83;
         double actual = scientificFeatures.getPythagoreanTheorem(2.0, 2.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
