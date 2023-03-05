@@ -2,9 +2,9 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class ScientificFeatures {
 
-    enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
+    public enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
     public TUnit current_Unit = TUnit.DEGREES;
-    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX} //What is the format of the Trig Unit.
+    public enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX} //What is the format of the Trig Unit.
     public Display_Mode current_Mode = Display_Mode.DECIMAL;
     public static double memory = 0;
     //binary, octal, decimal, hexadecimal
