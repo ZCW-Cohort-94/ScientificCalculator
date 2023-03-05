@@ -10,19 +10,25 @@ public class ScientificFeatures {
     //binary, octal, decimal, hexadecimal
 
     //public static class DisplayMode {
-        public static void switchDisplayMode() {
-            if (current_Mode == Display_Mode.BINARY){
+        public Display_Mode switchDisplayMode(Display_Mode value) {
+            if (value == Display_Mode.BINARY){
                 current_Mode = Display_Mode.OCTAL;
-            }else if(current_Mode == Display_Mode.OCTAL){
+            }else if(value == Display_Mode.OCTAL){
                 current_Mode = Display_Mode.DECIMAL;
-            }else if(current_Mode == Display_Mode.DECIMAL) {
+            }else if(value == Display_Mode.DECIMAL) {
                 current_Mode = Display_Mode.HEX;
             }else{
                 current_Mode = Display_Mode.BINARY;
             }
+            return current_Mode;
         }
 
-        public static void switchDisplayMode(String mode) {
+
+        public static Display_Mode getDisplayMode(){
+            return current_Mode;
+        }
+
+        public Display_Mode switchDisplayMode(String mode) {
             switch (mode) {
                 case "Binary":
                     current_Mode = Display_Mode.BINARY;
@@ -40,6 +46,7 @@ public class ScientificFeatures {
                     System.out.println("Error in Setting Display Mode to: " + mode);
                     break;
             }
+            return current_Mode;
         }
 
         private static String convertCalcultion(double value, double number){
@@ -117,15 +124,16 @@ public class ScientificFeatures {
 
     //public static class TrigUnit{
 
-        public static void switchUnitsMode() {
-            if (current_Unit == TUnit.DEGREES){
+        public TUnit switchUnitsMode(TUnit value) {
+            if (value == TUnit.DEGREES){
                 current_Unit = TUnit.RADIANS;
             }else{
                 current_Unit = TUnit.DEGREES;
             }
+            return current_Unit;
         }
         //should set the trig units to the type given
-        public static void switchUnitsMode(String mode){
+        public TUnit switchUnitsMode(String mode){
             if (mode.equals("Radians")){
                 current_Unit = TUnit.RADIANS;
             }else if (mode.equals("Degrees")){
@@ -133,6 +141,7 @@ public class ScientificFeatures {
             }else {
                 System.out.println("Error in Setting Trig Unit to: " + mode);
             }
+            return current_Unit;
 
         }
         //double radians = Math.toRadians(180.0);
@@ -143,6 +152,10 @@ public class ScientificFeatures {
             }else
                 return Math.toRadians(value);
         }
+
+    public static TUnit getUnitMode(){
+        return current_Unit;
+    }
 
    // }
 
