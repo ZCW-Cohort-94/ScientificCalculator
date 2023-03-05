@@ -4,6 +4,10 @@ public class ScientificApplication {
 
 
     private int currentMode = 0;
+    private int memory = 0;
+    private int display = 0;
+    private static boolean isRadians = true;
+
     public void switchDisplayMode() {
         // binary, octal, decimal, hexadecimal
         currentMode++;
@@ -29,32 +33,101 @@ public class ScientificApplication {
     //switchDisplayOptions should rotate through options
         // convertToDisplayStringMode - sets display to mode given
 
-    private static void memory(){
+    public void addToMemory() {
+        memory += display;
+        display = memory;
     }
+
+    public void resetMemory() {
+        memory = 0;
+    }
+
+    public void recallFromMemory() {
+        display = memory;
+    }
+
+
     //M+key add current displayed value to value in memory, store and update displau
     //Mc key reset memory
     //Mrc key Recall current value from memory to display
 
-    private static void trigFunctions(){
-     }
+
+
+        public static double sine(double x) {
+            return Math.sin(x);
+        }
+
+        public static double cosine(double x) {
+            return Math.cos(x);
+        }
+
+        public static double tangent(double x) {
+            return Math.tan(x);
+        }
+
+        public static double inverseSine(double x) {
+            return Math.asin(x);
+        }
+
+        public static double inverseCosine(double x) {
+            return Math.acos(x);
+        }
+
+        public static double inverseTangent(double x) {
+            return Math.atan(x);
+        }
+
+
+
      //Sine    //These should take displayed value(x) and update it according to given formula
     //Cosine
     //Tangent
     //InverseSine
     //InverseCosine
     //InverseTangent
-    private static void switchTrigUnitsModeDegreesRadians(){
+
+
+
+    public static void switchUnitsMode() {
+        isRadians = !isRadians; // toggle between radians and degrees mode
+        System.out.println("Trig units mode set to " + (isRadians ? "radians" : "degrees"));
     }
+
+
     //switchUnitsMode ()rotate through options
     //switchUnitsMode (String mode) set trig units to type given
-    private static void logarithmicFunctions (){
+
+
+
+    public static double log(double value) {
+        return Math.log10(value);
     }
+
+    public static double inverseLog(double value) {
+        return Math.pow(10, value);
+    }
+
+    public static double ln(double value) {
+        return Math.log(value);
+    }
+
+    public static double inverseNaturalLog(double value) {
+        return Math.exp(value);
+    }
+
     //log
     //10^x inverse logarithm
     //Ln natural logarithm
     //e^x inverse natural logarithm
 
-    private static void factorialFunction (){
+
+    public static int factorial(int x) {
+        if (x == 0)
+            return 1;
+        else
+            return x * factorial(x - 1);
     }
+
+
     //should take displayed value(x) and update it according to given formula
 }
