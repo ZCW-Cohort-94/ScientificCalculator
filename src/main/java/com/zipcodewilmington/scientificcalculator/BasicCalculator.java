@@ -2,8 +2,8 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class BasicCalculator {
 
-    public static int addition(int a, int b){ //sum two integers
-        return a + b;
+    public static int addition(int workingValue, int userInput){ //sum two integers
+        return workingValue + userInput;
     }
     public static int subtraction(int a, int b){ //difference of two numbers
         return a - b;
@@ -18,7 +18,7 @@ public class BasicCalculator {
 
     public static int square(int a){ //square of a number
 
-        return a*a;
+        return a * a;
     }
 
     public static int squareRoot(int a){ //square root of a number

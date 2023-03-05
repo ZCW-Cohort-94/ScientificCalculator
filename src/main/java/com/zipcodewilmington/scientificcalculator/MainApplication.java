@@ -9,17 +9,61 @@ import com.zipcodewilmington.scientificcalculator.ScientificCalculator; //not su
  */
 public class MainApplication {
 
-        public static void main(String[] args) {
-        // Console console = new Console(); //instantiate the console class so i can use it. have to instantiate it because it's not static. not necessary since it's a static class
-           String basicChoices = "1. Addition \n2. Subtraction\n3. Multiplication\n4.Division";
+    static int workingValue = 0;
 
+            public static void main(String[] args) {
+                boolean on = true;
+                String chooseOp = "Choose an operation:";
+                String opList = "Choose an operation from the following:\n+ : Addition \n- : Subtraction\n* : Multiplication\n/ : Division\nsq : Square";
+                Console.println(opList);
+                String operation;
+                while(on == true) {
+                    operation = Console.getStringInput(chooseOp);
+                    switch (operation) {
+                        case "+":
+                            Integer addA = Console.getIntegerInput("Enter a number to add:");
+                            workingValue = BasicCalculator.addition(workingValue, addA);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+                        case "-":
+                            Integer subtractA = Console.getIntegerInput("Enter a number for subtraction");
+                            workingValue = BasicCalculator.subtraction(workingValue, subtractA);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+                        case "*":
+                            Integer multiplyA = Console.getIntegerInput("Enter a number for multiplication");
+                            workingValue = BasicCalculator.multiplication(workingValue, multiplyA);
+                            Console.println(String.valueOf(workingValue));
+                            operation = "";
+                            break;
+                        case "/":
+                            Integer divideA = Console.getIntegerInput("Enter a number for division");
+                            workingValue = BasicCalculator.division(workingValue, divideA);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+                        case "sq":
+                            Console.println("Your number was squared to: ");
+                            workingValue = BasicCalculator.square(workingValue);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+                        case "exp":
+                            Integer exponentA = Console.getIntegerInput("Enter an exponent");
+                            workingValue = BasicCalculator.exponentiation(workingValue, exponentA);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+
+                    } //switch
+                } //while loop
+
+
+          /* String basicChoices = "1. Addition \n2. Subtraction\n3. Multiplication\n4.Division";
 
            int choice = Console.getIntegerInput("Please select a mathematical function to use:\n"+basicChoices); //get input
            switch (choice) {
                case 1:
                    Integer addA =  Console.getIntegerInput("Enter the first number for addition");
                    Integer addB =  Console.getIntegerInput("Enter the second number for addition");
-                   int additionAnswer = BasicCalculator.addition(addA, addB);
+                   int additionAnswer = BasicCalculator.addition(BasicCalculator.workingValue, addB);
                    Console.println(String.valueOf(additionAnswer));
                    break;
                case 2:
@@ -40,20 +84,8 @@ public class MainApplication {
                    int divisionAnswer = BasicCalculator.multiplication(divideA, divideB);
                    Console.println(String.valueOf(divisionAnswer));
 
-
-
-           }
-
-
-            //Integer firstUserInput =  Console.getIntegerInput("Give me the first number to add");
-            //Integer secondUserInput =  Console.getIntegerInput("Give me the second number to add");
-            //int answer = BasicCalculator.addition(firstUserInput, secondUserInput);
-            //Console.println(String.valueOf(answer));
-
-            //maybe some kind of switch case to choose which mathematical function
-
-
-
+           } //switch statements
+           */
 
 /*
         String s = Console.getStringInput("Enter a string");
