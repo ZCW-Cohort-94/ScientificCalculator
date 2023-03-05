@@ -178,4 +178,7 @@ public class ScientificFeatures {
     public static double getPythagoreanTheorem(double a, double b){
         return (Math.sqrt(Math.pow(a,2) + Math.pow(b,2)));
     }
+    public static double getCircleFromRadius(double value){
+        return Math.PI * Math.pow(value,2);
+    }
 }
