@@ -23,9 +23,9 @@ public class MainApplication {
         boolean isOn = true;
         Console.println("The current value is " + mainCalc.memoryValue);
         Console.println("Type e to exit. Type secret for a secret 😇");
-        Console.println("Available Functions: +, -, /, *, square, square root, inverse, invert, exponent");
-        Console.println("Scientific Functions: cos, sin, tan, arcSin, arcCos, arcTan, log, ln, inverse log, inverse ln");
-        Console.println("Degrees to change to degrees or Radians to change to radians");
+        Console.println("Functions: +, -, /, *, square, square root, inverse, invert, exponent");
+        Console.println("Scientific: cos, sin, tan, arcSin, arcCos, arcTan, log, ln, inverse log, inverse ln, degrees, radians");
+
 
         while (isOn) {
             String whatFunction = Console.getStringInput("Enter a function, press c to clear\nm to save, mc to reset memory");
