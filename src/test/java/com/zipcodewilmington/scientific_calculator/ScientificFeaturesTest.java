@@ -19,7 +19,7 @@ public class ScientificFeaturesTest {
     }
 
     @Test
-    public void memoryTest() {
+    public void addMemoryTest() {
         double expected = 1;
         scientificFeatures.addToMemory(1);
         double actual = scientificFeatures.getMemory();
@@ -125,6 +125,27 @@ public class ScientificFeaturesTest {
     public void factorialTest() {
         double expected = 24.0;
         double actual = scientificFeatures.getFactorial(4.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void switchUnitsTest() {
+        double expected = 24.0;
+        double actual = scientificFeatures.getFactorial(4.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void formatUnitsTest() {
+        double expected = 24.0;
+        double actual = scientificFeatures.formatUnitAnswer(4.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void convertTest() {
+        double expected = 24.0;
+        double actual = scientificFeatures.formatUnitAnswer(4.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
 }
