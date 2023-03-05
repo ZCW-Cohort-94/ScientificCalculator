@@ -21,6 +21,7 @@ public class MainApplication {
         boolean isOn = true;
         Console.println("Type ~ to exit. 😇");
         while (isOn) {
+            Console.println("Available Functions: +, -, /, *, square, inv");
             String whatFunction = Console.getStringInput("Enter a function, press m to save");
             double number;
 
@@ -47,6 +48,9 @@ public class MainApplication {
                 case "square":
                     mainCalc.square();
                     break;
+                case "inv":
+                    number = Console.getDoubleInput("Enter a number");
+                    mainCalc.inverse(number);
                 case "m":
                     mainCalc.m();
                     Console.println(mainCalc.savedValue + " has been saved.");
@@ -127,50 +131,50 @@ public class MainApplication {
         public static class SciCalc {
             public double memoryValue = 0.0;
             public double savedValue = 0.0;
-            public void sine(double x) {
+            public void sine() {
                 this.memoryValue = Math.sin(memoryValue);
             }
 
-            public void cosine(double x) {
+            public void cosine() {
                 this.memoryValue = Math.cos(memoryValue);
             }
 
-            public void tangent(double x) {
+            public void tangent() {
                 this.memoryValue = Math.tan(memoryValue);
             }
 
             // outputs in radians
-            public void inverseSine(double x) {
+            public void inverseSine() {
                 this.memoryValue = Math.asin(memoryValue);
             }
 
-            public void inverseCosine(double x) {
+            public void inverseCosine() {
                 this.memoryValue = Math.acos(memoryValue);
             }
 
-            public void inverseTangent(double x) {
+            public void inverseTangent() {
                 this.memoryValue = Math.atan(memoryValue);
             }
 
             //Log Functions
-            public void log(double x) {
+            public void log() {
                 this.memoryValue = Math.log10(memoryValue);
             }
 
-            public void inverseLog(double x) {
+            public void inverseLog() {
                 this.memoryValue = Math.pow(10, memoryValue);
             }
 
-            public void naturalLog(double x) {
+            public void naturalLog() {
                 this.memoryValue = Math.log(memoryValue);
             }
 
-            public void inverseNatLog(double x) {
+            public void inverseNatLog() {
                 this.memoryValue = Math.exp(memoryValue);
             }
 
             //Factorial
-            public void factorial(double x) {
+            public void factorial() {
                 double total = 1;
                 for (double i = memoryValue; i >= 1; i--) {
                     total = (total * i);
@@ -179,11 +183,11 @@ public class MainApplication {
             }
 
             //Switch Units
-            public void toDegrees(double x) {
+            public void toDegrees() {
                 this.memoryValue = Math.toDegrees(memoryValue);
             }
 
-            public void toRadians(double x) {
+            public void toRadians() {
                 this.memoryValue = Math.toRadians(memoryValue);
             }
 
@@ -206,7 +210,7 @@ public class MainApplication {
 //        }
 
             //Additional Functions
-            public void cubed(double x) {
+            public void cubed() {
                 this.memoryValue = Math.cbrt(memoryValue);
             }
 
@@ -219,50 +223,50 @@ public class MainApplication {
     public static class SciCalcSci {
         public double testValue = 5;
         public double savedValue = 0.0;
-        public void sine(double x) {
+        public void sine() {
             this.testValue = Math.sin(testValue);
         }
 
-        public void cosine(double x) {
+        public void cosine() {
             this.testValue = Math.cos(testValue);
         }
 
-        public void tangent(double x) {
+        public void tangent() {
             this.testValue = Math.tan(testValue);
         }
 
         // outputs in radians
-        public void inverseSine(double x) {
+        public void inverseSine() {
             this.testValue = Math.asin(testValue);
         }
 
-        public void inverseCosine(double x) {
+        public void inverseCosine() {
             this.testValue = Math.acos(testValue);
         }
 
-        public void inverseTangent(double x) {
+        public void inverseTangent() {
             this.testValue = Math.atan(testValue);
         }
 
         //Log Functions
-        public void log(double x) {
+        public void log() {
             this.testValue = Math.log10(testValue);
         }
 
-        public void inverseLog(double x) {
+        public void inverseLog() {
             this.testValue = Math.pow(10, testValue);
         }
 
-        public void naturalLog(double x) {
+        public void naturalLog() {
             this.testValue = Math.log(testValue);
         }
 
-        public void inverseNatLog(double x) {
+        public void inverseNatLog() {
             this.testValue = Math.exp(testValue);
         }
 
         //Factorial
-        public void factorial(double x) {
+        public void factorial() {
             double total = 1;
             for (double i = testValue; i >= 1; i--) {
                 total = (total * i);
@@ -271,11 +275,11 @@ public class MainApplication {
         }
 
         //Switch Units
-        public void toDegrees(double x) {
+        public void toDegrees() {
             this.testValue = Math.toDegrees(testValue);
         }
 
-        public void toRadians(double x) {
+        public void toRadians() {
             this.testValue = Math.toRadians(testValue);
         }
 
@@ -298,7 +302,7 @@ public class MainApplication {
 //        }
 
         //Additional Functions
-        public void cubed(double x) {
+        public void cubed() {
             this.testValue = Math.cbrt(testValue);
         }
 
