@@ -240,7 +240,7 @@ public class MainApplication {
         } //Sci Calc
 
     public static class SciCalcSci {
-        public double testValue = 5;
+        public double testValue = 0.98;
         public double savedValue = 0.0;
         public void sine() {
             this.testValue = Math.sin(testValue);
