@@ -43,7 +43,11 @@ public class Calculator {
             case "/":
                 System.out.println("Enter second number:");
                 secondNumber = scanner.nextDouble();
-                result = divide(firstNumber, secondNumber);
+                if(secondNumber==0){
+                    System.out.println("Invalid Operation");
+                } else {
+                    result = divide(firstNumber, secondNumber);
+                }
                 break;
             case "sqrt":
                 result = Math.sqrt(firstNumber);

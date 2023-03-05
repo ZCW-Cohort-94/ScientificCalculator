@@ -12,6 +12,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 public class TestMainApplication {
+    Calculator calculator = new Calculator();
 
     public TestMainApplication(){
 
@@ -33,9 +34,31 @@ public class TestMainApplication {
 
     @Test
     public void testAdd(){
-        Calculator calculator = new Calculator();
         double expected  = 5.0;
         double actual  = calculator.add(2.0,3.0);
         assertEquals(expected, actual, 0.001);
     }
+
+    @Test
+    public void testSubtract(){
+        double expected  = 10.0;
+        double actual  = calculator.subtract(20.0,10.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+    @Test
+    public void testMultiply(){
+        double expected  = 100.0;
+        double actual  = calculator.multiply(10.0,10.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+    @Test
+    public void testDivide(){
+        double expected  = 10.0;
+        double actual  = calculator.divide(100.0,10.0);
+        assertEquals(expected, actual, 0.001);
+    }
+
+
 }
