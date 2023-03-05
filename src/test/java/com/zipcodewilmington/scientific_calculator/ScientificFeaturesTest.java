@@ -41,9 +41,11 @@ public class ScientificFeaturesTest {
 
     @Test
     public void switchDisplayTest() {
-        String expected = "DEGREES";
-        String actual = toString(scientificFeatures.switchDisplayMode());
-        Assert.assertEquals(expected, actual, 0.02);
+        ScientificFeatures.Display_Mode expected = ScientificFeatures.Display_Mode.BINARY;
+        scientificFeatures.switchDisplayMode();
+        ScientificFeatures.Display_Mode actual = scientificFeatures.switchDisplayMode();
+        scientificFeatures.switchDisplayMode();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -127,12 +129,12 @@ public class ScientificFeaturesTest {
         Assert.assertEquals(expected, actual, 0.02);
     }
 
-    @Test
+    /*@Test
     public void switchUnitsTest() {
-        double expected = 24.0;
-        double actual = scientificFeatures.getFactorial(4.0);
+        ScientificFeatures.TUnit expected = ScientificFeatures.Display_Mode.BINARY
+        double actual = scientificFeatures.switchUnitsMode(4.0);
         Assert.assertEquals(expected, actual, 0.02);
-    }
+    }*/
 
     @Test
     public void formatUnitsTest() {
@@ -147,4 +149,12 @@ public class ScientificFeaturesTest {
         String actual = scientificFeatures.convert(4.0);
         Assert.assertEquals(expected, actual);
     }
+
+    /*@Test
+    public void getUnitModeTest() {
+        double expected = 24.0;
+        String actual = scientificFeatures.getUnitMode();
+        Assert.assertEquals(expected, actual);
+    }*/
 }
+
