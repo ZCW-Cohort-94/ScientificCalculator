@@ -9,7 +9,7 @@ public class ScientificFeaturesTest {
     public void setup(){scientificFeatures = new ScientificFeatures();}
     @Test
     public void sinTest() {
-        double expected = 0.77;
+        double expected = 0.773;
         double actual = scientificFeatures.getSin(70);
         Assert.assertEquals(expected, actual, 0.02);
         System.out.println(Math.sin(70));
@@ -23,14 +23,14 @@ public class ScientificFeaturesTest {
     }
     @Test
     public void tanTest() {
-        double expected = 11.87;
+        double expected = 11.877;
         double actual = scientificFeatures.getTan(856);
         Assert.assertEquals(expected, actual, 0.02);
     }
     @Test
     public void invSinTest() {
         double expected = -0.53;
-        double actual = scientificFeatures.getInvSin(34);
+        double actual = scientificFeatures.getInvSin(0.2);
         Assert.assertEquals(expected, actual, 0.02);
     }
 
@@ -43,9 +43,8 @@ public class ScientificFeaturesTest {
 
     @Test
     public void invTanTest() {
-        double expected = 0.633;
-        double actual = scientificFeatures.getInvTan(100);
+        double expected = 0.785;
+        double actual = scientificFeatures.getInvTan(1);
         Assert.assertEquals(expected, actual, 0.02);
     }
-
 }
