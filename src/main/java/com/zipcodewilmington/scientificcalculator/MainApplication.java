@@ -11,32 +11,48 @@ public class MainApplication {
 
         public static void main(String[] args) {
         // Console console = new Console(); //instantiate the console class so i can use it. have to instantiate it because it's not static. not necessary since it's a static class
+           String basicChoices = "1. Addition \n2. Subtraction\n3. Multiplication\n4.Division";
 
 
-            Integer firstUserInput =  Console.getIntegerInput("Give me the first number to add");
-            Integer secondUserInput =  Console.getIntegerInput("Give me the second number to add");
-            int answer = BasicCalculator.addition(firstUserInput, secondUserInput);
+           int choice = Console.getIntegerInput("Please select a mathematical function to use:\n"+basicChoices); //get input
+           switch (choice) {
+               case 1:
+                   Integer addA =  Console.getIntegerInput("Enter the first number for addition");
+                   Integer addB =  Console.getIntegerInput("Enter the second number for addition");
+                   int additionAnswer = BasicCalculator.addition(addA, addB);
+                   Console.println(String.valueOf(additionAnswer));
+                   break;
+               case 2:
+                   Integer subtractA =  Console.getIntegerInput("Enter the first number for subtraction");
+                   Integer subtractB =  Console.getIntegerInput("Enter the second number for subtraction");
+                   int subtractionAnswer = BasicCalculator.subtraction(subtractA, subtractB);
+                   Console.println(String.valueOf(subtractionAnswer));
+                   break;
+               case 3:
+                   Integer multiplyA =  Console.getIntegerInput("Enter the first number for multiplication");
+                   Integer multiplyB =  Console.getIntegerInput("Enter the second number for multiplication");
+                   int multiplicationAnswer = BasicCalculator.multiplication(multiplyA, multiplyB);
+                   Console.println(String.valueOf(multiplicationAnswer));
+                   break;
+               case 4:
+                   Integer divideA =  Console.getIntegerInput("Enter the first number for division");
+                   Integer divideB =  Console.getIntegerInput("Enter the second number for division");
+                   int divisionAnswer = BasicCalculator.multiplication(divideA, divideB);
+                   Console.println(String.valueOf(divisionAnswer));
 
-            Console.println(String.valueOf(answer));
+
+
+           }
+
+
+            //Integer firstUserInput =  Console.getIntegerInput("Give me the first number to add");
+            //Integer secondUserInput =  Console.getIntegerInput("Give me the second number to add");
+            //int answer = BasicCalculator.addition(firstUserInput, secondUserInput);
+            //Console.println(String.valueOf(answer));
 
             //maybe some kind of switch case to choose which mathematical function
 
 
-
-
-
-
-/*
-        Console.println("Welcome to our calculator!");
-        Console.println("Please select an operation:");
-        Console.println("1. Addition");
-        Console.println("2. Subtraction");
-        Console.println("3. Multiplication");
-        Console.println("4. Division");
-        Console.println("1. Addition");
-        Console.println("1. Addition");
-
-*/
 
 
 /*

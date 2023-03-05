@@ -5,7 +5,7 @@ public class BasicCalculator {
     public static int addition(int a, int b){ //sum two integers
         return a + b;
     }
-        public static int subtraction(int a, int b){ //difference of two numbers
+    public static int subtraction(int a, int b){ //difference of two numbers
         return a - b;
     }
     public static int multiplication(int a, int b){ //product of two numbers
