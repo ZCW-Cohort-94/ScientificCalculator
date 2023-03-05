@@ -153,7 +153,6 @@ public class ScientificFeatures {
     public static double getLog(double value){ //Get common log
         return Math.log10(value);
     }
-
     //Inverse Logarithm
     public static double invLog(double value){
         return Math.exp(Math.log10(value));
