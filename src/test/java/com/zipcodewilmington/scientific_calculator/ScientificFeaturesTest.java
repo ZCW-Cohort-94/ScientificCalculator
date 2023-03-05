@@ -10,7 +10,7 @@ public class ScientificFeaturesTest {
     @Test
     public void sinTest() {
         double expected = 0.773;
-        double actual = scientificFeatures.getSin(70);
+        double actual = scientificFeatures.getSin(70.0);
         Assert.assertEquals(expected, actual, 0.02);
         System.out.println(Math.sin(70));
     }
@@ -18,13 +18,13 @@ public class ScientificFeaturesTest {
     @Test
     public void cosinTest() {
         double expected = 0.862;
-        double actual = scientificFeatures.getCos(100);
+        double actual = scientificFeatures.getCos(100.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
     @Test
     public void tanTest() {
         double expected = 11.877;
-        double actual = scientificFeatures.getTan(856);
+        double actual = scientificFeatures.getTan(856.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
     @Test
