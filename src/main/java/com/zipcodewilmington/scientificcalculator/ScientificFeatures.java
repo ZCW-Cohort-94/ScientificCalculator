@@ -155,7 +155,7 @@ public class ScientificFeatures {
     }
     //Inverse Logarithm
     public static double invLog(double value){
-        return Math.exp(Math.log10(value));
+        return Math.pow(10,value);
     }
     //Natural Log
     public static double getNatLog(double value){
@@ -163,7 +163,7 @@ public class ScientificFeatures {
     }
     //Inverse Natural Log
     public static double getInvNatLog(double value){
-        return Math.exp(Math.log(value));
+        return Math.pow(2,value);
     }
 
     //Factorial Function
