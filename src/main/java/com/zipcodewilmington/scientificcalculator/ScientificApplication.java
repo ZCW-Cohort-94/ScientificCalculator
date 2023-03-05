@@ -15,6 +15,7 @@ public class ScientificApplication {
             currentMode = 0;
         }
     }
+
     public String convertToDisplayMode(int value) {
         switch (currentMode) {
             case 0:
@@ -31,7 +32,7 @@ public class ScientificApplication {
     }
 
     //switchDisplayOptions should rotate through options
-        // convertToDisplayStringMode - sets display to mode given
+    // convertToDisplayStringMode - sets display to mode given
 
     public void addToMemory() {
         memory += display;
@@ -52,40 +53,37 @@ public class ScientificApplication {
     //Mrc key Recall current value from memory to display
 
 
+    public static double sine(double x) {
+        return Math.sin(x);
+    }
 
-        public static double sine(double x) {
-            return Math.sin(x);
-        }
+    public static double cosine(double x) {
+        return Math.cos(x);
+    }
 
-        public static double cosine(double x) {
-            return Math.cos(x);
-        }
+    public static double tangent(double x) {
+        return Math.tan(x);
+    }
 
-        public static double tangent(double x) {
-            return Math.tan(x);
-        }
+    public static double inverseSine(double x) {
+        return Math.asin(x);
+    }
 
-        public static double inverseSine(double x) {
-            return Math.asin(x);
-        }
+    public static double inverseCosine(double x) {
+        return Math.acos(x);
+    }
 
-        public static double inverseCosine(double x) {
-            return Math.acos(x);
-        }
-
-        public static double inverseTangent(double x) {
-            return Math.atan(x);
-        }
-
+    public static double inverseTangent(double x) {
+        return Math.atan(x);
+    }
 
 
-     //Sine    //These should take displayed value(x) and update it according to given formula
+    //Sine    //These should take displayed value(x) and update it according to given formula
     //Cosine
     //Tangent
     //InverseSine
     //InverseCosine
     //InverseTangent
-
 
 
     public static void switchUnitsMode() {
@@ -96,7 +94,6 @@ public class ScientificApplication {
 
     //switchUnitsMode ()rotate through options
     //switchUnitsMode (String mode) set trig units to type given
-
 
 
     public static double log(double value) {
@@ -125,9 +122,37 @@ public class ScientificApplication {
         if (x == 0)
             return 1;
         else
-            return x * factorial(x - 1);
+            return x * factorial(x - 1);  // recursive function
     }
+
+    public static double getPi() {
+        return Math.PI;
+    }
+
+    //method to provide the constant Pi
+
+    public static double getE() {
+        return Math.E;
+    }
+
+    //method to provide the constant e 
+
+}
 
 
     //should take displayed value(x) and update it according to given formula
-}
+
+   /*public static double getPi() {
+        return Math.PI;
+    }
+
+    //method to provide the constant Pi
+
+    public static double getE() {
+        return Math.E;
+    }
+
+    //method to provide the constant e */
+
+
+
