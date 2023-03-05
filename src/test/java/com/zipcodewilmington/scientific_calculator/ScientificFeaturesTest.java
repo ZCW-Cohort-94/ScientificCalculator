@@ -1,5 +1,5 @@
 package com.zipcodewilmington.scientific_calculator;
-mport com.zipcodewilmington.scientificcalculator.ScientificFeatures;
+import com.zipcodewilmington.scientificcalculator.ScientificFeatures;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +12,7 @@ public class ScientificFeaturesTest {
         double expected = 0.77;
         double actual = scientificFeatures.getSin(70);
         Assert.assertEquals(expected, actual, 0.02);
+        System.out.println(Math.sin(70));
     }
 
     @Test
