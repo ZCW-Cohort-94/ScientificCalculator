@@ -21,13 +21,17 @@ public class MainApplication {
 // THIS IS FOR THE MAIN CALCULATOR
         Calculator mainCalc = new Calculator();
         boolean isOn = true;
-        Console.println("The current value is" + mainCalc.memoryValue);
+        Console.println("The current value is " + mainCalc.memoryValue);
         Console.println("Type e to exit. 😇");
-        while (isOn) {
-            Console.println("Available Functions: +, -, /, *, square, square root, inverse, invert, exponent");
-            String whatFunction = Console.getStringInput("Enter a function, press c to clear, m to save");
-            double number;
+        Console.println("Available Functions: +, -, /, *, square, square root, inverse, invert, exponent");
+        Console.println("Scientific Functions: cos, sin, tan, arcSin, arcCos, arcTan, log, ln, inverse log, inverse ln");
+        Console.println("Degrees to change to degrees or Radians to change to radians");
 
+        while (isOn) {
+            String whatFunction = Console.getStringInput("Enter a function, press c to clear\nm to save, mc to reset memory");
+            double number;
+            double savedValue;
+            double mrcValue = 0;
             switch (whatFunction) {
                 case "c":
                     mainCalc.memoryValue = 0.0;
@@ -68,15 +72,59 @@ public class MainApplication {
                 case "invert":
                     mainCalc.switchSign();
                     break;
-                case "m":
-                    mainCalc.m();
-                    Console.println(mainCalc.savedValue + " has been saved.");
+                case "factorial":
+                    mainCalc.factorial();
                     break;
-        //       case ""
-//                case "fdlksahg":
-//                    mainCalc.dldlhv()
+                case "m":
+                    savedValue = mainCalc.memoryValue;
+                    Console.println(savedValue + " has been saved.");
+                    savedValue = mrcValue;
+                    break;
+//                case "mrc":
 //
+//                    Console.println(mrcValue);
 //                    break;
+//                case "mc":
+//                    savedValue = 0.0;
+//                    Console.println("Memory has been reset.");
+//                    break;
+                case "sin":
+                    mainCalc.sine();
+                    break;
+                case "cos":
+                    mainCalc.cosine();
+                    break;
+                case "tan":
+                    mainCalc.tangent();
+                    break;
+                case "arcSin":
+                    mainCalc.inverseSine();
+                    break;
+                case "arcCos":
+                    mainCalc.inverseCosine();
+                    break;
+                case "arcTan":
+                    mainCalc.inverseTangent();
+                    break;
+                case "log":
+                    mainCalc.log();
+                    break;
+                case "ln":
+                    mainCalc.naturalLog();
+                    break;
+                case "inverse log":
+                    mainCalc.inverseLog();
+                    break;
+                case "inverse ln":
+                    mainCalc.inverseNatLog();
+                    break;
+                case "Degrees":
+                    mainCalc.toDegrees();
+                    break;
+                case "Radians":
+                    mainCalc.toRadians();
+                    break;
+
             } // switch ends
 
             Console.println("The value is now: %f", mainCalc.memoryValue);
@@ -90,7 +138,10 @@ public class MainApplication {
         // this is the number on the screen of the calculator
 
         public double memoryValue = 0.0;
-        public double savedValue = 0.0;
+
+        public void mrc(){
+
+        }
 
 
         //Main Math
@@ -114,19 +165,19 @@ public class MainApplication {
 
         public void division(double x) {
             this.memoryValue = memoryValue / x;
-        }
+            try {
+                if (x == 0) {
+                    throw new ArithmeticException("Err");
+                }
+            } catch (ArithmeticException e) {
+                System.err.println("Err\nPress c to clear");
+            }
+        } //
 
         public void square() {
             this.memoryValue = memoryValue * memoryValue;
         }
 
-        public void m() {
-            this.memoryValue = savedValue;
-        }
-
-//        public void mc(double x) {
-//
-//        }
 
         public void squareRoot() {
             this.memoryValue = Math.sqrt(memoryValue);
