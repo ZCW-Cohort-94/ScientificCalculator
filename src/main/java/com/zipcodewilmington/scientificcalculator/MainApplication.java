@@ -20,10 +20,9 @@ public class MainApplication {
 
 // THIS IS FOR THE MAIN CALCULATOR
         Calculator mainCalc = new Calculator();
-        SciCalc sciCalc = new SciCalc();
         boolean isOn = true;
         Console.println("The current value is" + mainCalc.memoryValue);
-        Console.println("Type exit to exit. 😇");
+        Console.println("Type e to exit. 😇");
         while (isOn) {
             Console.println("Available Functions: +, -, /, *, square, square root, inverse, invert, exponent");
             String whatFunction = Console.getStringInput("Enter a function, press c to clear, m to save");
@@ -33,7 +32,7 @@ public class MainApplication {
                 case "c":
                     mainCalc.memoryValue = 0.0;
                     break;
-                case "exit":
+                case "e":
                     isOn = false;
                     return;
                 case "+":
@@ -150,14 +149,12 @@ public class MainApplication {
             String message = "Err";
             return message;
         }
-    }
+
 
         //Trig Functions
-        public static class SciCalc {
 
-            public double savedValue = 0.0;
             public void sine() {
-                this.memoryValue = Math.sin(Calculator.memoryValue);
+                this.memoryValue = Math.sin(memoryValue);
             }
 
             public void cosine() {
@@ -212,6 +209,9 @@ public class MainApplication {
 
 
             //Display Mode
+        public void switchUnitsMode(String mode){
+
+        }
 //        public void toOctal() {
 //           this.memoryValue = Double.toOctalString(memoryValue);
 //        }
@@ -301,7 +301,9 @@ public class MainApplication {
         public void toRadians() {
             this.testValue = Math.toRadians(testValue);
         }
-
+        public void inverse(double x) {
+            this.testValue = (1 / testValue);
+        }
 
         //Display Mode
 //        public void toOctal() {
