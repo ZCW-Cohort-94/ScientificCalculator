@@ -10,12 +10,12 @@ public class ScientificFeatures {
     //binary, octal, decimal, hexadecimal
 
     //public static class DisplayMode {
-        public Display_Mode switchDisplayMode(Display_Mode value) {
-            if (value == Display_Mode.BINARY){
+        public Display_Mode switchDisplayMode() {
+            if (current_Mode == Display_Mode.BINARY){
                 current_Mode = Display_Mode.OCTAL;
-            }else if(value == Display_Mode.OCTAL){
+            }else if(current_Mode == Display_Mode.OCTAL){
                 current_Mode = Display_Mode.DECIMAL;
-            }else if(value == Display_Mode.DECIMAL) {
+            }else if(current_Mode == Display_Mode.DECIMAL) {
                 current_Mode = Display_Mode.HEX;
             }else{
                 current_Mode = Display_Mode.BINARY;
@@ -125,7 +125,7 @@ public class ScientificFeatures {
     //public static class TrigUnit{
 
         public TUnit switchUnitsMode(TUnit value) {
-            if (value == TUnit.DEGREES){
+            if (current_Unit == TUnit.DEGREES){
                 current_Unit = TUnit.RADIANS;
             }else{
                 current_Unit = TUnit.DEGREES;
@@ -182,7 +182,7 @@ public class ScientificFeatures {
     //Factorial Function
 
     public static double getFactorial(double value){
-        double result = 0;
+        double result = 1;
         for (int i = 1; i <= value ; i++){
             result = result * i;
         }
