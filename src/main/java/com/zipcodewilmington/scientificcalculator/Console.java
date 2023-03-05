@@ -22,12 +22,12 @@ public class Console {
         return userInput;
     }
 
-    public static Integer getIntegerInput(String prompt) {
-        Scanner scanner = new Scanner(System.in);
-        println(prompt);
-        Integer userInput = scanner.nextInt();
-        return userInput;
-    }
+//    public static Integer getIntegerInput(String prompt) {
+//        Scanner scanner = new Scanner(System.in);
+//        println(prompt);
+//        Integer userInput = scanner.nextInt();
+//        return userInput;
+//    }
 
     public static Double getDoubleInput(String prompt) {
         Scanner scanner = new Scanner(System.in);
