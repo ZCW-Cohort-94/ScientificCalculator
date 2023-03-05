@@ -12,7 +12,7 @@ public class MainApplication {
 
         Scanner scan = new Scanner(System.in);
         char mathInput;
-        double input1 = 0;
+        double input1 = -2;
         double input2 = 0;
         double currentNumber = -1;
         boolean on = true;
@@ -174,7 +174,56 @@ public class MainApplication {
                     break;
                 case'a':
                     System.out.println(ScientificFeatures.getSin(input1));
+                    input1 = ScientificFeatures.getSin(input1);
                     break;
+                case'b':
+                    System.out.println(ScientificFeatures.getCos(input1));
+                    input1 = ScientificFeatures.getCos(input1);
+                    break;
+                case'd':
+                    System.out.println(ScientificFeatures.getTan(input1));
+                    input1 = ScientificFeatures.getTan(input1);
+                    break;
+                case'f':
+                    System.out.println(ScientificFeatures.getInvSin(input1));
+                    input1 = ScientificFeatures.getInvSin(input1);
+                    break;
+                case'g':
+                    System.out.println(ScientificFeatures.getInvCos(input1));
+                    input1 = ScientificFeatures.getInvCos(input1);
+                    break;
+                case'h':
+                    System.out.println(ScientificFeatures.getInvTan(input1));
+                    input1 = ScientificFeatures.getInvTan(input1);
+                    break;
+                case'j':
+                    System.out.println(ScientificFeatures.getLog(input1));
+                    input1 = ScientificFeatures.getLog(input1);
+                    break;
+                case'k':
+                    System.out.println(ScientificFeatures.invLog(input1));
+                    input1 = ScientificFeatures.invLog(input1);
+                    break;
+                case'm':
+                    System.out.println(ScientificFeatures.getNatLog(input1));
+                    input1 = ScientificFeatures.getNatLog(input1);
+                    break;
+                case'z':
+                    System.out.println(ScientificFeatures.getFactorial(input1));
+                    input1 = ScientificFeatures.getFactorial(input1);
+                    break;
+                case'x':
+                    System.out.print("Enter your second number: ");
+                    input2 = scan.nextDouble();
+                    System.out.println(ScientificFeatures.getPythagoreanTheorem(input1,input2));
+                    input1 = ScientificFeatures.getPythagoreanTheorem(input1,input2);
+                    scan.nextLine();
+                    break;
+                case'v':
+                    System.out.println(ScientificFeatures.getCircleFromRadius(input1));
+                    input1 = ScientificFeatures.getCircleFromRadius(input1);
+                    break;
+
                 default:
                     System.out.println("Invalid input");
                     CoreFeatures.help();

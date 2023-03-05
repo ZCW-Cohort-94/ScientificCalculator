@@ -2,22 +2,19 @@ package com.zipcodewilmington.scientificcalculator;
 import java.util.Scanner;
 
 public class CoreFeatures {
-    enum TUnit {DEGREES, RADIANS}
-    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX}
-    static TUnit current_Unit = TUnit.DEGREES;
-    static Display_Mode current_Mode = Display_Mode.DECIMAL;
-    public static double currentState = 0;
 
-    public double getCurrent(){
+    static double currentState = 0;
+
+    public double getCurrent() {
         return currentState;
     }
 
-    public void clearCurrent(){
-        currentState = 0;
+    public void clearCurrent() {
+        double currentState = 0;
         System.out.println(currentState);
     }
 
-    public double changeNumber(double input){
+    public double changeNumber(double input) {
         currentState = input;
         return currentState;
     }
@@ -70,7 +67,7 @@ public class CoreFeatures {
         currentState = input1 * (-1);
         return currentState;
     }
-    public static void help() {
+    public static void  help() {
         System.out.println("Enter:");
         System.out.println("+ for addition");
         System.out.println("- for subtraction");
@@ -81,6 +78,7 @@ public class CoreFeatures {
         System.out.println("y for the power to");
         System.out.println("u for inverse (1/x)");
         System.out.println("i to flip the sign");
+
         System.out.println("------------------");
         System.out.println("c to clear");
         System.out.println("Q to quit");
