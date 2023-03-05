@@ -9,7 +9,6 @@ public class ScientificApplications {
 
     //MAIN METHOD
     public static void main(String[] args) {
-        trungsCalculator();
         scientificFunc();
     }
 
@@ -19,7 +18,7 @@ public class ScientificApplications {
     public static String trungsCalculator() {
         String str1 = "";
         str1 = str1 + StringUtils.repeat("-",55) + "\n" + "\n";
-        str1 = str1 + "    0 \n \n";
+        str1 = str1 + "    0.0 \n \n";
         str1 = str1 + StringUtils.repeat("-",55) + "\n" + "\n";
         str1 = str1 + "[RAD]  [DEG]  [  x!]  [ ( ]   [ ) ]   [ % ]   [ AC]\n";
         str1 = str1 + "[SIN]  [LOG]  [ASIN]  [ 7 ]   [ 8 ]   [ 9 ]   [ / ]\n";
@@ -30,75 +29,129 @@ public class ScientificApplications {
                 return str1;
     }
 
+    public static void doAgain() {
+        Scanner in2 = new Scanner(System.in);
+        System.out.println("\n \n \n Do again? (y or n)");
+        boolean again = true;
+        String checkAgain = in2.nextLine();
+        if (checkAgain.equals("y")) {
+            scientificFunc();
+        }
+    }
     //SCIENTIFIC CALCULATOR FUNCTION
     public static void scientificFunc() {
-        Scanner in1 = new Scanner(System.in);
 
-        System.out.println("Plese select Radian or Degree Mode (Key in rad or deg)");
-        String modeIn = in1.nextLine();
+            String str2 = trungsCalculator();
 
-        System.out.println("Please key in Function name (in lowercase):");
-        String funcIn = in1.nextLine();
+            Scanner in1 = new Scanner(System.in);
 
-        System.out.println("Please enter value to calculate:");
-        double douIn = in1.nextDouble();
-        if (in1.equals("deg")) {
-            douIn = douIn*Math.PI/180;
-        }
+            System.out.println("Please select Radian or Degree Mode (Key in rad or deg)");
+            String modeIn = in1.nextLine();
 
-        switch (funcIn) {
-            case "sin":
-                System.out.println("Sine results of "+douIn+" is:"+Math.sin(douIn));
-                break;
-            case "cos":
-                System.out.println("Cosine results of "+douIn+" is:"+Math.cos(douIn));
-                break;
-            case "tan":
-                System.out.println("Tangent results of "+douIn+" is:"+Math.tan(douIn));
-                break;
-            case "asin":
-                System.out.println("Inverse Sine results of "+douIn+" is:"+Math.asin(douIn));
-                break;
-            case "acos":
-                System.out.println("Inverse Cosine results of "+douIn+" is:"+Math.asin(douIn));
-                break;
-            case "atan":
-                System.out.println("Inverse Tan results of "+douIn+" is:"+Math.atan(douIn));
-                break;
-            case "log":
-                int y = getInInput();
-                System.out.println("Logarithm results of "+y+" is:"+ Math.log10(y));
-                break;
+            System.out.println("Please key in Function name (in lowercase):");
+            String funcIn = in1.nextLine();
+            str2 = str2.replaceAll("0.0", funcIn + ".");
+            System.out.println(str2);
 
-            case "10x":
-                y = getInInput();
-                System.out.println("Inverse Log results of "+y+" is:"+ Math.pow(10,y));
-                break;
+            System.out.println("Please enter value to calculate, or mc to recall");
+            String mm = in1.nextLine();
+            double douIn;
+            if (mm.equals("mc")) {
+                douIn=callMeme();
+            }
+            else {
+                douIn = in1.nextDouble();
+            }
+            str2 = str2.replaceAll(funcIn, funcIn + "(" + douIn + ")");
+            System.out.println(str2);
 
-            case "ln":
-                y = getInInput();
-                System.out.println("Natural Log results of "+y+" is:"+ Math.log(y));
-                break;
+            if (modeIn.equals("deg")) {
+                douIn = douIn * Math.PI / 180;
+            }
 
-            case "exp":
-                y = getInInput();
-                System.out.println("Inverse Natural Log results of "+y+" is:"+ Math.exp(y));
-                break;
+            switch (funcIn) {
+                case "sin":
+                    System.out.println("Sine results of " + douIn + " is:" + Math.sin(douIn));
+                    saveMeme(Math.sin(douIn));
+                    doAgain();
+                    break;
 
-            case "x!":
-                y = getInInput();
-                FactorialFunction(y);
-                break;
+                case "cos":
+                    System.out.println("Cosine results of " + douIn + " is:" + Math.cos(douIn));
+                    saveMeme(Math.cos(douIn));
+                    doAgain();
+                    break;
 
-            case "sqr":
-                System.out.println("Square results of "+douIn+" is:"+ douIn*douIn);
-                break;
+                case "tan":
+                    System.out.println("Tangent results of " + douIn + " is:" + Math.tan(douIn));
+                    saveMeme(Math.tan(douIn));
+                    doAgain();
+                    break;
 
-            case "sqrt":
-                y = getInInput();
-                System.out.println("Square Root  results of "+douIn+" is:"+ Math.sqrt(douIn));
-                break;
-        }
+                case "asin":
+                    System.out.println("Inverse Sine results of " + douIn + " is:" + Math.asin(douIn));
+                    saveMeme(Math.asin(douIn));
+                    doAgain();
+                    break;
+
+                case "acos":
+                    System.out.println("Inverse Cosine results of " + douIn + " is:" + Math.asin(douIn));
+                    saveMeme(Math.asin(douIn));
+                    doAgain();
+                case "atan":
+                    System.out.println("Inverse Tan results of " + douIn + " is:" + Math.atan(douIn));
+                    saveMeme(Math.atan(douIn));
+                    doAgain();
+                    break;
+
+                case "log":
+                    int y = getInInput();
+                    System.out.println("Logarithm results of " + y + " is:" + Math.log10(y));
+                    saveMeme(Math.log10(y));
+                    doAgain();
+                    break;
+
+                case "10x":
+                    y = getInInput();
+                    System.out.println("Inverse Log results of " + y + " is:" + Math.pow(10, y));
+                    Math.pow(10, y);
+                    doAgain();
+                    break;
+
+                case "ln":
+                    y = getInInput();
+                    System.out.println("Natural Log results of " + y + " is:" + Math.log(y));
+                    saveMeme(Math.log(y));
+                    doAgain();
+                    break;
+
+                case "exp":
+                    y = getInInput();
+                    System.out.println("Inverse Natural Log results of " + y + " is:" + Math.exp(y));
+                    saveMeme(Math.exp(y));
+                    doAgain();
+                    break;
+
+                case "x!":
+                    y = getInInput();
+                    FactorialFunction(y);
+                    saveMeme(FactorialFunction(y));
+                    doAgain();
+                    break;
+
+                case "sqr":
+                    System.out.println("Square results of " + douIn + " is:" + douIn * douIn);
+                    saveMeme(douIn*douIn);
+                    doAgain();
+                    break;
+
+                case "sqrt":
+                    System.out.println("Square Root  results of " + douIn + " is:" + Math.sqrt(douIn));
+                    saveMeme(Math.sqrt(douIn));
+                    doAgain();
+                    break;
+            }
+
     }
 
 
@@ -113,7 +166,7 @@ public class ScientificApplications {
 // Ask for input int number
     private static int getInInput() {
         Scanner inScan = new Scanner(System.in);
-        System.out.println("Please enter INTEGER value for calculation:");
+        System.out.println("Please re-enter INTEGER value for calculation:");
         return inScan.nextInt();
     }
 
@@ -128,27 +181,21 @@ public class ScientificApplications {
     }
 
 
-/*
-Memory - Store up to one numeric value in memory for recall later (default to 0) *
-    (M+ key) Add the currently displayed value to the value in memory (store in memory and update display) *
-    (MC key) Reset memory *
-    (MRC key) Recall the current value from memory to the display *
-*/
+// meme is memory variable
+    public static double meme=0;
 
-
-
-    // meme is memory variable
-    public static int meme=0;
-
-    public void saveMeme(int valueToStore) {
-        System.out.print("Key M+ to store your results");
+    public static void saveMeme(double valueToStore) {
+        System.out.print("\n \n \n Key m+ to store your results");
         Scanner store = new Scanner(System.in);
         String memo = store.nextLine();
-        if (memo == "M+") {
+        if (memo == "m+") {
             ScientificApplications.meme = valueToStore;
         }
     }
-    public int callMeme() {
+    public static double callMeme() {
+        System.out.print("\n \n \n Key mc to call your memory");
+        Scanner store = new Scanner(System.in);
+        String memo1 = store.nextLine();
         System.out.println(ScientificApplications.meme);
         return ScientificApplications.meme;
     }
