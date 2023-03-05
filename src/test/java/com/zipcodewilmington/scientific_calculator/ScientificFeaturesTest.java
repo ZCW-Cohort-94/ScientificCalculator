@@ -4,10 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 public class ScientificFeaturesTest {
-    enum TUnit {DEGREES, RADIANS}
-    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX}
-    static TUnit current_Unit = TUnit.DEGREES;
-    static Display_Mode current_Mode = Display_Mode.DECIMAL;
+
     public ScientificFeatures scientificFeatures;
     @Before
     public void setup(){scientificFeatures = new ScientificFeatures();}
@@ -19,7 +16,7 @@ public class ScientificFeaturesTest {
     }
 
     @Test
-    public void memoryTest() {
+    public void addMemoryTest() {
         double expected = 1;
         scientificFeatures.addToMemory(1);
         double actual = scientificFeatures.getMemory();
@@ -28,24 +25,28 @@ public class ScientificFeaturesTest {
 
     /*@Test
     public void getMemoryTest() {
-        double expected = ;
-        String actual = scientificFeatures;
-        Assert.assertEquals(expected, actual, 0.02);
+        double expected = 1.0;
+        double actual = ScientificFeatures.getMemory();
+        Assert.assertEquals(expected, actual, 0.0);
     }*/
 
-    /*@Test
+    @Test
     public void clearMemoryTest() {
         double expected = 0;
-        double actual = scientificFeatures.clearMemory();
+        scientificFeatures.addToMemory(38.0);
+        scientificFeatures.clearMemory();
+        double actual = scientificFeatures.getMemory();
         Assert.assertEquals(expected, actual, 0.02);
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void switchDisplayTest() {
-        double expected = ;
-        String actual = scientificFeatures;
-        Assert.assertEquals(expected, actual, 0.02);
-    }*/
+        ScientificFeatures.Display_Mode expected = ScientificFeatures.Display_Mode.BINARY;
+        scientificFeatures.switchDisplayMode();
+        ScientificFeatures.Display_Mode actual = scientificFeatures.switchDisplayMode();
+        scientificFeatures.switchDisplayMode();
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
     public void cosinTest() {
@@ -127,4 +128,33 @@ public class ScientificFeaturesTest {
         double actual = scientificFeatures.getFactorial(4.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
+
+    /*@Test
+    public void switchUnitsTest() {
+        ScientificFeatures.TUnit expected = ScientificFeatures.Display_Mode.BINARY
+        double actual = scientificFeatures.switchUnitsMode(4.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }*/
+
+    @Test
+    public void formatUnitsTest() {
+        double expected = 24.0;
+        double actual = scientificFeatures.formatUnitAnswer(4.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void convertTest() {
+        double expected = 24.0;
+        String actual = scientificFeatures.convert(4.0);
+        Assert.assertEquals(expected, actual);
+    }
+
+    /*@Test
+    public void getUnitModeTest() {
+        double expected = 24.0;
+        String actual = scientificFeatures.getUnitMode();
+        Assert.assertEquals(expected, actual);
+    }*/
 }
+

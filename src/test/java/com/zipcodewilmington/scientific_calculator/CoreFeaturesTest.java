@@ -6,10 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CoreFeaturesTest {
-    enum TUnit {DEGREES, RADIANS}
-    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX}
-    static TUnit current_Unit = TUnit.DEGREES;
-    static Display_Mode current_Mode = Display_Mode.DECIMAL;
 
     public CoreFeatures coreFeatures;
 
@@ -76,4 +72,31 @@ public class CoreFeaturesTest {
         double actual = coreFeatures.invert(1);
         Assert.assertEquals(expected, actual, 0.02);
     }
+    @Test
+    public void getCurrentTest() {
+        double expected = coreFeatures.getCurrent();
+        double actual = coreFeatures.getCurrent();
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    /*@Test
+    public void clearCurrentTest() {
+        double expected = 0;
+        double actual = coreFeatures.getCurrent(coreFeatures.clearCurrent());
+        Assert.assertEquals(expected, actual, 0.02);
+    }*/
+
+    @Test
+    public void changeNumTest() {
+        double expected = 0;
+        double actual = coreFeatures.changeNumber(0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    /*@Test
+    public void helpTest() {
+        double expected = 0;
+        double actual = coreFeatures.help();
+        Assert.assertEquals(expected, actual, 0.02);
+    }*/
 }

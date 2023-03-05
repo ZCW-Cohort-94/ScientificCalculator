@@ -2,20 +2,20 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class ScientificFeatures {
 
-    enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
-    static TUnit current_Unit = TUnit.DEGREES;
-    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX} //What is the format of the Trig Unit.
-    static Display_Mode current_Mode = Display_Mode.DECIMAL;
+    public enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
+    public TUnit current_Unit = TUnit.DEGREES;
+    public enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX} //What is the format of the Trig Unit.
+    public Display_Mode current_Mode = Display_Mode.DECIMAL;
     public static double memory = 0;
     //binary, octal, decimal, hexadecimal
 
     //public static class DisplayMode {
-        public Display_Mode switchDisplayMode(Display_Mode value) {
-            if (value == Display_Mode.BINARY){
+        public Display_Mode switchDisplayMode() {
+            if (current_Mode == Display_Mode.BINARY){
                 current_Mode = Display_Mode.OCTAL;
-            }else if(value == Display_Mode.OCTAL){
+            }else if(current_Mode == Display_Mode.OCTAL){
                 current_Mode = Display_Mode.DECIMAL;
-            }else if(value == Display_Mode.DECIMAL) {
+            }else if(current_Mode == Display_Mode.DECIMAL) {
                 current_Mode = Display_Mode.HEX;
             }else{
                 current_Mode = Display_Mode.BINARY;
@@ -24,11 +24,11 @@ public class ScientificFeatures {
         }
 
 
-        public static Display_Mode getDisplayMode(){
+        public Display_Mode getDisplayMode(){
             return current_Mode;
         }
 
-        public Display_Mode switchDisplayMode(String mode) {
+        public Display_Mode switchDisplayModeText(String mode) {
             switch (mode) {
                 case "Binary":
                     current_Mode = Display_Mode.BINARY;
@@ -59,7 +59,7 @@ public class ScientificFeatures {
             return String.valueOf(stringB);
         }
 
-        public static String convert(double value) { //This
+        public String convert(double value) { //This
             if (current_Mode == Display_Mode.BINARY) {
                 return convertCalcultion(value, 2);
             } else if (current_Mode == Display_Mode.OCTAL) {
@@ -125,7 +125,7 @@ public class ScientificFeatures {
     //public static class TrigUnit{
 
         public TUnit switchUnitsMode(TUnit value) {
-            if (value == TUnit.DEGREES){
+            if (current_Unit == TUnit.DEGREES){
                 current_Unit = TUnit.RADIANS;
             }else{
                 current_Unit = TUnit.DEGREES;
@@ -133,7 +133,7 @@ public class ScientificFeatures {
             return current_Unit;
         }
         //should set the trig units to the type given
-        public TUnit switchUnitsMode(String mode){
+        public TUnit switchUnitsModeText(String mode){
             if (mode.equals("Radians")){
                 current_Unit = TUnit.RADIANS;
             }else if (mode.equals("Degrees")){
@@ -153,7 +153,7 @@ public class ScientificFeatures {
                 return Math.toRadians(value);
         }
 
-    public static TUnit getUnitMode(){
+    public TUnit getUnitMode(){
         return current_Unit;
     }
 
@@ -182,7 +182,7 @@ public class ScientificFeatures {
     //Factorial Function
 
     public static double getFactorial(double value){
-        double result = 0;
+        double result = 1;
         for (int i = 1; i <= value ; i++){
             result = result * i;
         }
