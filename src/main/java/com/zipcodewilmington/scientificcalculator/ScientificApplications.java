@@ -17,7 +17,7 @@ public class ScientificApplications {
 //DRAW A CALCULATOR
     public static String trungsCalculator() {
         String str1 = "";
-        str1 = str1 + "SCIENTIFIC CALCULATOR - DELTA GROUP \n";
+        str1 = str1 + " \n \n SCIENTIFIC CALCULATOR - DELTA GROUP \n";
         str1 = str1 + StringUtils.repeat("-",55) + "\n" + "\n";
         str1 = str1 + "    0.0 \n \n";
         str1 = str1 + StringUtils.repeat("-",55) + "\n" + "\n";
