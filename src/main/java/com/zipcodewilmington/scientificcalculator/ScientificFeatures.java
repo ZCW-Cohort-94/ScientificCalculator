@@ -3,9 +3,9 @@ package com.zipcodewilmington.scientificcalculator;
 public class ScientificFeatures {
 
     enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
-    static TUnit current_Unit = TUnit.DEGREES;
+    public TUnit current_Unit = TUnit.DEGREES;
     enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX} //What is the format of the Trig Unit.
-    static Display_Mode current_Mode = Display_Mode.DECIMAL;
+    public Display_Mode current_Mode = Display_Mode.DECIMAL;
     public static double memory = 0;
     //binary, octal, decimal, hexadecimal
 
@@ -24,7 +24,7 @@ public class ScientificFeatures {
         }
 
 
-        public static Display_Mode getDisplayMode(){
+        public Display_Mode getDisplayMode(){
             return current_Mode;
         }
 
@@ -59,7 +59,7 @@ public class ScientificFeatures {
             return String.valueOf(stringB);
         }
 
-        public static String convert(double value) { //This
+        public String convert(double value) { //This
             if (current_Mode == Display_Mode.BINARY) {
                 return convertCalcultion(value, 2);
             } else if (current_Mode == Display_Mode.OCTAL) {
@@ -153,7 +153,7 @@ public class ScientificFeatures {
                 return Math.toRadians(value);
         }
 
-    public static TUnit getUnitMode(){
+    public TUnit getUnitMode(){
         return current_Unit;
     }
 
