@@ -28,7 +28,7 @@ public class ScientificFeatures {
             return current_Mode;
         }
 
-        public Display_Mode switchDisplayMode(String mode) {
+        public Display_Mode switchDisplayModeText(String mode) {
             switch (mode) {
                 case "Binary":
                     current_Mode = Display_Mode.BINARY;
@@ -133,7 +133,7 @@ public class ScientificFeatures {
             return current_Unit;
         }
         //should set the trig units to the type given
-        public TUnit switchUnitsMode(String mode){
+        public TUnit switchUnitsModeText(String mode){
             if (mode.equals("Radians")){
                 current_Unit = TUnit.RADIANS;
             }else if (mode.equals("Degrees")){
