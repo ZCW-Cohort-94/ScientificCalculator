@@ -9,20 +9,26 @@ public class ScientificFeatures {
     public static double memory = 0;
     //binary, octal, decimal, hexadecimal
 
-    public static class DisplayMode {
-        public static void switchDisplayMode() {
-            if (current_Mode == Display_Mode.BINARY){
+    //public static class DisplayMode {
+        public Display_Mode switchDisplayMode(Display_Mode value) {
+            if (value == Display_Mode.BINARY){
                 current_Mode = Display_Mode.OCTAL;
-            }else if(current_Mode == Display_Mode.OCTAL){
+            }else if(value == Display_Mode.OCTAL){
                 current_Mode = Display_Mode.DECIMAL;
-            }else if(current_Mode == Display_Mode.DECIMAL) {
+            }else if(value == Display_Mode.DECIMAL) {
                 current_Mode = Display_Mode.HEX;
             }else{
                 current_Mode = Display_Mode.BINARY;
             }
+            return current_Mode;
         }
 
-        public static void switchDisplayMode(String mode) {
+
+        public static Display_Mode getDisplayMode(){
+            return current_Mode;
+        }
+
+        public Display_Mode switchDisplayMode(String mode) {
             switch (mode) {
                 case "Binary":
                     current_Mode = Display_Mode.BINARY;
@@ -40,6 +46,7 @@ public class ScientificFeatures {
                     System.out.println("Error in Setting Display Mode to: " + mode);
                     break;
             }
+            return current_Mode;
         }
 
         private static String convertCalcultion(double value, double number){
@@ -64,7 +71,7 @@ public class ScientificFeatures {
             }
 
         }
-    } //
+    //} //
 
     //Memory
     // +M - Add to Memory
@@ -85,47 +92,48 @@ public class ScientificFeatures {
 //Trig
     // - Sine - Calculate the sine of the displayed value and display it
     public static double getSin(double value){
-        return Math.sin(Math.toRadians(value));
+        return Math.sin(value);
     }
 
     //Cosine - Calculate the cosine of the displayed value and display it
     public static double getCos(double value){
-        return Math.cos(Math.toRadians(value));
+        return Math.cos(value);
     }
 
     //Tangent - Calculate the tangent of the displayed value and display it
     public static double getTan(double value){
-        return Math.tan(Math.toRadians(value));
+        return Math.tan(value);
     }
 
     //Inverse
     //Inverse Sine
     public static double getInvSin(double value){
-        return Math.asin(Math.toRadians(value));
+        return Math.asin(value);
     }
 
     //Inverse Cosine
     public static double getInvCos(double value){
-        return Math.acos(Math.toRadians(value));
+        return Math.acos(value);
     }
 
     //Inverse Tangent
     public static double getInvTan(double value){
-        return Math.atan(Math.toRadians(value));
+        return Math.atan(value);
     }
 //Switch trig unit mode (Degrees, Radians)
 
-    public static class TrigUnit{
+    //public static class TrigUnit{
 
-        public static void switchUnitsMode() {
-            if (current_Unit == TUnit.DEGREES){
+        public TUnit switchUnitsMode(TUnit value) {
+            if (value == TUnit.DEGREES){
                 current_Unit = TUnit.RADIANS;
             }else{
                 current_Unit = TUnit.DEGREES;
             }
+            return current_Unit;
         }
         //should set the trig units to the type given
-        public static void switchUnitsMode(String mode){
+        public TUnit switchUnitsMode(String mode){
             if (mode.equals("Radians")){
                 current_Unit = TUnit.RADIANS;
             }else if (mode.equals("Degrees")){
@@ -133,6 +141,7 @@ public class ScientificFeatures {
             }else {
                 System.out.println("Error in Setting Trig Unit to: " + mode);
             }
+            return current_Unit;
 
         }
         //double radians = Math.toRadians(180.0);
@@ -144,7 +153,11 @@ public class ScientificFeatures {
                 return Math.toRadians(value);
         }
 
+    public static TUnit getUnitMode(){
+        return current_Unit;
     }
+
+   // }
 
 
 
@@ -153,10 +166,9 @@ public class ScientificFeatures {
     public static double getLog(double value){ //Get common log
         return Math.log10(value);
     }
-
     //Inverse Logarithm
     public static double invLog(double value){
-        return Math.exp(Math.log10(value));
+        return Math.pow(10,value);
     }
     //Natural Log
     public static double getNatLog(double value){
@@ -164,7 +176,7 @@ public class ScientificFeatures {
     }
     //Inverse Natural Log
     public static double getInvNatLog(double value){
-        return Math.exp(Math.log(value));
+        return Math.pow(2,value);
     }
 
     //Factorial Function
@@ -176,7 +188,10 @@ public class ScientificFeatures {
         }
         return result;
     }
-
-
-
+    public static double getPythagoreanTheorem(double a, double b){
+        return (Math.sqrt(Math.pow(a,2) + Math.pow(b,2)));
+    }
+    public static double getCircleFromRadius(double value){
+        return Math.PI * Math.pow(value,2);
+    }
 }
