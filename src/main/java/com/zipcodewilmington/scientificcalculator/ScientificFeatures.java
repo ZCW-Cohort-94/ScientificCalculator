@@ -9,7 +9,7 @@ public class ScientificFeatures {
     public static double memory = 0;
     //binary, octal, decimal, hexadecimal
 
-    public static class DisplayMode {
+    //public static class DisplayMode {
         public static void switchDisplayMode() {
             if (current_Mode == Display_Mode.BINARY){
                 current_Mode = Display_Mode.OCTAL;
@@ -64,7 +64,7 @@ public class ScientificFeatures {
             }
 
         }
-    } //
+    //} //
 
     //Memory
     // +M - Add to Memory
@@ -115,7 +115,7 @@ public class ScientificFeatures {
     }
 //Switch trig unit mode (Degrees, Radians)
 
-    public static class TrigUnit{
+    //public static class TrigUnit{
 
         public static void switchUnitsMode() {
             if (current_Unit == TUnit.DEGREES){
@@ -144,7 +144,7 @@ public class ScientificFeatures {
                 return Math.toRadians(value);
         }
 
-    }
+   // }
 
 
 
