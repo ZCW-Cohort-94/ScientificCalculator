@@ -9,20 +9,37 @@ public class Calculator {
     String operator = null; // reads the input as a string
     double result = 0; // variable used to store the result of operation
 
-    public void userInput(){
-        Scanner scanner = new Scanner(System.in); // Scanner named scanner for user input
-        firstNumber = scanner.nextDouble();
+    public void userInput() {
+        scanner = new Scanner(System.in); // Scanner named scanner for user input
 
         System.out.println("Enter first number:"); //prompting user to input the first number
 
-        System.out.println("Enter operator ( + , - , * , / , sqrt, ^ ) :"); // prompting the user to enter the operator
+
+        firstNumber = scanner.nextDouble();
+
+        System.out.println("Enter operator ( + , - , * , / , sqrt, square, exp ) :"); // prompting the user to enter the operator
 
         operator = scanner.next(); // reads the input as a string
+        checkOperation();
+        System.out.println(result);
+
+        while (!operator.equalsIgnoreCase("X")) {
+            System.out.println("Enter operator ( + , - , * , / , sqrt, square, exp ) or Enter \"X\" to exit program :"); // prompting the user to enter the operator
+            operator = scanner.next(); // reads the input as a string
+            if (operator.equalsIgnoreCase("X")) {
+                System.out.println("Good Bye");
+            } else {
+                firstNumber=result;
+                checkOperation();
+                System.out.println(result);
+            }
+        }
     }
 
     /* Switch statement is used to perform the operation based on the input. user is asked to input the second number as
     a double and store it in the result variable.  */
     public void checkOperation() {
+        scanner = new Scanner(System.in); // Scanner named scanner for user input
         double secondNumber = 0;
         switch (operator) {
             case "+":
@@ -50,9 +67,13 @@ public class Calculator {
                 }
                 break;
             case "sqrt":
-                result = Math.sqrt(firstNumber);
+                result = sqrt(firstNumber);
                 break;
-            case "^":
+            case  "square":
+                result = square(firstNumber);
+                break;
+            case "exp":
+                System.out.println("Enter second number:");
                 secondNumber = scanner.nextDouble();
                 result = power(firstNumber, secondNumber);
                 break;
@@ -90,9 +111,12 @@ public class Calculator {
     public double sqrt(double num) {
         return Math.sqrt(num);
     }
+    public double square(double num){
+        return num * num;
+    }
 
     public double power(double num1, double num2) {
-        return Math.pow(num1, num2);
+        return Math.pow(num1,num2);
     }
 
     public double inverse(double num1) {
