@@ -6,6 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CoreFeaturesTest {
+    enum TUnit {DEGREES, RADIANS}
+    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX}
+    static TUnit current_Unit = TUnit.DEGREES;
+    static Display_Mode current_Mode = Display_Mode.DECIMAL;
 
     public CoreFeatures coreFeatures;
 

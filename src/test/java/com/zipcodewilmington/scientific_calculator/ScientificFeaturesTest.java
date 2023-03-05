@@ -4,6 +4,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 public class ScientificFeaturesTest {
+    enum TUnit {DEGREES, RADIANS}
+    enum Display_Mode {BINARY , OCTAL, DECIMAL, HEX}
+    static TUnit current_Unit = TUnit.DEGREES;
+    static Display_Mode current_Mode = Display_Mode.DECIMAL;
     public ScientificFeatures scientificFeatures;
     @Before
     public void setup(){scientificFeatures = new ScientificFeatures();}
@@ -12,8 +16,36 @@ public class ScientificFeaturesTest {
         double expected = 0.773;
         double actual = scientificFeatures.getSin(70.0);
         Assert.assertEquals(expected, actual, 0.02);
-        System.out.println(Math.sin(70));
     }
+
+    @Test
+    public void memoryTest() {
+        double expected = 1;
+        scientificFeatures.addToMemory(1);
+        double actual = scientificFeatures.getMemory();
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    /*@Test
+    public void getMemoryTest() {
+        double expected = ;
+        String actual = scientificFeatures;
+        Assert.assertEquals(expected, actual, 0.02);
+    }*/
+
+    /*@Test
+    public void clearMemoryTest() {
+        double expected = 0;
+        double actual = scientificFeatures.clearMemory();
+        Assert.assertEquals(expected, actual, 0.02);
+    }*/
+
+    /*@Test
+    public void switchDisplayTest() {
+        double expected = ;
+        String actual = scientificFeatures;
+        Assert.assertEquals(expected, actual, 0.02);
+    }*/
 
     @Test
     public void cosinTest() {
@@ -80,6 +112,19 @@ public class ScientificFeaturesTest {
     public void pythagTest() {
         double expected = 2.83;
         double actual = scientificFeatures.getPythagoreanTheorem(2.0, 2.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void circleRadTest() {
+        double expected = 50.265;
+        double actual = scientificFeatures.getCircleFromRadius(4.0);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+    @Test
+    public void factorialTest() {
+        double expected = 24.0;
+        double actual = scientificFeatures.getFactorial(4.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
 }
