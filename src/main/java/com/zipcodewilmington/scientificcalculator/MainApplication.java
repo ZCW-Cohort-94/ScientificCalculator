@@ -22,7 +22,7 @@ public class MainApplication {
         Calculator mainCalc = new Calculator();
         boolean isOn = true;
         Console.println("The current value is " + mainCalc.memoryValue);
-        Console.println("Type e to exit. 😇");
+        Console.println("Type e to exit. Type secret for a secret 😇");
         Console.println("Available Functions: +, -, /, *, square, square root, inverse, invert, exponent");
         Console.println("Scientific Functions: cos, sin, tan, arcSin, arcCos, arcTan, log, ln, inverse log, inverse ln");
         Console.println("Degrees to change to degrees or Radians to change to radians");
@@ -124,6 +124,15 @@ public class MainApplication {
                 case "Radians":
                     mainCalc.toRadians();
                     break;
+                case "secret":
+                    String s = Console.getStringInput("What is the password?");
+                    if (s.equals("01134")) {
+                        System.out.println("Hello! 🙋‍♀️");
+                    } else {
+                        System.out.println("Wrong password.");
+                    }
+                    break;
+
 
             } // switch ends
 
