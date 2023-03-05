@@ -1,16 +1,18 @@
+package com.zipcodewilmington.scientificcalculator;
+
 import java.util.Scanner;
 import java.util.*;
 
 public class Calculator {
-
-    Scanner scanner = new Scanner(System.in); // Scanner named scanner for user input
-
-    double firstNumber = scanner.nextDouble(); //reads the input as a 'double' value
+    Scanner scanner = null;
+    double firstNumber = 0; //reads the input as a 'double' value
     String operator = null; // reads the input as a string
     double result = 0; // variable used to store the result of operation
 
     public void userInput(){
-        firstNumber = scanner.nextDouble(); //reads the input as a 'double' value
+        Scanner scanner = new Scanner(System.in); // Scanner named scanner for user input
+        firstNumber = scanner.nextDouble();
+
         System.out.println("Enter first number:"); //prompting user to input the first number
 
         System.out.println("Enter operator ( + , - , * , / , sqrt, ^ ) :"); // prompting the user to enter the operator
