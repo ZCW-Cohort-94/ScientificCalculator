@@ -17,6 +17,7 @@ public class ScientificApplications {
     //DRAW A CALCULATOR
     public static String trungsCalculator() {
         String str1 = "";
+        str1 = str1 + "SCIENTIFIC CALCULATOR - DELTA GROUP \n";
         str1 = str1 + StringUtils.repeat("-",55) + "\n" + "\n";
         str1 = str1 + "    0.0 \n \n";
         str1 = str1 + StringUtils.repeat("-",55) + "\n" + "\n";
@@ -60,7 +61,7 @@ public class ScientificApplications {
                 douIn=callMeme();
             }
             else {
-                douIn = in1.nextDouble();
+                douIn = Double.parseDouble(mm);
             }
             str2 = str2.replaceAll(funcIn, funcIn + "(" + douIn + ")");
             System.out.println(str2);
@@ -151,7 +152,6 @@ public class ScientificApplications {
                     doAgain();
                     break;
             }
-
     }
 
 
@@ -182,21 +182,21 @@ public class ScientificApplications {
 
 
 // meme is memory variable
-    public static double meme=0;
+    public static double meme = 0;
 
+    // save memory
     public static void saveMeme(double valueToStore) {
-        System.out.print("\n \n \n Key m+ to store your results");
+        System.out.print("\n \n \n Key m to store your results");
         Scanner store = new Scanner(System.in);
         String memo = store.nextLine();
-        if (memo == "m+") {
+        if (memo.equals("m")) {
             ScientificApplications.meme = valueToStore;
         }
     }
+
+    //call memory
     public static double callMeme() {
-        System.out.print("\n \n \n Key mc to call your memory");
-        Scanner store = new Scanner(System.in);
-        String memo1 = store.nextLine();
-        System.out.println(ScientificApplications.meme);
+        System.out.println("Memory value is:"+ ScientificApplications.meme);
         return ScientificApplications.meme;
     }
 
