@@ -13,7 +13,7 @@ public class MainApplication {
 //        Double d = Console.getDoubleInput("Enter a double.");
 
 //        Console.println("The user input %s as a string", s);
-////        Console.println("The user input %s as a integer", i);
+//        Console.println("The user input %s as a integer", i);
 //        Console.println("The user input %s as a double", d);
 
 
@@ -21,14 +21,14 @@ public class MainApplication {
 // THIS IS FOR THE MAIN CALCULATOR
         Calculator mainCalc = new Calculator();
         boolean isOn = true;
-        Console.println("The current value is " + mainCalc.memoryValue);
-        Console.println("Type e to exit. Type secret for a secret 😇");
-        Console.println("Functions: +, -, /, *, square, square root, inverse, invert, exponent");
-        Console.println("Scientific: cos, sin, tan, arcSin, arcCos, arcTan, log, ln, inverse log, inverse ln, degrees, radians");
 
+        Console.println("Type secret for a secret 😇");
+        Console.println("Functions: +, -, /, *, square, square root, inverse, invert, exponent, cube");
+        Console.println("Scientific: cos, sin, tan, arcSin, arcCos, arcTan, log, ln, inverse log, inverse ln, degrees, radians");
+        Console.println("The current value is " + mainCalc.memoryValue);
 
         while (isOn) {
-            String whatFunction = Console.getStringInput("Enter a function, press c to clear\nm to save, mc to reset memory");
+            String whatFunction = Console.getStringInput("Enter a function, press c to clear, e to exit\nm to save, mc to reset memory");
             double number;
             double savedValue;
             double mrcValue = 0;
@@ -131,6 +131,9 @@ public class MainApplication {
                     } else {
                         System.out.println("Wrong password.");
                     }
+                    break;
+                case "cube":
+                    mainCalc.cubed();
                     break;
 
 
@@ -387,10 +390,10 @@ public class MainApplication {
             this.testValue = Math.cbrt(testValue);
         }
 
-        public String hello() {
-            String message = "01134";
-            return message;
-        }
+//        public String hello() {
+//            String message = "01134";
+//            return message;
+//        }
     } //Sci Calc
 
 
