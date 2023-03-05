@@ -147,10 +147,10 @@ public class TestMainApplication {
         Assert.assertEquals(0.9932, testCalc.testValue, 0.0001);
     }
 //    @Test
-//    public void testHello(){
+//    public void testSecret(){
 //        MainApplication.Calculator testCalc = new MainApplication.Calculator();
-//        testCalc.hello(01134);
-//        Assert.assertEquals("Hello", testCalc.memoryValue, 0.00);
+//        testCalc.hello("01134");
+//        Assert.assertEquals("Hello! 🙋‍♀️", "Hello! 🙋‍♀️", 0.00);
 //    }
 
 

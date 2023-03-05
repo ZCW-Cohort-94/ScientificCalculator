@@ -28,7 +28,7 @@ public class MainApplication {
         Console.println("The current value is " + mainCalc.memoryValue);
 
         while (isOn) {
-            String whatFunction = Console.getStringInput("Enter a function, press c to clear, e to exit\nm to save, mc to reset memory");
+            String whatFunction = Console.getStringInput("Enter a function, press c to clear, e to exit\nm to save, mrc to return memory, mc to reset memory");
             double number;
             double savedValue;
             double mrcValue = 0;
@@ -76,18 +76,21 @@ public class MainApplication {
                     mainCalc.factorial();
                     break;
                 case "m":
-                    savedValue = mainCalc.memoryValue;
-                    Console.println(savedValue + " has been saved.");
-                    savedValue = mrcValue;
+                    mainCalc.m();
+//                    savedValue = mainCalc.memoryValue;
+//                    Console.println(savedValue + " has been saved.");
+                    Console.println((mainCalc.savedValue) + " has been saved.");
                     break;
-//                case "mrc":
-//
-//                    Console.println(mrcValue);
-//                    break;
-//                case "mc":
-//                    savedValue = 0.0;
-//                    Console.println("Memory has been reset.");
-//                    break;
+                case "mrc":
+                    mainCalc.mrc();
+                    Console.println(mainCalc.savedValue + " was the original value.");
+                   // mainCalc.mrc();
+                   // Console.println(mainCalc.memoryValue + " was the original value.");
+                    break;
+                case "mc":
+                    mainCalc.mc();
+                    Console.println("Memory has been reset.");
+                    break;
                 case "sin":
                     mainCalc.sine();
                     break;
@@ -150,9 +153,17 @@ public class MainApplication {
         // this is the number on the screen of the calculator
 
         public double memoryValue = 0.0;
+        public double savedValue = 0.0;
+
+        public void m(){
+            this.savedValue = this.memoryValue;
+        }
 
         public void mrc(){
-
+            this.memoryValue = this.savedValue;
+        }
+        public void mc(){
+            this.savedValue = 0.0;
         }
 
 
