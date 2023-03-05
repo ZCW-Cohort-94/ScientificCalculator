@@ -14,7 +14,7 @@ public class ScientificApplications {
 
 
 
-    //DRAW A CALCULATOR
+//DRAW A CALCULATOR
     public static String trungsCalculator() {
         String str1 = "";
         str1 = str1 + "SCIENTIFIC CALCULATOR - DELTA GROUP \n";
@@ -30,16 +30,40 @@ public class ScientificApplications {
                 return str1;
     }
 
+
+// CHECK if users want to do it again
     public static void doAgain() {
         Scanner in2 = new Scanner(System.in);
-        System.out.println("\n \n \n Do again? (y or n)");
+        System.out.println("\n \n \n Key ac to start over (enter to quit)");
         boolean again = true;
         String checkAgain = in2.nextLine();
-        if (checkAgain.equals("y")) {
+        if (checkAgain.equals("ac")) {
             scientificFunc();
         }
     }
-    //SCIENTIFIC CALCULATOR FUNCTION
+
+
+// meme is memory variable
+    public static double meme = 0;
+
+
+// save memory
+    public static void saveMeme(double valueToStore) {
+        System.out.print("\n \n \n Key m to store your results (or enter to skip)");
+        Scanner store = new Scanner(System.in);
+        String memo = store.nextLine();
+        if (memo.equals("m")) {
+            ScientificApplications.meme = valueToStore;
+        }
+    }
+
+//call memory
+    public static double callMeme() {
+        System.out.println("Memory value is:"+ ScientificApplications.meme);
+        return ScientificApplications.meme;
+    }
+
+//SCIENTIFIC CALCULATOR FUNCTION
     public static void scientificFunc() {
 
             String str2 = trungsCalculator();
@@ -180,25 +204,6 @@ public class ScientificApplications {
         return factorialResult;
     }
 
-
-// meme is memory variable
-    public static double meme = 0;
-
-    // save memory
-    public static void saveMeme(double valueToStore) {
-        System.out.print("\n \n \n Key m to store your results");
-        Scanner store = new Scanner(System.in);
-        String memo = store.nextLine();
-        if (memo.equals("m")) {
-            ScientificApplications.meme = valueToStore;
-        }
-    }
-
-    //call memory
-    public static double callMeme() {
-        System.out.println("Memory value is:"+ ScientificApplications.meme);
-        return ScientificApplications.meme;
-    }
 
 //// menu binary , octal, decimal, hexadecimal
 //public static modeMenu() {
