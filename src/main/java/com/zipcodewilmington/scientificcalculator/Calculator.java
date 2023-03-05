@@ -9,15 +9,15 @@ public class Calculator {
     String operator = null; // reads the input as a string
     double result = 0; // variable used to store the result of operation
 
+    ScientificApplication sa = new ScientificApplication();
+
     public void userInput() {
-        scanner = new Scanner(System.in); // Scanner named scanner for user input
-
         System.out.println("Enter first number:"); //prompting user to input the first number
-
+        scanner = new Scanner(System.in); // Scanner named scanner for user input
 
         firstNumber = scanner.nextDouble();
 
-        System.out.println("Enter operator ( + , - , * , / , sqrt, square, exp ) :"); // prompting the user to enter the operator
+        System.out.println("Enter operator ( + , - , * , / , sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog,!,)  or Enter \"X\" to exit program :"); // prompting the user to enter the operator
 
         operator = scanner.next(); // reads the input as a string
         checkOperation();
@@ -84,11 +84,45 @@ public class Calculator {
                 }
                 break;
             case "invsign":
-                result = inverseSign(firstNumber);
+                result  = inverseSign(firstNumber);
+                break;
+            case "sin":
+                result = ScientificApplication.sine(firstNumber);
+                break;
+            case "cos":
+                result = ScientificApplication.cosine(firstNumber);
+                break;
+            case "tan":
+                result = ScientificApplication.tangent(firstNumber);
+                break;
+            case "invsine":
+                result = ScientificApplication.inverseSine(firstNumber);
+                break;
+            case "invcos":
+                result = ScientificApplication.inverseCosine(firstNumber);
+                break;
+            case "invtan":
+                result = ScientificApplication.inverseTangent(firstNumber);
+                break;
+            case "log":
+                result = ScientificApplication.log(firstNumber);
+                break;
+            case "invlog":
+                result = ScientificApplication.inverseLog(firstNumber);
+                break;
+            case "ln":
+                result = ScientificApplication.ln(firstNumber);
+                break;
+            case "invnatlog":
+                result = ScientificApplication.inverseNaturalLog(firstNumber);
+                break;
+            case "!":
+                result = ScientificApplication.factorial((int)firstNumber);
                 break;
             default:
                 System.out.println("Error");
                 break;
+
         }
     }
 

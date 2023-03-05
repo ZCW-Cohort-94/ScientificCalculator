@@ -135,24 +135,8 @@ public class ScientificApplication {
         return Math.E;
     }
 
-    //method to provide the constant e 
+    //method to provide the constant e
 
 }
-
-
-    //should take displayed value(x) and update it according to given formula
-
-   /*public static double getPi() {
-        return Math.PI;
-    }
-
-    //method to provide the constant Pi
-
-    public static double getE() {
-        return Math.E;
-    }
-
-    //method to provide the constant e */
-
 
 
