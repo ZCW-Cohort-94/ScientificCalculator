@@ -1,4 +1,4 @@
-package com.zipcodewilmington.scientificcalculator;
+package com.zipcodewilmington.scientific_calculator;
 
 import junit.framework.TestCase;
 import org.junit.Test;
