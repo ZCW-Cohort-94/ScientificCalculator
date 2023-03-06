@@ -51,51 +51,28 @@ public class MainApplication {
                             workingValue = BasicCalculator.exponentiation(workingValue, exponentA);
                             Console.println(String.valueOf(workingValue));
                             break;
+                        case "inverse":
+                            Console.getIntegerInput("The inverse of the number is: ");
+                            workingValue = BasicCalculator.inversion(workingValue);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+                        case "invert":
+                            Console.getIntegerInput("The inverted value of the number is:");
+                            workingValue = BasicCalculator.invert(workingValue);
+                            Console.println(String.valueOf(workingValue));
+                            break;
+                        case "clear":
+                            workingValue = 0;
+                            Console.println(String.valueOf(workingValue));
+                            break;
+
+
+
+
+
+
 
                     } //switch
                 } //while loop
-
-
-          /* String basicChoices = "1. Addition \n2. Subtraction\n3. Multiplication\n4.Division";
-
-           int choice = Console.getIntegerInput("Please select a mathematical function to use:\n"+basicChoices); //get input
-           switch (choice) {
-               case 1:
-                   Integer addA =  Console.getIntegerInput("Enter the first number for addition");
-                   Integer addB =  Console.getIntegerInput("Enter the second number for addition");
-                   int additionAnswer = BasicCalculator.addition(BasicCalculator.workingValue, addB);
-                   Console.println(String.valueOf(additionAnswer));
-                   break;
-               case 2:
-                   Integer subtractA =  Console.getIntegerInput("Enter the first number for subtraction");
-                   Integer subtractB =  Console.getIntegerInput("Enter the second number for subtraction");
-                   int subtractionAnswer = BasicCalculator.subtraction(subtractA, subtractB);
-                   Console.println(String.valueOf(subtractionAnswer));
-                   break;
-               case 3:
-                   Integer multiplyA =  Console.getIntegerInput("Enter the first number for multiplication");
-                   Integer multiplyB =  Console.getIntegerInput("Enter the second number for multiplication");
-                   int multiplicationAnswer = BasicCalculator.multiplication(multiplyA, multiplyB);
-                   Console.println(String.valueOf(multiplicationAnswer));
-                   break;
-               case 4:
-                   Integer divideA =  Console.getIntegerInput("Enter the first number for division");
-                   Integer divideB =  Console.getIntegerInput("Enter the second number for division");
-                   int divisionAnswer = BasicCalculator.multiplication(divideA, divideB);
-                   Console.println(String.valueOf(divisionAnswer));
-
-           } //switch statements
-           */
-
-/*
-        String s = Console.getStringInput("Enter a string");
-        Integer i = Console.getIntegerInput("Enter an integer");
-        Double d = Console.getDoubleInput("Enter a double.");
-
-        Console.println("The user input %s as a string", s);
-        Console.println("The user input %s as a integer", i);
-        Console.println("The user input %s as a d", d);
-
- */
     }
 }

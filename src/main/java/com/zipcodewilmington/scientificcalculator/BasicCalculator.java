@@ -16,7 +16,7 @@ public class BasicCalculator {
         return a / b;
     }
 
-    public static int square(int a, int i){ //square of a number
+    public static int square(int a){ //square of a number
 
         return a * a;
     }
@@ -28,6 +28,14 @@ public class BasicCalculator {
     public static int exponentiation(int a, int b){ //exponentiate a number
 
         return (int) Math.pow(a, b);
+    }
+
+    public static int inversion(int a){ //calculate inverse of a number
+        return 1 / a;
+    }
+    public static int invert(int a){ //invert number
+        return a *= -1;
+
     }
 
 

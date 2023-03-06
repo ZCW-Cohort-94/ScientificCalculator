@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Console {
 public static Scanner scanner = new Scanner(System.in);
 
-    public static void print(String output, Object... args) {
+   public static void print(String output, Object... args) {
         System.out.printf(output, args);
     }
 
