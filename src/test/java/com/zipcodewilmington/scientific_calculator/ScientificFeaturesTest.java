@@ -40,11 +40,26 @@ public class ScientificFeaturesTest {
     }
 
     @Test
-    public void switchDisplayTest() {
+    public void switchDisplayTest1() {
         ScientificFeatures.Display_Mode expected = ScientificFeatures.Display_Mode.BINARY;
         scientificFeatures.switchDisplayMode();
         ScientificFeatures.Display_Mode actual = scientificFeatures.switchDisplayMode();
         scientificFeatures.switchDisplayMode();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void switchDisplayTest2() {
+        ScientificFeatures.Display_Mode expected = ScientificFeatures.Display_Mode.OCTAL;
+        scientificFeatures.switchDisplayModeText("Octal");
+        ScientificFeatures.Display_Mode actual = scientificFeatures.current_Mode;
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void displayModeTest() {
+        String expected = "1234";
+        scientificFeatures.switchDisplayModeText("Octal");
+        String actual = scientificFeatures.convert(4324);
         Assert.assertEquals(expected, actual);
     }
 
@@ -129,24 +144,71 @@ public class ScientificFeaturesTest {
         Assert.assertEquals(expected, actual, 0.02);
     }
 
-    /*@Test
-    public void switchUnitsTest() {
-        ScientificFeatures.TUnit expected = ScientificFeatures.Display_Mode.BINARY
-        double actual = scientificFeatures.switchUnitsMode(4.0);
-        Assert.assertEquals(expected, actual, 0.02);
-    }*/
+    @Test
+    public void switchUnitTest1() {
+        ScientificFeatures.TUnit expected = ScientificFeatures.TUnit.RADIANS;
+        scientificFeatures.switchUnitsMode();
+        ScientificFeatures.TUnit actual = scientificFeatures.current_Unit;
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
-    public void formatUnitsTest() {
-        double expected = 24.0;
-        double actual = scientificFeatures.formatUnitAnswer(4.0);
+    public void switchUnitTest2() {
+        ScientificFeatures.TUnit expected = ScientificFeatures.TUnit.RADIANS;
+        scientificFeatures.switchUnitsModeText("Radians");
+        ScientificFeatures.TUnit actual = scientificFeatures.current_Unit;
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void formatUnitsTest1() {
+        double expected = 28.64;
+        scientificFeatures.switchUnitsModeText("Degrees");
+        double actual = scientificFeatures.formatUnitAnswer(.5);
         Assert.assertEquals(expected, actual, 0.02);
     }
 
     @Test
+    public void formatUnitsTest2() {
+        double expected = 0.78;
+        scientificFeatures.switchUnitsModeText("Radians");
+        double actual = scientificFeatures.formatUnitAnswer(45);
+        Assert.assertEquals(expected, actual, 0.02);
+    }
+
+    @Test
+    public void convertTestBinary() {
+        String expected = "11000";
+        scientificFeatures.switchDisplayModeText("Binary");
+        String actual = scientificFeatures.convert(24);
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void convertTestHex() {
+        String expected = "18";
+        scientificFeatures.switchDisplayModeText("Hex");
+        String actual = scientificFeatures.convert(24);
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void convertTestOctal2() {
+        String expected = "9e6";
+        scientificFeatures.switchDisplayModeText("Hex");
+        String actual = scientificFeatures.convert(2534);
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void convertTestOctal() {
+        String expected = "4746";
+        scientificFeatures.switchDisplayModeText("Octal");
+        String actual = scientificFeatures.convert(2534);
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
     public void convertTest() {
-        double expected = 24.0;
-        String actual = scientificFeatures.convert(4.0);
+        String expected = "24";
+        scientificFeatures.switchDisplayModeText("Decimal");
+        String actual = scientificFeatures.convert(24);
         Assert.assertEquals(expected, actual);
     }
 

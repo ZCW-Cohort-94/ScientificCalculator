@@ -23,11 +23,6 @@ public class ScientificFeatures {
             return current_Mode;
         }
 
-
-        public Display_Mode getDisplayMode(){
-            return current_Mode;
-        }
-
         public Display_Mode switchDisplayModeText(String mode) {
             switch (mode) {
                 case "Binary":
@@ -49,25 +44,15 @@ public class ScientificFeatures {
             return current_Mode;
         }
 
-        private static String convertCalcultion(double value, double number){
-            StringBuilder stringB = new StringBuilder();
-            while(value >= number) {
-                stringB.append(value % number).append(stringB);
-                value = value / number;
-            }
-            stringB.append(value).append(stringB);
-            return String.valueOf(stringB);
-        }
-
-        public String convert(double value) { //This
+        public String convert(double value) { //This accepts int values only. I couldn't figure out Double values
             if (current_Mode == Display_Mode.BINARY) {
-                return convertCalcultion(value, 2);
+                return Integer.toBinaryString((int)value);
             } else if (current_Mode == Display_Mode.OCTAL) {
-                return convertCalcultion(value, 8);
+                return Integer.toOctalString((int)value);
             } else if (current_Mode == Display_Mode.HEX) {
-                return convertCalcultion(value, 16);
+                return Integer.toHexString((int)value);
             } else { //DECIMAL
-                return String.valueOf(value);
+                return Double.toString(value);
             }
 
         }
@@ -124,7 +109,7 @@ public class ScientificFeatures {
 
     //public static class TrigUnit{
 
-        public TUnit switchUnitsMode(TUnit value) {
+        public TUnit switchUnitsMode() {
             if (current_Unit == TUnit.DEGREES){
                 current_Unit = TUnit.RADIANS;
             }else{
@@ -146,16 +131,12 @@ public class ScientificFeatures {
         }
         //double radians = Math.toRadians(180.0);
         //double degrees = Math.toDegrees(Math.PI);
-        public double formatUnitAnswer(double value){
+        public double formatUnitAnswer(double value) {
             if (current_Unit == TUnit.DEGREES) {
                 return Math.toDegrees(value);
-            }else
+            } else
                 return Math.toRadians(value);
         }
-
-    public TUnit getUnitMode(){
-        return current_Unit;
-    }
 
    // }
 
