@@ -28,7 +28,12 @@ public class Calculator {
         while (!operator.equalsIgnoreCase("X")) {
             //if current display showing error, user will need to clear it
             if (isErr) {
-                printCurrentAns("Err");
+                printCurrentAns("______________ ___________ \n" +
+                                "|  ___| ___ \\ ___ \\  _  | ___ \\\n" +
+                                "| |__ | |_/ / |_/ / | | | |_/ /\n" +
+                                "|  __||    /|    /| | | |    / \n" +
+                                "| |___| |\\ \\| |\\ \\\\ \\_/ / |\\ \\ \n" +
+                                "\\____/\\_| \\_\\_| \\_|\\___/\\_| \\_|");
                 System.out.print("Enter 'c' to clear the output! :");
                 String clearInput = scanner.next();
                 while (!clearInput.equalsIgnoreCase("c")) {
