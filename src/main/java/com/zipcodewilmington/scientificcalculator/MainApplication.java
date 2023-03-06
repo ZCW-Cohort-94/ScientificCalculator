@@ -223,6 +223,20 @@ public class MainApplication {
                     printThisOut(ScientificFeatures.getCircleFromRadius(input1));
                     input1 = ScientificFeatures.getCircleFromRadius(input1);
                     break;
+                case '<':
+                    System.out.println(input1 + " will be saved");
+                    ScientificFeatures.addToMemory(input1);
+                    break;
+                case'>':
+                    input1 = ScientificFeatures.getMemory();
+                    System.out.println(input1);
+                    break;
+                case'?':
+                    System.out.println("Clearing memory");
+                    System.out.println("Your current value is: " + input1);
+                    ScientificFeatures.clearMemory();
+                    break;
+
 
                 case'.':
                     System.out.println("Set Display Mode");
