@@ -67,6 +67,15 @@ public class ScientificApplications extends MainApplication{
         return ScientificApplications.meme;
     }
 
+
+// PRINT RESULT STRING
+    public void resultPrint(String str11, double doub11) {
+        str11 = str11.replaceAll("==", "=" + doub11);
+        System.out.println(str11);
+    }
+
+
+
 //SCIENTIFIC CALCULATOR FUNCTION
     public void scientificFunc() {
 
@@ -101,7 +110,7 @@ public class ScientificApplications extends MainApplication{
                 else{
                     douIn = Double.parseDouble(mm);
                 }
-                str2 = str2.replaceAll(funcIn, funcIn + "(" + douIn + ")");
+                str2 = str2.replaceAll(funcIn, funcIn + "(" + douIn + ")==");
                 System.out.println(str2);
 
                 if (modeIn.equals("deg")) {
@@ -111,34 +120,40 @@ public class ScientificApplications extends MainApplication{
                 switch (funcIn) {
                     case "sin":
                         System.out.println("Sine results of " + douIn + " is:" + Math.sin(douIn));
+                        resultPrint(str2,Math.sin(douIn));
                         saveMeme(Math.sin(douIn));
                         doAgain();
                         break;
 
                     case "cos":
                         System.out.println("Cosine results of " + douIn + " is:" + Math.cos(douIn));
+                        resultPrint(str2,Math.cos(douIn));
                         saveMeme(Math.cos(douIn));
                         doAgain();
                         break;
 
                     case "tan":
                         System.out.println("Tangent results of " + douIn + " is:" + Math.tan(douIn));
+                        resultPrint(str2,Math.tan(douIn));
                         saveMeme(Math.tan(douIn));
                         doAgain();
                         break;
 
                     case "asin":
                         System.out.println("Inverse Sine results of " + douIn + " is:" + Math.asin(douIn));
+                        resultPrint(str2,Math.asin(douIn));
                         saveMeme(Math.asin(douIn));
                         doAgain();
                         break;
 
                     case "acos":
-                        System.out.println("Inverse Cosine results of " + douIn + " is:" + Math.asin(douIn));
+                        System.out.println("Inverse Cosine results of " + douIn + " is:" + Math.acos(douIn));
+                        resultPrint(str2,Math.acos(douIn));
                         saveMeme(Math.asin(douIn));
                         doAgain();
                     case "atan":
                         System.out.println("Inverse Tan results of " + douIn + " is:" + Math.atan(douIn));
+                        resultPrint(str2,Math.atan(douIn));
                         saveMeme(Math.atan(douIn));
                         doAgain();
                         break;
@@ -146,6 +161,7 @@ public class ScientificApplications extends MainApplication{
                     case "log":
                         int y = getInInput();
                         System.out.println("Logarithm results of " + y + " is:" + Math.log10(y));
+                        resultPrint(str2,Math.log10(y));
                         saveMeme(Math.log10(y));
                         doAgain();
                         break;
@@ -153,6 +169,7 @@ public class ScientificApplications extends MainApplication{
                     case "10x":
                         y = getInInput();
                         System.out.println("Inverse Log results of " + y + " is:" + Math.pow(10, y));
+                        resultPrint(str2,Math.pow(10,y));
                         Math.pow(10, y);
                         doAgain();
                         break;
@@ -160,6 +177,7 @@ public class ScientificApplications extends MainApplication{
                     case "ln":
                         y = getInInput();
                         System.out.println("Natural Log results of " + y + " is:" + Math.log(y));
+                        resultPrint(str2,Math.log(y));
                         saveMeme(Math.log(y));
                         doAgain();
                         break;
@@ -167,6 +185,7 @@ public class ScientificApplications extends MainApplication{
                     case "exp":
                         y = getInInput();
                         System.out.println("Inverse Natural Log results of " + y + " is:" + Math.exp(y));
+                        resultPrint(str2,Math.exp(y));
                         saveMeme(Math.exp(y));
                         doAgain();
                         break;
@@ -174,18 +193,21 @@ public class ScientificApplications extends MainApplication{
                     case "x!":
                         y = getInInput();
                         FactorialFunction(y);
+                        resultPrint(str2, FactorialFunction(y));
                         saveMeme(FactorialFunction(y));
                         doAgain();
                         break;
 
                     case "sqr":
                         System.out.println("Square results of " + douIn + " is:" + douIn * douIn);
+                        resultPrint(str2,douIn * douIn);
                         saveMeme(douIn * douIn);
                         doAgain();
                         break;
 
                     case "sqrt":
                         System.out.println("Square Root  results of " + douIn + " is:" + Math.sqrt(douIn));
+                        resultPrint(str2,Math.sqrt(douIn));
                         saveMeme(Math.sqrt(douIn));
                         doAgain();
                         break;

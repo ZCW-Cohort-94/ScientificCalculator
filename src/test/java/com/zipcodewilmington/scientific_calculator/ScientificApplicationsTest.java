@@ -1,7 +1,9 @@
 package com.zipcodewilmington.scientific_calculator;
 
 import junit.framework.TestCase;
+import junit.framework.TestResult;
 import org.junit.Test;
+
 
 public class ScientificApplicationsTest extends TestCase {
 
@@ -28,5 +30,6 @@ public class ScientificApplicationsTest extends TestCase {
 
     @Test
     public void factorialFunction() {
+        assertEquals(6,3);
     }
 }
