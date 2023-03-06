@@ -1,90 +1,131 @@
 package com.zipcodewilmington.scientificcalculator;
+import com.sun.tools.javac.Main;
+
 import java.util.Scanner;
-public class CoreApplications {
+public class CoreApplications extends MainApplication {
     public Integer num1, num2, value;
-    public char operator;
+    String str2 = trungsCalculator();
+    String num1Str;
+    StringBuilder stringBuilder = new StringBuilder();
+    StringBuilder stringBuilder2 = new StringBuilder();
+    ScientificApplications scienceApps = new ScientificApplications();
 //    Core Features
-//    All calculators should have the following features:
-//    A state, representing the value currently displayed on the calculator (default 0) *
-        public int defaultState() {
-//          String defaultState = "0";
-            int defaultState = 0;
-            int displayNumber = defaultState;
-            return displayNumber;
+
+
+    //    Clear the display *
+    public static void clearDisplay() {
+        trungsCalculator();
+    }
+
+    //    Add, subtract, multiply, and divide the value on the display by a given number
+    public Integer calculate() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter an integer to calculate");
+
+        //gets the first number of an input
+        try{
+            num1Str = in.nextLine();
+            num1 = Integer.parseInt(num1Str);
+        }catch(Exception e){
+            System.out.println("Enter an integer!!");
+            calculate();
         }
+        stringBuilder.append(num1Str);
+        stringBuilder2.append(num1Str);
+        str2 = str2.replaceAll("0.0", stringBuilder.toString());
+        System.out.println(str2);
 
-//    Get the current number on the display *
-
-
-//    Clear the display *
-        public static void clearDisplay() {
-            //defaultState();
-        }
-
-//    Change the number on the display *
-        public Integer getNumbers() {
-            Scanner in = new Scanner(System.in);
-            System.out.println("Enter the first number");
-            num1 = in.nextInt();
-            System.out.println("Enter the operator (+,-,*,/,^,r (for root),i (for inverse), e (for exponent)");
-            operator = in.next().charAt(0);
-            //if statement here if they choose an operator that requires a second number
-            System.out.println("Enter the second number");
-            num2 = in.nextInt();
-            return 0;
-        }
-
-
-//    Add, subtract, multiply, and divide the value on the display by a given number
-        public Integer calculate()
-        {
-            switch(operator)
-            {
-                // performs addition between numbers
-                case '+':
-                    value = Math.addExact(num1,num2);
+        //get the user operator
+        System.out.println("Enter an operator: +,-,*,/ or \"ac\" to clear");
+        String operator = in.nextLine();
+        if(operator.equals("ac")) {
+            clearDisplay();
+        }else{
+            stringBuilder.append(operator);
+            str2 = str2.replaceAll(stringBuilder2.toString(), stringBuilder.toString());
+            System.out.println(str2);
+            switch (operator) {
+                case "ac":
+                    clearDisplay();
                     break;
-                    // performs subtraction between numbers
-                case '-':
+                case "+":
+                    //get second number
+                    System.out.println("Please enter another number");
+                    num2 = in.nextInt();
+                    stringBuilder2.setLength(0);
+                    value = Math.addExact(num1, num2);
+                    stringBuilder2.append(value);
+                    System.out.println(str2.replaceAll(stringBuilder.toString(), stringBuilder2.toString()));
+                    stringBuilder.setLength(0);
+                    stringBuilder2.setLength(0);
+                    scienceApps.doAgain();
+                    break;
+                case "-":
+                    System.out.println("Please enter another number");
+                    num2 = in.nextInt();
+                    stringBuilder2.setLength(0);
                     value = Math.subtractExact(num1,num2);
+                    stringBuilder2.append(value);
+                    System.out.println(str2.replaceAll(stringBuilder.toString(), stringBuilder2.toString()));
+                    stringBuilder.setLength(0);
+                    stringBuilder2.setLength(0);
+                    scienceApps.doAgain();
                     break;
-
-                    // performs multiplication between numbers
-                case '*':
-                    value = Math.multiplyExact(num1,num2);
+                case "*":
+                    System.out.println("Please enter another number");
+                    num2 = in.nextInt();
+                    stringBuilder2.setLength(0);
+                    value = num1*num2;
+                    stringBuilder2.append(value);
+                    System.out.println(str2.replaceAll(stringBuilder.toString(), stringBuilder2.toString()));
+                    stringBuilder.setLength(0);
+                    stringBuilder2.setLength(0);
+                    scienceApps.doAgain();
                     break;
-
-                    // performs division between numbers
-                case '/':
-                    value = Math.floorDiv(num1,num2);
-                    break;
-
-                case 'r':
-                    //value = Math.sqrt((double)num1);
-                    break;
-
-                    default:
+                case "/":
+                    System.out.println("Please enter another number");
+                    //double num1Doub = num1;
+                    num2 = in.nextInt();
+                    stringBuilder2.setLength(0);
+                //    Update the display to Err if an error occurs (eg: Division by zero) *
+                    if(num2 == 0) {
                         errorMessage();
+                    }else {
+                    value = num1 / num2;
+                    stringBuilder2.append(value);
+                    System.out.println(str2.replaceAll(stringBuilder.toString(), stringBuilder2.toString()));
+                    stringBuilder.setLength(0);
+                    stringBuilder2.setLength(0);
+                    scienceApps.doAgain();
                         break;
+                    }
             }
-            return value;
         }
+        return 0;
+    } // end of calculate
 
-//    Calculate the square (x2) and square root (√x) of the number on the display *
-//    Calculate variable exponentiation (xy)
-//    Calculate the inverse of the number on the display (1/x) *
+    //    Errors must be cleared before any other operation can take place *
+    public String errorMessage()
+    {
+        String errorMessage = "Err";
+        str2 = str2.replaceAll(stringBuilder.toString(), errorMessage);
+        System.out.println(str2);
+        Scanner in = new Scanner(System.in);
+        String clear = in.nextLine();
+        if(clear.equals("ac")) {
+            clearDisplay();
+        }else{
+            errorMessage();
+        }
+        return errorMessage;
+    }
+}
+
+
+
 //    Invert the sign of the number on the display (switch between positive and negative)
 
 
 
-//    Update the display to Err if an error occurs (eg: Division by zero) *
-//    Errors must be cleared before any other operation can take place *
-    public String errorMessage()
-    {
-         String errorMessage = "Err";
-         return errorMessage;
-    }
 
 
-
-}
