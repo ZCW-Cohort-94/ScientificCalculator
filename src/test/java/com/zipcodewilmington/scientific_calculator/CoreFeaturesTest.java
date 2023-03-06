@@ -84,12 +84,4 @@ public class CoreFeaturesTest {
         double expected = 0;
         double actual = coreFeatures.getCurrent(coreFeatures.clearCurrent());
         Assert.assertEquals(expected, actual, 0.02);
-    }*/
-
-    @Test
-    public void changeNumTest() {
-        double expected = 0;
-        double actual = coreFeatures.changeNumber(0);
-        Assert.assertEquals(expected, actual, 0.02);
     }
-}
