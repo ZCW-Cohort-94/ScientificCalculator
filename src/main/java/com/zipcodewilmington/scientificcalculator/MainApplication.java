@@ -7,8 +7,8 @@ import java.util.Scanner;
  * Created by leon on 2/9/18.
  */
 public class MainApplication {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         char mathInput;
@@ -78,7 +78,7 @@ public class MainApplication {
                             scan.nextLine();
                         }
                     }
-                    System.out.println(CoreFeatures.add(input1, input2));
+                    printThisOut(CoreFeatures.add(input1, input2));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     scan.nextLine();
@@ -94,7 +94,7 @@ public class MainApplication {
                             scan.nextLine();
                         }
                     }
-                    System.out.println(CoreFeatures.subtract(input1, input2));
+                    printThisOut(CoreFeatures.subtract(input1, input2));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     scan.nextLine();
@@ -111,7 +111,7 @@ public class MainApplication {
                         }
                     }
 
-                    System.out.println(CoreFeatures.multiply(input1, input2));
+                    printThisOut(CoreFeatures.multiply(input1, input2));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     scan.nextLine();
@@ -127,14 +127,14 @@ public class MainApplication {
                             scan.nextLine();
                         }
                     }
-                    System.out.println(CoreFeatures.divide(input1, input2));
+                    printThisOut(CoreFeatures.divide(input1, input2));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     scan.nextLine();
                     break;
 
                 case'r':
-                    System.out.println(CoreFeatures.square(input1));
+                    printThisOut(CoreFeatures.square(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
@@ -155,72 +155,72 @@ public class MainApplication {
                             scan.nextLine();
                         }
                     }
-                    System.out.println(CoreFeatures.exponent(input1, input2));
+                    printThisOut(CoreFeatures.exponent(input1, input2));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     scan.nextLine();
                     break;
 
                 case'u':
-                    System.out.println(CoreFeatures.inverse(input1));
+                    printThisOut(CoreFeatures.inverse(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
 
                 case'i':
-                    System.out.println(CoreFeatures.invert(input1));
+                    printThisOut(CoreFeatures.invert(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
                 case'a':
-                    System.out.println(ScientificFeatures.getSin(input1));
+                    printThisOut(ScientificFeatures.getSin(input1));
                     input1 = ScientificFeatures.getSin(input1);
                     break;
                 case'b':
-                    System.out.println(ScientificFeatures.getCos(input1));
+                    printThisOut(ScientificFeatures.getCos(input1));
                     input1 = ScientificFeatures.getCos(input1);
                     break;
                 case'd':
-                    System.out.println(ScientificFeatures.getTan(input1));
+                    printThisOut(ScientificFeatures.getTan(input1));
                     input1 = ScientificFeatures.getTan(input1);
                     break;
                 case'f':
-                    System.out.println(ScientificFeatures.getInvSin(input1));
+                    printThisOut(ScientificFeatures.getInvSin(input1));
                     input1 = ScientificFeatures.getInvSin(input1);
                     break;
                 case'g':
-                    System.out.println(ScientificFeatures.getInvCos(input1));
+                    printThisOut(ScientificFeatures.getInvCos(input1));
                     input1 = ScientificFeatures.getInvCos(input1);
                     break;
                 case'h':
-                    System.out.println(ScientificFeatures.getInvTan(input1));
+                    printThisOut(ScientificFeatures.getInvTan(input1));
                     input1 = ScientificFeatures.getInvTan(input1);
                     break;
                 case'j':
-                    System.out.println(ScientificFeatures.getLog(input1));
+                    printThisOut(ScientificFeatures.getLog(input1));
                     input1 = ScientificFeatures.getLog(input1);
                     break;
                 case'k':
-                    System.out.println(ScientificFeatures.invLog(input1));
+                    printThisOut(ScientificFeatures.invLog(input1));
                     input1 = ScientificFeatures.invLog(input1);
                     break;
                 case'm':
-                    System.out.println(ScientificFeatures.getNatLog(input1));
+                    printThisOut(ScientificFeatures.getNatLog(input1));
                     input1 = ScientificFeatures.getNatLog(input1);
                     break;
                 case'z':
-                    System.out.println(ScientificFeatures.getFactorial(input1));
+                    printThisOut(ScientificFeatures.getFactorial(input1));
                     input1 = ScientificFeatures.getFactorial(input1);
                     break;
                 case'x':
                     System.out.print("Enter your second number: ");
                     input2 = scan.nextDouble();
-                    System.out.println(ScientificFeatures.getPythagoreanTheorem(input1,input2));
+                    printThisOut(ScientificFeatures.getPythagoreanTheorem(input1,input2));
                     input1 = ScientificFeatures.getPythagoreanTheorem(input1,input2);
                     scan.nextLine();
                     break;
                 case'v':
-                    System.out.println(ScientificFeatures.getCircleFromRadius(input1));
+                    printThisOut(ScientificFeatures.getCircleFromRadius(input1));
                     input1 = ScientificFeatures.getCircleFromRadius(input1);
                     break;
 
@@ -233,5 +233,9 @@ public class MainApplication {
             }
 
         }
+    }
+    private static void printThisOut(double value) {
+        System.out.println(value);
+
     }
 }
