@@ -11,23 +11,9 @@ public class MainApplication {
 
 
     public static void main(String[] args) {
-//        Console.println("Welcome to my calculator!");
-//        String s = Console.getStringInput("Enter a string");
-//        Integer i = Console.getIntegerInput("Enter an integer");
-//        Double d = Console.getDoubleInput("Enter a double.");
-//
-//        Console.println("The user input %s as a string", s);
-//        Console.println("The user input %s as a integer", i);
-//        Console.println("The user input %s as a d", d);
         trungsCalculator();
         ScientificApplications scientificApplications = new ScientificApplications();
         scientificApplications.scientificFunc();
-
-        //don't need any of the below
-        //CoreApplications coreApplications = new CoreApplications();
-        //System.out.println(coreApplications.defaultState());
-        //coreApplications.getNumbers();
-        //System.out.println(coreApplications.calculate());
 
     }
     public static String trungsCalculator() {
@@ -44,18 +30,4 @@ public class MainApplication {
         System.out.println(str1);
         return str1;
     }
-//    public static void saveMeme(double valueToStore) {
-//        System.out.print("\n \n \n Key m to store your results (or enter to skip)");
-//        Scanner store = new Scanner(System.in);
-//        String memo = store.nextLine();
-//        if (memo.equals("m")) {
-//            ScientificApplications.meme = valueToStore;
-//        }
-//    }
-//
-//    //call memory
-//    public static double callMeme() {
-//        System.out.println("Memory value is:"+ ScientificApplications.meme);
-//        return ScientificApplications.meme;
-//    }
 }
