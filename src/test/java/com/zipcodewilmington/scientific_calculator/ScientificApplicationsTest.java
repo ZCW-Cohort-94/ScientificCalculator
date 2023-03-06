@@ -4,10 +4,11 @@ import com.zipcodewilmington.scientificcalculator.MainApplication;
 import com.zipcodewilmington.scientificcalculator.ScientificApplications;
 import junit.framework.TestCase;
 import junit.framework.TestResult;
+import org.junit.Assert;
 import org.junit.Test;
 
 
-//public class ScientificApplicationsTest extends TestCase {
+public class ScientificApplicationsTest extends TestCase {
 
 //    @Test
 //    void checkDrawingCalculatorString(){
@@ -31,9 +32,9 @@ import org.junit.Test;
 ////    public void scientificFunc() {
 ////    }
 //
-//    @Test
-//    public void factorialFunction() {
-//        ScientificApplications testFunc = new ScientificApplications();
-//        assertEquals(6,testFunc);
-//    }
-//}
+    @Test
+    public void factorialFunction() {
+        int actual = ScientificApplications.factorialFunction(3);
+        Assert.assertEquals(6, actual);
+    }
+}
