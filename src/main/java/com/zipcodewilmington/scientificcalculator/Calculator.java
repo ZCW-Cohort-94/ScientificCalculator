@@ -11,6 +11,7 @@ public class Calculator {
     boolean isRad = true;
     boolean isErr = false;
 
+
     ScientificApplication sa = new ScientificApplication();
 
     public void run() {
@@ -19,11 +20,6 @@ public class Calculator {
         // get first number
         currentNumber = askUserInput();
         printCurrentAns(String.valueOf(currentNumber));
-
-//        //check type of operation and perform calculation
-//        operator = scanner.next(); // reads the input as a string
-//        checkOperation();
-//        System.out.println(result);
 
         while (!operator.equalsIgnoreCase("X")) {
             //if current display showing error, user will need to clear it
@@ -43,7 +39,7 @@ public class Calculator {
                 }
                 isErr = false;
                 currentNumber = 0.0;
-                printCurrentAns("" + currentNumber);
+                printCurrentAns(String.valueOf(currentNumber));
                 currentNumber = askUserInput();
             }
 
@@ -82,28 +78,29 @@ public class Calculator {
                 checkOperation();
                 if (!isErr) {
                     if (sa.getCurrentMode() != 0) {
-                        printCurrentAns("" + sa.convertToDisplayMode((int) currentNumber));
+                        printCurrentAns(String.valueOf(sa.convertToDisplayMode((int) currentNumber)));
                     } else {
-                        printCurrentAns("" + currentNumber);
+                        printCurrentAns(String.valueOf(currentNumber));
                     }
                 }
-                //printCurrentAns(""+sa.convertToDisplayMode((int) result));
-                //System.out.println("Ans: "+sa.convertToDisplayMode((int) result));
             }
         }
     }
 
     public double askUserInput() {
-        System.out.print("Enter a number | or (MRC) for a saved value: ");
+        System.out.print("Enter a number | (e) for e | (pi) for pi | or (MRC) for a saved value: ");
         scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         if (input.equalsIgnoreCase("MRC")) {
             return sa.getMemory();
+        } if(input.equalsIgnoreCase("e")){
+            return ScientificApplication.getE();
+        } if(input.equalsIgnoreCase("pi")){
+            return ScientificApplication.getPi();
         } else {
             return Double.parseDouble(input);
         }
     }
-
 
     public void printOperatorPrompt(){
         System.out.println("-------------------------------------------------------------------------------");
