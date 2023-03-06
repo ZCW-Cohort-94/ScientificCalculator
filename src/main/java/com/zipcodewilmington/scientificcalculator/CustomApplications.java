@@ -1,17 +1,15 @@
 package com.zipcodewilmington.scientificcalculator;
 
-import org.codehaus.plexus.util.StringUtils;
-
 import java.util.Scanner;
 
 
 public class CustomApplications {
 
-    String operation;
-    int inputNumber1;
-    int inputNumber2;
+    public String operation;
+    public int inputNumber1;
+    public int inputNumber2;
 
-    public void getNumbers() {
+    public void getInputNumbers() {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the Operation:");
         System.out.println("Least Common multiple [LCM]");
@@ -26,7 +24,7 @@ public class CustomApplications {
         this.calculate();
     }
 
-    public void calculate() {
+    public int calculate() {
         int gcd = 1;
         int lcm;
         for (int i = 1; i <= inputNumber1 && i <= inputNumber2; i++) {
@@ -39,19 +37,21 @@ public class CustomApplications {
                 lcm = (inputNumber1 * inputNumber2) / gcd;
                 System.out.println("Least Common multiple [LCM] of " + inputNumber1 + " and "
                         + inputNumber2 + " is " + lcm);
+                return lcm;
 
-                break;
-            case "gcd":
-
+                case "gcd":
                 System.out.println("Greatest Common Divisor [GCD] of " + inputNumber1 + " and "
                         + inputNumber2 + " is " + gcd);
-                break;
+                return gcd;
+
+            default:
+                return 0;
         }
     }
 
     public static void main(String[] args) {
         CustomApplications calc1 = new CustomApplications();
-        calc1.getNumbers();
+        calc1.getInputNumbers();
         //calc1.calculate();
     }
 }
