@@ -1,5 +1,7 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.util.Scanner;
+
 public class ScientificFeatures {
 
     public enum TUnit {DEGREES, RADIANS} //What is the format of the Trig Unit.
@@ -8,54 +10,64 @@ public class ScientificFeatures {
     public Display_Mode current_Mode = Display_Mode.DECIMAL;
     public static double memory = 0;
     //binary, octal, decimal, hexadecimal
+    public void DisplayModeCore(){
+        System.out.println("Select display mode");
+        System.out.println("Binary/Decimal/Hex/Octal");
+        Scanner type = new Scanner(System.in);
+        switchDisplayModeText(type.nextLine());
+   //     type.close();
+    }
+
+    public void TrigModeCore(){
+        System.out.println("Select Trig mode");
+        System.out.println("Degrees/Radians");
+        Scanner type = new Scanner(System.in);
+        switchUnitsModeText(type.nextLine());
+  //      type.close();
+    }
 
     //public static class DisplayMode {
-        public Display_Mode switchDisplayMode() {
-            if (current_Mode == Display_Mode.BINARY){
-                current_Mode = Display_Mode.OCTAL;
-            }else if(current_Mode == Display_Mode.OCTAL){
-                current_Mode = Display_Mode.DECIMAL;
-            }else if(current_Mode == Display_Mode.DECIMAL) {
-                current_Mode = Display_Mode.HEX;
-            }else{
+    public Display_Mode switchDisplayMode() {
+        if (current_Mode == Display_Mode.BINARY){
+            current_Mode = Display_Mode.OCTAL;
+        }else if(current_Mode == Display_Mode.OCTAL){
+            current_Mode = Display_Mode.DECIMAL;
+        }else if(current_Mode == Display_Mode.DECIMAL) {
+            current_Mode = Display_Mode.HEX;
+        }else{
+            current_Mode = Display_Mode.BINARY;
+        }
+        return current_Mode;
+    }
+    public void switchDisplayModeText(String mode) {
+        switch (mode) {
+            case "Binary":
                 current_Mode = Display_Mode.BINARY;
-            }
-            return current_Mode;
+                break;
+            case "Octal":
+                current_Mode = Display_Mode.OCTAL;
+                break;
+            case "Decimal":
+                current_Mode = Display_Mode.DECIMAL;
+                break;
+            case "Hex":
+                current_Mode = Display_Mode.HEX;
+                break;
+            default:
+                System.out.println("Error in Setting Display Mode to: " + mode);
         }
-
-        public Display_Mode switchDisplayModeText(String mode) {
-            switch (mode) {
-                case "Binary":
-                    current_Mode = Display_Mode.BINARY;
-                    break;
-                case "Octal":
-                    current_Mode = Display_Mode.OCTAL;
-                    break;
-                case "Decimal":
-                    current_Mode = Display_Mode.DECIMAL;
-                    break;
-                case "Hex":
-                    current_Mode = Display_Mode.HEX;
-                    break;
-                default:
-                    System.out.println("Error in Setting Display Mode to: " + mode);
-                    break;
-            }
-            return current_Mode;
+    }
+    public String convert(double value) { //This accepts int values only. I couldn't figure out Double values
+        if (current_Mode == Display_Mode.BINARY) {
+            return Integer.toBinaryString((int)value);
+        } else if (current_Mode == Display_Mode.OCTAL) {
+            return Integer.toOctalString((int)value);
+        } else if (current_Mode == Display_Mode.HEX) {
+            return Integer.toHexString((int)value);
+        } else { //DECIMAL
+            return Double.toString(value);
         }
-
-        public String convert(double value) { //This accepts int values only. I couldn't figure out Double values
-            if (current_Mode == Display_Mode.BINARY) {
-                return Integer.toBinaryString((int)value);
-            } else if (current_Mode == Display_Mode.OCTAL) {
-                return Integer.toOctalString((int)value);
-            } else if (current_Mode == Display_Mode.HEX) {
-                return Integer.toHexString((int)value);
-            } else { //DECIMAL
-                return Double.toString(value);
-            }
-
-        }
+    }
     //} //
 
     //Memory

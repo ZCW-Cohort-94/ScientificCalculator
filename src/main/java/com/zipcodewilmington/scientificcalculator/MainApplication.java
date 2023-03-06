@@ -1,5 +1,4 @@
 package com.zipcodewilmington.scientificcalculator;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,7 +6,7 @@ import java.util.Scanner;
  * Created by leon on 2/9/18.
  */
 public class MainApplication {
-
+    public static ScientificFeatures scientificFeatures = new ScientificFeatures();
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -31,35 +30,37 @@ public class MainApplication {
         CoreFeatures.help();
         System.out.print("Please input a number: ");
 
-        while(true) {
+        while (true) {
             try {
-                input1 = scan.nextDouble(); break;
+                input1 = scan.nextDouble();
+                break;
             } catch (InputMismatchException e) {
                 System.out.print("Invalid number, Please input Number: ");
                 scan.nextLine();
             }
         }
 
-            scan.nextLine();
+        scan.nextLine();
         while (on) {
             System.out.print("Please input an arithmetic expression: ");
             mathInput = scan.nextLine().charAt(0);
 
 
-            switch(mathInput){
-                case'q':
+            switch (mathInput) {
+                case 'q':
                     System.out.print("Good bye");
                     on = false;
                     break;
 
-                case'c':
+                case 'c':
                     currentNumber = 0;
                     on = true;
                     System.out.print("System is clear, input new value: ");
                     currentNumber = CoreFeatures.currentState;
-                    while(true) {
+                    while (true) {
                         try {
-                            input1 = scan.nextDouble(); break;
+                            input1 = scan.nextDouble();
+                            break;
                         } catch (InputMismatchException e) {
                             System.out.println("Invalid Input");
                             scan.nextLine();
@@ -70,9 +71,10 @@ public class MainApplication {
 
                 case '+':
                     System.out.print("Enter your second number: ");
-                    while(true){
+                    while (true) {
                         try {
-                            input2 = scan.nextDouble(); break;
+                            input2 = scan.nextDouble();
+                            break;
                         } catch (InputMismatchException e) {
                             System.out.println("Invalid Input");
                             scan.nextLine();
@@ -86,9 +88,10 @@ public class MainApplication {
 
                 case '-':
                     System.out.print("Enter your second number: ");
-                    while(true) {
+                    while (true) {
                         try {
-                            input2 = scan.nextDouble(); break;
+                            input2 = scan.nextDouble();
+                            break;
                         } catch (InputMismatchException e) {
                             System.out.println("Invalid Input");
                             scan.nextLine();
@@ -102,9 +105,10 @@ public class MainApplication {
 
                 case '*':
                     System.out.print("Enter your second number: ");
-                    while(true){
+                    while (true) {
                         try {
-                            input2 = scan.nextDouble(); break;
+                            input2 = scan.nextDouble();
+                            break;
                         } catch (InputMismatchException e) {
                             System.out.println("Invalid Input");
                             scan.nextLine();
@@ -117,11 +121,12 @@ public class MainApplication {
                     scan.nextLine();
                     break;
 
-                case'/':
+                case '/':
                     System.out.print("Enter your second number: ");
-                    while(true) {
+                    while (true) {
                         try {
-                            input2 = scan.nextDouble(); break;
+                            input2 = scan.nextDouble();
+                            break;
                         } catch (InputMismatchException e) {
                             System.out.println("Invalid Input");
                             scan.nextLine();
@@ -133,23 +138,24 @@ public class MainApplication {
                     scan.nextLine();
                     break;
 
-                case'r':
+                case 'r':
                     printThisOut(CoreFeatures.square(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
 
-                case't':
+                case 't':
                     System.out.println(CoreFeatures.sqrt(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
 
-                case'y':
+                case 'y':
                     System.out.println("Enter your second number: ");
-                    while(true) {
+                    while (true) {
                         try {
-                            input2 = scan.nextDouble(); break;
+                            input2 = scan.nextDouble();
+                            break;
                         } catch (InputMismatchException e) {
                             System.out.println("Invalid Input");
                             scan.nextLine();
@@ -161,65 +167,65 @@ public class MainApplication {
                     scan.nextLine();
                     break;
 
-                case'u':
+                case 'u':
                     printThisOut(CoreFeatures.inverse(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
 
-                case'i':
+                case 'i':
                     printThisOut(CoreFeatures.invert(input1));
                     currentNumber = CoreFeatures.currentState;
                     input1 = currentNumber;
                     break;
-                case'a':
+                case 'a':
                     printThisOut(ScientificFeatures.getSin(input1));
                     input1 = ScientificFeatures.getSin(input1);
                     break;
-                case'b':
+                case 'b':
                     printThisOut(ScientificFeatures.getCos(input1));
                     input1 = ScientificFeatures.getCos(input1);
                     break;
-                case'd':
+                case 'd':
                     printThisOut(ScientificFeatures.getTan(input1));
                     input1 = ScientificFeatures.getTan(input1);
                     break;
-                case'f':
+                case 'f':
                     printThisOut(ScientificFeatures.getInvSin(input1));
                     input1 = ScientificFeatures.getInvSin(input1);
                     break;
-                case'g':
+                case 'g':
                     printThisOut(ScientificFeatures.getInvCos(input1));
                     input1 = ScientificFeatures.getInvCos(input1);
                     break;
-                case'h':
+                case 'h':
                     printThisOut(ScientificFeatures.getInvTan(input1));
                     input1 = ScientificFeatures.getInvTan(input1);
                     break;
-                case'j':
+                case 'j':
                     printThisOut(ScientificFeatures.getLog(input1));
                     input1 = ScientificFeatures.getLog(input1);
                     break;
-                case'k':
+                case 'k':
                     printThisOut(ScientificFeatures.invLog(input1));
                     input1 = ScientificFeatures.invLog(input1);
                     break;
-                case'm':
+                case 'm':
                     printThisOut(ScientificFeatures.getNatLog(input1));
                     input1 = ScientificFeatures.getNatLog(input1);
                     break;
-                case'z':
+                case 'z':
                     printThisOut(ScientificFeatures.getFactorial(input1));
                     input1 = ScientificFeatures.getFactorial(input1);
                     break;
-                case'x':
+                case 'x':
                     System.out.print("Enter your second number: ");
                     input2 = scan.nextDouble();
-                    printThisOut(ScientificFeatures.getPythagoreanTheorem(input1,input2));
-                    input1 = ScientificFeatures.getPythagoreanTheorem(input1,input2);
+                    printThisOut(ScientificFeatures.getPythagoreanTheorem(input1, input2));
+                    input1 = ScientificFeatures.getPythagoreanTheorem(input1, input2);
                     scan.nextLine();
                     break;
-                case'v':
+                case 'v':
                     printThisOut(ScientificFeatures.getCircleFromRadius(input1));
                     input1 = ScientificFeatures.getCircleFromRadius(input1);
                     break;
@@ -227,22 +233,25 @@ public class MainApplication {
                     System.out.println(input1 + " will be saved");
                     ScientificFeatures.addToMemory(input1);
                     break;
-                case'>':
+                case '>':
                     input1 = ScientificFeatures.getMemory();
                     System.out.println(input1);
                     break;
-                case'?':
+                case '?':
                     System.out.println("Clearing memory");
                     System.out.println("Your current value is: " + input1);
                     ScientificFeatures.clearMemory();
                     break;
-
-
-                case'.':
+                case '.':
                     System.out.println("Set Display Mode");
-                    input1 = ScientificFeatures.getCircleFromRadius(input1);
+                    scientificFeatures.DisplayModeCore();
                     break;
-
+                case ',':
+                    System.out.println("Set Trig Mode");
+                    scientificFeatures.TrigModeCore();
+                    input1 = scientificFeatures.formatUnitAnswer(input1);
+                    System.out.println(input1);
+                    break;
                 default:
                     System.out.println("Invalid input");
                     CoreFeatures.help();
@@ -253,12 +262,7 @@ public class MainApplication {
 
         }
     }
-    private static DisplayModeCore(){
-
-
-    }
-    private static void printThisOut(double value) {
-        System.out.println(value);
-
+    public static void printThisOut(double value) {
+        System.out.println(scientificFeatures.convert(value));
     }
 }

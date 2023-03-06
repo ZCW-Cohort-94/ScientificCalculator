@@ -57,7 +57,7 @@ public class ScientificFeaturesTest {
     }
     @Test
     public void displayModeTest() {
-        String expected = "1234";
+        String expected = "10344";
         scientificFeatures.switchDisplayModeText("Octal");
         String actual = scientificFeatures.convert(4324);
         Assert.assertEquals(expected, actual);
