@@ -10,4 +10,23 @@ public class ScientificApplicationsTest extends TestCase {
         var string1 = new String();
     }
 
+    @Test
+    public void doAgain() {
+    }
+
+    @Test
+    public void saveMeme() {
+    }
+
+    @Test
+    public void callMeme() {
+    }
+
+//    @Test
+//    public void scientificFunc() {
+//    }
+
+    @Test
+    public void factorialFunction() {
+    }
 }
