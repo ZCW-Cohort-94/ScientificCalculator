@@ -224,6 +224,11 @@ public class MainApplication {
                     input1 = ScientificFeatures.getCircleFromRadius(input1);
                     break;
 
+                case'.':
+                    System.out.println("Set Display Mode");
+                    input1 = ScientificFeatures.getCircleFromRadius(input1);
+                    break;
+
                 default:
                     System.out.println("Invalid input");
                     CoreFeatures.help();
@@ -233,6 +238,10 @@ public class MainApplication {
             }
 
         }
+    }
+    private static DisplayModeCore(){
+
+
     }
     private static void printThisOut(double value) {
         System.out.println(value);
