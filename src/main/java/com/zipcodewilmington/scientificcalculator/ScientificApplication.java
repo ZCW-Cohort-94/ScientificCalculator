@@ -2,12 +2,15 @@ package com.zipcodewilmington.scientificcalculator;
 
 public class ScientificApplication {
 
-
     private int currentMode = 0;
+
     private int memory = 0;
     private int display = 0;
     private static boolean isRadians = true;
 
+    public int getCurrentMode() {
+        return currentMode;
+    }
     public void switchDisplayMode() {
         // binary, octal, decimal, hexadecimal
         currentMode++;
@@ -91,6 +94,13 @@ public class ScientificApplication {
         System.out.println("Trig units mode set to " + (isRadians ? "radians" : "degrees"));
     }
 
+    public static double radiansToDegrees(double radians) {
+        return Math.toDegrees(radians);
+    }
+
+    public static double degreesToRadians(double degrees) {
+        return Math.toRadians(degrees);
+    }
 
     //switchUnitsMode ()rotate through options
     //switchUnitsMode (String mode) set trig units to type given

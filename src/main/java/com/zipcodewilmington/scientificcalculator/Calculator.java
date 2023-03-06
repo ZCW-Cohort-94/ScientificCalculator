@@ -8,6 +8,7 @@ public class Calculator {
     double firstNumber = 0; //reads the input as a 'double' value
     String operator = null; // reads the input as a string
     double result = 0; // variable used to store the result of operation
+    boolean isRad = true;
 
     ScientificApplication sa = new ScientificApplication();
 
@@ -17,21 +18,27 @@ public class Calculator {
 
         firstNumber = scanner.nextDouble();
 
-        System.out.println("Enter operator ( + , - , * , / , sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog,!,)  or Enter \"X\" to exit program :"); // prompting the user to enter the operator
-
+        System.out.println("Enter operator ( + , - , * , / )"); // prompting the user to enter the operator
+        System.out.println("or choose scientific function (sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog, !) ");
+        System.out.println("or enter 'mode' to switch mode");
+        System.out.println("or enter 'X' to exit program");
         operator = scanner.next(); // reads the input as a string
         checkOperation();
         System.out.println(result);
 
         while (!operator.equalsIgnoreCase("X")) {
-            System.out.println("Enter operator ( + , - , * , / , sqrt, square, exp ) or Enter \"X\" to exit program :"); // prompting the user to enter the operator
+            System.out.println("Enter operator ( + , - , * , / )"); // prompting the user to enter the operator
+            System.out.println("or choose scientific function (sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog, !) ");
+            System.out.println("or enter 'mode' to switch mode");
+            System.out.println("or enter 'X' to exit program");
             operator = scanner.next(); // reads the input as a string
             if (operator.equalsIgnoreCase("X")) {
                 System.out.println("Good Bye");
             } else {
                 firstNumber=result;
                 checkOperation();
-                System.out.println(result);
+
+                System.out.println(sa.convertToDisplayMode((int) result));
             }
         }
     }
@@ -88,21 +95,27 @@ public class Calculator {
                 break;
             case "sin":
                 result = ScientificApplication.sine(firstNumber);
+                checkDegreeOrRadian();
                 break;
             case "cos":
                 result = ScientificApplication.cosine(firstNumber);
+                checkDegreeOrRadian();
                 break;
             case "tan":
                 result = ScientificApplication.tangent(firstNumber);
+                checkDegreeOrRadian();
                 break;
             case "invsine":
                 result = ScientificApplication.inverseSine(firstNumber);
+                checkDegreeOrRadian();
                 break;
             case "invcos":
                 result = ScientificApplication.inverseCosine(firstNumber);
+                checkDegreeOrRadian();
                 break;
             case "invtan":
                 result = ScientificApplication.inverseTangent(firstNumber);
+                checkDegreeOrRadian();
                 break;
             case "log":
                 result = ScientificApplication.log(firstNumber);
@@ -119,10 +132,39 @@ public class Calculator {
             case "!":
                 result = ScientificApplication.factorial((int)firstNumber);
                 break;
+            case "mode":
+                sa.switchDisplayMode();
+                if(sa.getCurrentMode() == 0){
+                    System.out.println("decimal mode");
+                }else if (sa.getCurrentMode() == 1){
+                    System.out.println("binary mode");
+                }else if (sa.getCurrentMode() == 2){
+                    System.out.println("octal mode");
+                }else if (sa.getCurrentMode() == 3) {
+                    System.out.println("hexadecimal mode");
+                }
+                 break;
             default:
                 System.out.println("Error");
                 break;
 
+        }
+    }
+
+    public void checkDegreeOrRadian(){
+        scanner = new Scanner(System.in);
+        System.out.println("Enter 'rad' for radian unit or 'deg' for degree unit:");
+        String userInput = scanner.nextLine();
+        if(userInput.equalsIgnoreCase("rad")){
+            if(!isRad){
+                result = sa.degreesToRadians(result);
+                isRad = true;
+            }
+        } else {
+            if(isRad){
+                result = sa.radiansToDegrees(result);
+                isRad = false;
+            }
         }
     }
 
