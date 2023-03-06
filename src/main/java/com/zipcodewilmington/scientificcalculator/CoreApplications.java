@@ -1,8 +1,8 @@
 package com.zipcodewilmington.scientificcalculator;
 import java.util.Scanner;
 public class CoreApplications {
-    Integer num1, num2, value;
-    char operator;
+    public Integer num1, num2, value;
+    public char operator;
 //    Core Features
 //    All calculators should have the following features:
 //    A state, representing the value currently displayed on the calculator (default 0) *
