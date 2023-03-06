@@ -148,6 +148,7 @@ public class ScientificApplication {
             return x * factorial(x - 1);  // recursive function
     }
 
+
     public static double getPi() {
         return Math.PI;
     }
