@@ -11,7 +11,7 @@ public class ScientificApplications extends MainApplication{
     double douIn;
 
     MainApplication mainApp = new MainApplication();
-    //MAIN METHOD
+    //MAIN METHOD moved to MAIN application
     //public static void main(String[] args) {
         //scientificFunc();
     //}
@@ -192,9 +192,9 @@ public class ScientificApplications extends MainApplication{
 
                     case "x!":
                         y = getInInput();
-                        FactorialFunction(y);
-                        resultPrint(str2, FactorialFunction(y));
-                        saveMeme(FactorialFunction(y));
+                        factorialFunction(y);
+                        resultPrint(str2, factorialFunction(y));
+                        saveMeme(factorialFunction(y));
                         doAgain();
                         break;
 
@@ -235,7 +235,7 @@ public class ScientificApplications extends MainApplication{
     }
 
 //Factorial calculation
-    public static int FactorialFunction(int n) {
+    public static int factorialFunction(int n) {
         int factorialResult = 1;
         for (int i = n; i > 0; i--) {
             factorialResult = factorialResult * i;
