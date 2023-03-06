@@ -16,12 +16,12 @@ public class BasicCalculator {
         return a / b;
     }
 
-    public static int square(int a){ //square of a number
+    public static int square(int a, int i){ //square of a number
 
         return a * a;
     }
 
-    public static int squareRoot(int a){ //square root of a number
+    public static int squareRoot(int a, int i){ //square root of a number
 
         return (int) Math.pow(a, 0.5);
     }
