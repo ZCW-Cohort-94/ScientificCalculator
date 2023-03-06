@@ -206,9 +206,9 @@ public class ScientificFeaturesTest {
     }
     @Test
     public void convertTest() {
-        String expected = "24";
+        String expected = "24.4";
         scientificFeatures.switchDisplayModeText("Decimal");
-        String actual = scientificFeatures.convert(24);
+        String actual = scientificFeatures.convert(24.4);
         Assert.assertEquals(expected, actual);
     }
 
