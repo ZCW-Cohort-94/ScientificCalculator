@@ -10,7 +10,9 @@ public class CoreFeaturesTest {
     public CoreFeatures coreFeatures;
 
     @Before
-    public void setup(){coreFeatures = new CoreFeatures();}
+    public void setup() {
+        coreFeatures = new CoreFeatures();
+    }
 
     @Test
     public void addTest() {
@@ -25,12 +27,14 @@ public class CoreFeaturesTest {
         double actual = coreFeatures.subtract(100.0, 50.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
+
     @Test
     public void multiplyTest() {
         double expected = 24.0;
         double actual = coreFeatures.multiply(2.0, 12.0);
         Assert.assertEquals(expected, actual, 0.02);
     }
+
     @Test
     public void divideTest() {
         double expected = 7.0;
@@ -72,6 +76,7 @@ public class CoreFeaturesTest {
         double actual = coreFeatures.invert(1);
         Assert.assertEquals(expected, actual, 0.02);
     }
+
     @Test
     public void getCurrentTest() {
         double expected = coreFeatures.getCurrent();
@@ -85,3 +90,6 @@ public class CoreFeaturesTest {
         double actual = coreFeatures.getCurrent(coreFeatures.clearCurrent());
         Assert.assertEquals(expected, actual, 0.02);
     }
+}
+}
+     */
