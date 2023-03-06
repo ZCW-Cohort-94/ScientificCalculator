@@ -6,46 +6,110 @@ public class Calculator {
     Scanner scanner = null;
     double previousAnswer = 0.0;
     double currentNumber = 0; //reads the input as a 'double' value
-    String operator = null; // reads the input as a string
+    String operator = ""; // reads the input as a string
     double result = 0; // variable used to store the result of operation
     boolean isRad = true;
+    boolean isErr = false;
 
     ScientificApplication sa = new ScientificApplication();
 
     public void run() {
-        printCurrentAns(currentNumber);
-        System.out.println("Enter a number:"); //prompting user to input the first number
-        scanner = new Scanner(System.in); // Scanner named scanner for user input
+        printCurrentAns(String.valueOf(currentNumber));
 
-        currentNumber = scanner.nextDouble();
+        // get first number
+        currentNumber = askUserInput();
+        printCurrentAns(String.valueOf(currentNumber));
 
-        System.out.println("Enter operator ( + , - , * , / )"); // prompting the user to enter the operator
-        System.out.println("or choose scientific function (sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog, !) ");
-        System.out.println("or enter 'mode' to switch mode");
-        System.out.println("or enter 'X' to exit program");
-        operator = scanner.next(); // reads the input as a string
-        checkOperation();
-        System.out.println(result);
+//        //check type of operation and perform calculation
+//        operator = scanner.next(); // reads the input as a string
+//        checkOperation();
+//        System.out.println(result);
 
         while (!operator.equalsIgnoreCase("X")) {
-            System.out.println("Enter operator ( + , - , * , / )"); // prompting the user to enter the operator
-            System.out.println("or choose scientific function (sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog, !) ");
-            System.out.println("or enter 'mode' to switch mode");
-            System.out.println("or enter 'X' to exit program");
+            //if current display showing error, user will need to clear it
+            if (isErr) {
+                printCurrentAns("Err");
+                System.out.print("Enter 'c' to clear the output! :");
+                String clearInput = scanner.next();
+                while (!clearInput.equalsIgnoreCase("c")) {
+                    printCurrentAns("Err");
+                    System.out.print("Enter 'c' to clear the output! :");
+                    clearInput = scanner.next();
+                }
+                isErr = false;
+                currentNumber = 0.0;
+                printCurrentAns("" + currentNumber);
+                currentNumber = askUserInput();
+            }
+
+            // prompt user for input
+            printOperatorPrompt();
             operator = scanner.next(); // reads the input as a string
+
+            //check the operator type
+            //exit program
             if (operator.equalsIgnoreCase("X")) {
                 System.out.println("Good Bye");
-            } else {
-                currentNumber = result;
+            }
+            // clear console
+            else if (operator.equalsIgnoreCase("c")) {
+                previousAnswer = currentNumber;
+                currentNumber = 0.0;
+                printCurrentAns(String.valueOf(currentNumber));
+            }
+            //show previous value
+            else if (operator.equalsIgnoreCase("prev")) {
+                currentNumber = previousAnswer;
+                printCurrentAns(String.valueOf(currentNumber));
+            }
+            //save value into memory
+            else if (operator.equalsIgnoreCase("M+")) {
+                sa.setMemory(currentNumber);
+                printCurrentAns(String.valueOf(currentNumber));
+            }
+            //reset memory
+            else if (operator.equalsIgnoreCase("MC")) {
+                sa.setMemory(0.0);
+                printCurrentAns(String.valueOf(currentNumber));
+            }
+            //perform operation
+            else {
                 checkOperation();
-
-                System.out.println("Ans: "+sa.convertToDisplayMode((int) result));
+                if (!isErr) {
+                    if (sa.getCurrentMode() != 0) {
+                        printCurrentAns("" + sa.convertToDisplayMode((int) currentNumber));
+                    } else {
+                        printCurrentAns("" + currentNumber);
+                    }
+                }
+                //printCurrentAns(""+sa.convertToDisplayMode((int) result));
+                //System.out.println("Ans: "+sa.convertToDisplayMode((int) result));
             }
         }
     }
 
-    public void printCurrentAns(double result){
-        System.out.println("Ans: "+sa.convertToDisplayMode((int) result));
+    public double askUserInput() {
+        System.out.print("Enter a number | or (MRC) for a saved value: ");
+        scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        if (input.equalsIgnoreCase("MRC")) {
+            return sa.getMemory();
+        } else {
+            return Double.parseDouble(input);
+        }
+    }
+
+
+    public void printOperatorPrompt(){
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("Enter an operator ( + , - , * , / )"); // prompting the user to enter the operator
+        System.out.println("\tor a scientific function (sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog, !) ");
+        System.out.println("\tor enter (prev) for previous value | (M+) for add current val to memory | (MC) to clear memory ");
+        System.out.print("\tor enter (mode) to switch mode | (c) to clear current number | (X) to exit program: ");
+    }
+    public void printCurrentAns(String result){
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println("Ans: "+result);
     }
     /* Switch statement is used to perform the operation based on the input. user is asked to input the second number as
     a double and store it in the result variable.  */
@@ -54,87 +118,100 @@ public class Calculator {
         double secondNumber = 0;
         switch (operator) {
             case "+":
-                System.out.println("Enter second number:");
-                secondNumber = scanner.nextDouble();
-                result = add(currentNumber, secondNumber);
+                previousAnswer = currentNumber;
+                currentNumber = add(currentNumber, askUserInput());
                 break;
             case "-":
-                System.out.println("Enter second number:");
-                secondNumber = scanner.nextDouble();
-                result = subtract(currentNumber, secondNumber);
+                previousAnswer = currentNumber;
+                currentNumber = subtract(currentNumber, askUserInput());
                 break;
             case "*":
-                System.out.println("Enter second number:");
-                secondNumber = scanner.nextDouble();
-                result = multiply(currentNumber, secondNumber);
+                previousAnswer = currentNumber;
+                currentNumber = multiply(currentNumber, askUserInput());
                 break;
             case "/":
-                System.out.println("Enter second number:");
-                secondNumber = scanner.nextDouble();
+                secondNumber = askUserInput();
                 if(secondNumber==0){
-                    System.out.println("Invalid Operation");
+                    isErr = true;
                 } else {
-                    result = divide(currentNumber, secondNumber);
+                    previousAnswer = currentNumber;
+                    currentNumber = divide(currentNumber, secondNumber);
                 }
                 break;
             case "sqrt":
-                result = sqrt(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = sqrt(currentNumber);
                 break;
             case  "square":
-                result = square(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = square(currentNumber);
                 break;
             case "exp":
-                System.out.println("Enter second number:");
-                secondNumber = scanner.nextDouble();
-                result = power(currentNumber, secondNumber);
+                previousAnswer = currentNumber;
+                currentNumber = power(currentNumber, askUserInput());
                 break;
             case "inv":
-                result = inverse(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = inverse(currentNumber);
                 if (result == 0.0){
-                    System.out.println("Invalid Operation");
+                    isErr = true;
+                    currentNumber = 0.0;
                 }
                 break;
             case "invsign":
-                result  = inverseSign(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber  = inverseSign(currentNumber);
                 break;
             case "sin":
-                result = ScientificApplication.sine(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.sine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "cos":
-                result = ScientificApplication.cosine(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.cosine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "tan":
-                result = ScientificApplication.tangent(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.tangent(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "invsine":
-                result = ScientificApplication.inverseSine(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.inverseSine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "invcos":
-                result = ScientificApplication.inverseCosine(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.inverseCosine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "invtan":
-                result = ScientificApplication.inverseTangent(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.inverseTangent(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "log":
-                result = ScientificApplication.log(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.log(currentNumber);
                 break;
             case "invlog":
                 result = ScientificApplication.inverseLog(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = result;
                 break;
             case "ln":
-                result = ScientificApplication.ln(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.ln(currentNumber);
                 break;
             case "invnatlog":
-                result = ScientificApplication.inverseNaturalLog(currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.inverseNaturalLog(currentNumber);
                 break;
             case "!":
-                result = ScientificApplication.factorial((int) currentNumber);
+                previousAnswer = currentNumber;
+                currentNumber = ScientificApplication.factorial((int) currentNumber);
                 break;
             case "mode":
                 sa.switchDisplayMode();
@@ -149,7 +226,7 @@ public class Calculator {
                 }
                  break;
             default:
-                System.out.println("Error");
+                isErr = true;
                 break;
 
         }

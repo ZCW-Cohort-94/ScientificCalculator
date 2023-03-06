@@ -4,17 +4,26 @@ public class ScientificApplication {
 
     private int currentMode = 0;
 
-    private int memory = 0;
-    private int display = 0;
+    private double memory = 0.0;
+  //  private double display = 0;
     private static boolean isRadians = true;
 
+    //getter setter
     public int getCurrentMode() {
         return currentMode;
     }
-
     public void setCurrentMode(int currentMode) {
          this.currentMode = currentMode;
     }
+
+    public double getMemory() {
+        return memory;
+    }
+
+    public void setMemory(double memory) {
+        this.memory = memory;
+    }
+
     public void switchDisplayMode() {
         // binary, octal, decimal, hexadecimal
         currentMode++;
@@ -41,18 +50,18 @@ public class ScientificApplication {
     //switchDisplayOptions should rotate through options
     // convertToDisplayStringMode - sets display to mode given
 
-    public void addToMemory() {
-        memory += display;
-        display = memory;
-    }
-
-    public void resetMemory() {
-        memory = 0;
-    }
-
-    public void recallFromMemory() {
-        display = memory;
-    }
+//    public void addToMemory() {
+//        memory += display;
+//        display = memory;
+//    }
+//
+//    public void resetMemory() {
+//        memory = 0;
+//    }
+//
+//    public void recallFromMemory() {
+//        display = memory;
+//    }
 
 
     //M+key add current displayed value to value in memory, store and update displau
