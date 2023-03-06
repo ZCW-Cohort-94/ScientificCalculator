@@ -78,11 +78,22 @@ public class CoreFeatures {
         System.out.println("y for the power to");
         System.out.println("u for inverse (1/x)");
         System.out.println("i to flip the sign");
-
+        System.out.println("a for sin");
+        System.out.println("b for cos");
+        System.out.println("d for tan");
+        System.out.println("f for inverse sin");
+        System.out.println("g for inverse cos");
+        System.out.println("h for inverse tan");
+        System.out.println("j for getLog");
+        System.out.println("k for inverse log");
+        System.out.println("m for natural log");
+        System.out.println("z for factorial");
+        System.out.println("x for pythagorean theorem");
+        System.out.println("v for circle from radius");
         System.out.println("------------------");
         System.out.println("c to clear");
         System.out.println("Q to quit");
-        System.out.println();
+
     }
 
     }
