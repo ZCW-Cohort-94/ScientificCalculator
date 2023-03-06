@@ -1,22 +1,23 @@
 package com.zipcodewilmington.scientificcalculator;
 
 import java.util.Scanner;
-import java.util.*;
 
 public class Calculator {
     Scanner scanner = null;
-    double firstNumber = 0; //reads the input as a 'double' value
+    double previousAnswer = 0.0;
+    double currentNumber = 0; //reads the input as a 'double' value
     String operator = null; // reads the input as a string
     double result = 0; // variable used to store the result of operation
     boolean isRad = true;
 
     ScientificApplication sa = new ScientificApplication();
 
-    public void userInput() {
-        System.out.println("Enter first number:"); //prompting user to input the first number
+    public void run() {
+        printCurrentAns(currentNumber);
+        System.out.println("Enter a number:"); //prompting user to input the first number
         scanner = new Scanner(System.in); // Scanner named scanner for user input
 
-        firstNumber = scanner.nextDouble();
+        currentNumber = scanner.nextDouble();
 
         System.out.println("Enter operator ( + , - , * , / )"); // prompting the user to enter the operator
         System.out.println("or choose scientific function (sqrt, square, exp, sin, cos, tan, invsine, invcos, invtan, log, invlog, ln, invnatlog, !) ");
@@ -35,14 +36,17 @@ public class Calculator {
             if (operator.equalsIgnoreCase("X")) {
                 System.out.println("Good Bye");
             } else {
-                firstNumber=result;
+                currentNumber = result;
                 checkOperation();
 
-                System.out.println(sa.convertToDisplayMode((int) result));
+                System.out.println("Ans: "+sa.convertToDisplayMode((int) result));
             }
         }
     }
 
+    public void printCurrentAns(double result){
+        System.out.println("Ans: "+sa.convertToDisplayMode((int) result));
+    }
     /* Switch statement is used to perform the operation based on the input. user is asked to input the second number as
     a double and store it in the result variable.  */
     public void checkOperation() {
@@ -52,17 +56,17 @@ public class Calculator {
             case "+":
                 System.out.println("Enter second number:");
                 secondNumber = scanner.nextDouble();
-                result = add(firstNumber, secondNumber);
+                result = add(currentNumber, secondNumber);
                 break;
             case "-":
                 System.out.println("Enter second number:");
                 secondNumber = scanner.nextDouble();
-                result = subtract(firstNumber, secondNumber);
+                result = subtract(currentNumber, secondNumber);
                 break;
             case "*":
                 System.out.println("Enter second number:");
                 secondNumber = scanner.nextDouble();
-                result = multiply(firstNumber, secondNumber);
+                result = multiply(currentNumber, secondNumber);
                 break;
             case "/":
                 System.out.println("Enter second number:");
@@ -70,67 +74,67 @@ public class Calculator {
                 if(secondNumber==0){
                     System.out.println("Invalid Operation");
                 } else {
-                    result = divide(firstNumber, secondNumber);
+                    result = divide(currentNumber, secondNumber);
                 }
                 break;
             case "sqrt":
-                result = sqrt(firstNumber);
+                result = sqrt(currentNumber);
                 break;
             case  "square":
-                result = square(firstNumber);
+                result = square(currentNumber);
                 break;
             case "exp":
                 System.out.println("Enter second number:");
                 secondNumber = scanner.nextDouble();
-                result = power(firstNumber, secondNumber);
+                result = power(currentNumber, secondNumber);
                 break;
             case "inv":
-                result = inverse(firstNumber);
+                result = inverse(currentNumber);
                 if (result == 0.0){
                     System.out.println("Invalid Operation");
                 }
                 break;
             case "invsign":
-                result  = inverseSign(firstNumber);
+                result  = inverseSign(currentNumber);
                 break;
             case "sin":
-                result = ScientificApplication.sine(firstNumber);
+                result = ScientificApplication.sine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "cos":
-                result = ScientificApplication.cosine(firstNumber);
+                result = ScientificApplication.cosine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "tan":
-                result = ScientificApplication.tangent(firstNumber);
+                result = ScientificApplication.tangent(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "invsine":
-                result = ScientificApplication.inverseSine(firstNumber);
+                result = ScientificApplication.inverseSine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "invcos":
-                result = ScientificApplication.inverseCosine(firstNumber);
+                result = ScientificApplication.inverseCosine(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "invtan":
-                result = ScientificApplication.inverseTangent(firstNumber);
+                result = ScientificApplication.inverseTangent(currentNumber);
                 checkDegreeOrRadian();
                 break;
             case "log":
-                result = ScientificApplication.log(firstNumber);
+                result = ScientificApplication.log(currentNumber);
                 break;
             case "invlog":
-                result = ScientificApplication.inverseLog(firstNumber);
+                result = ScientificApplication.inverseLog(currentNumber);
                 break;
             case "ln":
-                result = ScientificApplication.ln(firstNumber);
+                result = ScientificApplication.ln(currentNumber);
                 break;
             case "invnatlog":
-                result = ScientificApplication.inverseNaturalLog(firstNumber);
+                result = ScientificApplication.inverseNaturalLog(currentNumber);
                 break;
             case "!":
-                result = ScientificApplication.factorial((int)firstNumber);
+                result = ScientificApplication.factorial((int) currentNumber);
                 break;
             case "mode":
                 sa.switchDisplayMode();

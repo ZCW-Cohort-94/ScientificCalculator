@@ -11,6 +11,10 @@ public class ScientificApplication {
     public int getCurrentMode() {
         return currentMode;
     }
+
+    public void setCurrentMode(int currentMode) {
+         this.currentMode = currentMode;
+    }
     public void switchDisplayMode() {
         // binary, octal, decimal, hexadecimal
         currentMode++;
@@ -111,7 +115,7 @@ public class ScientificApplication {
     }
 
     public static double inverseLog(double value) {
-        return Math.pow(10, value);
+        return Math.exp(value);
     }
 
     public static double ln(double value) {
