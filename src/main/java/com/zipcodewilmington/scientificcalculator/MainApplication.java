@@ -1,8 +1,5 @@
 package com.zipcodewilmington.scientificcalculator;
-import com.zipcodewilmington.scientificcalculator.Console; //not sure if i need to since it's in the same package
-import java.util.zip.CheckedOutputStream;
-import com.zipcodewilmington.scientificcalculator.BasicCalculator; //not sure if i need to since it's in the same package
-import com.zipcodewilmington.scientificcalculator.ScientificCalculator; //not sure if i need to since it's in the same package
+
 
 /**
  * Created by leon on 2/9/18.
@@ -13,8 +10,9 @@ public class MainApplication {
 
             public static void main(String[] args) {
                 boolean on = true;
+                workingValue = Console.getIntegerInput("Enter a starting value: ");
                 String chooseOp = "Choose an operation:";
-                String opList = "Choose an operation from the following:\n+ : Addition \n- : Subtraction\n* : Multiplication\n/ : Division\nsq : Square";
+                String opList = "*OPERATIONS*\n+ : Addition \n- : Subtraction\n* : Multiplication\n/ : Division\nsq : Square\nsqrt : Square Root\nexp : exponentiate\ninverse: inversion\ninvert : invert\nclear : clear";
                 Console.println(opList);
                 String operation;
                 while(on == true) {
@@ -46,18 +44,23 @@ public class MainApplication {
                             workingValue = BasicCalculator.square(workingValue);
                             Console.println(String.valueOf(workingValue));
                             break;
+                        case "sqrt":
+                            Console.println("Your number was squared to: ");
+                            workingValue = BasicCalculator.squareRoot(workingValue);
+                            Console.println(String.valueOf(workingValue));
+                            break;
                         case "exp":
                             Integer exponentA = Console.getIntegerInput("Enter an exponent");
                             workingValue = BasicCalculator.exponentiation(workingValue, exponentA);
                             Console.println(String.valueOf(workingValue));
                             break;
                         case "inverse":
-                            Console.getIntegerInput("The inverse of the number is: ");
+                            Console.println("The inverse of the number is: ");
                             workingValue = BasicCalculator.inversion(workingValue);
                             Console.println(String.valueOf(workingValue));
                             break;
                         case "invert":
-                            Console.getIntegerInput("The inverted value of the number is:");
+                            Console.println("The inverted value of the number is:");
                             workingValue = BasicCalculator.invert(workingValue);
                             Console.println(String.valueOf(workingValue));
                             break;

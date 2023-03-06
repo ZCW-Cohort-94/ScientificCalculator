@@ -21,7 +21,7 @@ public class BasicCalculator {
         return a * a;
     }
 
-    public static int squareRoot(int a, int i){ //square root of a number
+    public static int squareRoot(int a){ //square root of a number
 
         return (int) Math.pow(a, 0.5);
     }

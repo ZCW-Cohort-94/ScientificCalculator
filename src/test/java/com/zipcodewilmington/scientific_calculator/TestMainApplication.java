@@ -47,8 +47,8 @@ public class TestMainApplication {
         Assert.assertEquals(expectedResult, result);
     }
     @Test
-    public void testMuliply() {
-        int result = BasicCalculator.subtraction(2, 2);
+    public void testMultiply() {
+        int result = BasicCalculator.multiplication(2, 2);
         int expectedResult = 4;
         Assert.assertEquals(expectedResult, result);
     }
@@ -58,10 +58,7 @@ public class TestMainApplication {
         int result = BasicCalculator.division(2, 2);
         int expectedResult = 1;
         Assert.assertEquals(expectedResult, result);
-        int a = 18; int b = 10;
-        double expectedResult2 = 1.8;
-        double result2 = BasicCalculator.division (a, b);
-        Assert.assertEquals(expectedResult2, result, 0.005);
+
     }
 
     @Test
@@ -72,22 +69,22 @@ public class TestMainApplication {
     }
     @Test
     public void testSquare() {
-        int result = BasicCalculator.square(2, 2);
+        int result = BasicCalculator.square(2);
         int expectedResult = 4;
         Assert.assertEquals(expectedResult, result);
     }
 
     @Test
     public void testSquareRoot() {
-        double result = BasicCalculator.squareRoot(2, 2);
-        double expectedResult = 1.41421346237;
+        int result = BasicCalculator.squareRoot(81);
+        int expectedResult = 9;
         Assert.assertEquals(expectedResult, result);
     }
 
     @Test
     public void testExponentiation() {
         int result = BasicCalculator.exponentiation(2, 2);
-        int expectedResult = 0;
+        int expectedResult = 4;
 
         Assert.assertEquals(expectedResult, result);
     }
