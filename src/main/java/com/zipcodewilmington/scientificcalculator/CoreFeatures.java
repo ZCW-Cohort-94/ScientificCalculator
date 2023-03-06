@@ -90,6 +90,11 @@ public class CoreFeatures {
         System.out.println("z for factorial");
         System.out.println("x for pythagorean theorem");
         System.out.println("v for circle from radius");
+        System.out.println("< to add to memory");
+        System.out.println("> to get memory");
+        System.out.println("? to clear memory");
+        System.out.println(". for set display mode");
+        System.out.println(", for trig units");
         System.out.println("------------------");
         System.out.println("c to clear");
         System.out.println("Q to quit");
